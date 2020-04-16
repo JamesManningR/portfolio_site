@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ProjectPost from "@/components/ProjectShow.vue";
+import ProjectPost from "@/components/ProjectPost.vue";
 import { mapState } from 'vuex'
 
 export default {
