@@ -12,7 +12,7 @@ export default {
   getProjects() {
     return mockApi.get("/projects");
   },
-  getProject(id){
+  getProject(id) {
     return mockApi.get("/projects/" + id);
   },
   postProject(project) {

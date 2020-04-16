@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link :to="{name: 'project-show', params: {id: project.id}}">
+    <router-link :to="{ name: 'project-show', params: { id: project.id } }">
       <figure>
         <h2>{{ project.title }}</h2>
       </figure>

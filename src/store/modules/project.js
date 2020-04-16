@@ -13,6 +13,9 @@ export const mutations = {
   },
   SET_PROJECTS(state, projects) {
     state.projects = projects;
+  },
+  SET_PROJECT(state, project) {
+    state.project = project;
   }
 };
 
@@ -38,6 +41,21 @@ export const actions = {
       .catch(err => {
         console.log(`Error: ${err}`);
       });
+  },
+  fetchProject({ commit, getters }, id) {
+    let project = getters.getProjectById(id);
+    if (project) {
+      commit("SET_PROJECT", project);
+      return project;
+    } else {
+      return ProjectService.getProject(id)
+        .then(res => {
+          commit("SET_PROJECT", res.data);
+        })
+        .catch(err => {
+          console.log(`Error: ${err}`);
+        });
+    }
   }
 };
 
@@ -45,4 +63,4 @@ export const getters = {
   getProjectById: state => id => {
     return state.project.find(project => project.id === id);
   }
-}
+};

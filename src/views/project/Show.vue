@@ -13,23 +13,11 @@ export default {
   components: {
     ImageBanner
   },
-  data() {
-    return {
-      images: [
-        {
-          src: "https://unsplash.it/640/425",
-          alt: "A Placeholder Image"
-        },
-        {
-          src: "https://unsplash.it/640/428",
-          alt: "A Transport Placeholder Image"
-        },
-        {
-          src: "https://unsplash.it/640/435",
-          alt: "A Transport Placeholder Image"
-        }
-      ]
-    };
+  props: {
+    project: {
+      type: Object,
+      require: true
+    }
   }
 };
 </script>
