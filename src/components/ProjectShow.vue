@@ -1,6 +1,6 @@
 <template>
   <figure>
-    <h2>{{projectTitle}}</h2>
+    <h2>{{ projectTitle }}</h2>
   </figure>
 </template>
 
@@ -9,9 +9,7 @@ export default {
   props: {
     projectTitle: String
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

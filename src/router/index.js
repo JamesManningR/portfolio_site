@@ -13,26 +13,22 @@ const routes = [
   {
     path: "/projects",
     name: "Projects",
-    component: () =>
-      import("../views/project/Index.vue")
+    component: () => import("../views/project/Index.vue")
   },
   {
     path: "/skills",
     name: "Skills",
-    component: () =>
-      import("../views/skills/Index.vue")
+    component: () => import("../views/skills/Index.vue")
   },
   {
     path: "/blog",
     name: "Blog",
-    component: () =>
-      import("../views/blog/Index.vue")
+    component: () => import("../views/blog/Index.vue")
   },
   {
     path: "/contact",
     name: "Contact",
-    component: () =>
-      import("../views/Contact.vue")
+    component: () => import("../views/Contact.vue")
   }
 ];
 

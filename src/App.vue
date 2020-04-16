@@ -6,19 +6,18 @@
 </template>
 
 <script>
-import appHeader from '@/components/AppHeader.vue'
+import appHeader from "@/components/AppHeader.vue";
 
 export default {
-  components:{
+  components: {
     appHeader
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-	display: grid;
-	grid-template-columns: 33rem 1fr;
+  display: grid;
+  grid-template-columns: 33rem 1fr;
 }
-
 </style>
