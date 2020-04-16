@@ -12,13 +12,13 @@
           <router-link class="header__navLink" to="/">Home</router-link>
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" to="/projects">Projects</router-link>
+          <router-link class="header__navLink" :to="{name: 'Projects'}">Projects</router-link>
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" to="/skills">Skills</router-link>
+          <router-link class="header__navLink" :to="{name: 'Skills'}">Skills</router-link>
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" to="/contact">Contact</router-link>
+          <router-link class="header__navLink" :to="{name: 'Contact'}">Contact</router-link>
         </li>
       </ul>
     </nav>
