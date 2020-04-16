@@ -12,6 +12,9 @@ export default {
   getProjects() {
     return mockApi.get("/projects");
   },
+  getProject(id){
+    return mockApi.get("/projects/" + id);
+  },
   postProject(project) {
     return mockApi.post("/projects", project);
   }
