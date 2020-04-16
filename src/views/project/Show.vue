@@ -1,7 +1,7 @@
 <template>
   <main class="project">
     <h1 class="project__title">{{ project.title }}</h1>
-    <p class="project__body"></p>
+    <p class="project__body">{{project.body}}</p>
   </main>
 </template>
 

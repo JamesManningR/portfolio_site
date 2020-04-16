@@ -30,5 +30,25 @@
       "title": "Magddadwwdwd",
       "body": "Possimus odio iusto blanditiis et soluta totam sit deleniti. Fugit minus quisquam ullam nihil laborum quae labore expedita dolorum vel!"
     }
+  ],
+  "skills": [
+    {
+      "name": "SCSS"
+    },
+    {
+      "name": "GIT"
+    },
+    {
+      "name": "Wordpress"
+    },
+    {
+      "name": "Woocommerce"
+    },
+    {
+      "name": "VueJs"
+    },
+    {
+      "name": "Javascript"
+    }
   ]
 }

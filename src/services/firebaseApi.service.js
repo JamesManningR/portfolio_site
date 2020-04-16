@@ -17,5 +17,8 @@ export default {
   },
   postProject(project) {
     return mockApi.post("/projects", project);
+  },
+  getSkills(){
+    return mockApi.get("/skills");
   }
 };

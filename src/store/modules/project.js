@@ -1,4 +1,4 @@
-import ProjectService from "@/services/projectsApi.service.js";
+import ProjectService from "@/services/firebaseApi.service.js";
 
 export const namespaced = true;
 
