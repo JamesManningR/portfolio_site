@@ -1,0 +1,9 @@
+@mixin square($size, $isMax) {
+	@if $isMax {
+		max-width: $size;
+		max-height: $size;
+	} @else {
+		width: $size;
+		height: $size;
+	}
+}

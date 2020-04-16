@@ -1,0 +1,7 @@
+@function col($colname, $variation: 'base') {
+	@return map-get(map-get($colors, $colname), $variation);
+}
+
+@function fnt($font_id, $type: 'body') {
+	@return map-get(map-get($fonts, $font_id), $type);
+}
