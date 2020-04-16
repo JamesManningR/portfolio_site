@@ -18,6 +18,9 @@
           <router-link class="header__navLink" :to="{name: 'Skills'}">Skills</router-link>
         </li>
         <li class="header__listItem">
+          <router-link class="header__navLink" :to="{name: 'Blog'}">Blog</router-link>
+        </li>
+        <li class="header__listItem">
           <router-link class="header__navLink" :to="{name: 'Contact'}">Contact</router-link>
         </li>
       </ul>

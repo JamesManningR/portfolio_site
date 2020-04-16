@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 #app {
 	display: grid;
-	grid-template-columns: 33rem 4fr;
+	grid-template-columns: 33rem 1fr;
 }
 
 </style>

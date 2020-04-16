@@ -23,6 +23,12 @@ const routes = [
       import("../views/skills/Index.vue")
   },
   {
+    path: "/blog",
+    name: "Blog",
+    component: () =>
+      import("../views/blog/Index.vue")
+  },
+  {
     path: "/contact",
     name: "Contact",
     component: () =>
