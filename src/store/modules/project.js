@@ -1,6 +1,6 @@
 import ProjectService from "@/services/projectsApi.service.js";
 
-export const namespaces = true;
+export const namespaced = true;
 
 export const state = {
   projects: [],
