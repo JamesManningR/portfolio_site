@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <ProjectPost projectTitle="Happy" />
-    <ProjectPost projectTitle="Happy" />
-    <ProjectPost projectTitle="Happy" />
+    <ProjectPost v-for="project in projects" :key="project.id" :projectTitle="project.title" />
   </div>
 </template>
 
@@ -18,15 +16,19 @@ export default {
     return {
       projects: [
         {
+          id: 1,
           title: 'This is a post'
         },
         {
+          id: 2,
           title: 'This Multiple Post'
         },
         {
+          id: 3,
           title: 'Stop Banging outside my door'
         },
         {
+          id: 4,
           title: 'Post about me'
         },
       ]
