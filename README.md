@@ -1,24 +1,21 @@
-# portfolio-site
+# Portfolio Site
+====
+Hi! Thank you for checking out this repo.
+I built this site to showcase my work, as well as stretch my new skills in vue.
 
-## Project setup
-```
-npm install
-```
+Here are some key aspects of this site:
+* Uses VueJS
+* Uses VueRouter
+* Flexbox and CSS Grid
+* BEM CSS Class notation
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This is a Vue js and Firebase single page application which should hopefully showcase my previous work, while being a great showcase of my skill in itself!
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Instalation
+`npm install`
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Development (hot reload)
+`npm run serve`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Deployment (build)
+`npm run build`
