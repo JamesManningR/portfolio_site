@@ -33,6 +33,7 @@ export const actions = {
     return ProjectService.getProjects()
       .then(res => {
         commit("SET_PROJECTS", res.data);
+        return res.data;
       })
       .catch(err => {
         console.log(`Error: ${err}`);

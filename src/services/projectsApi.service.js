@@ -10,9 +10,9 @@ const mockApi = axios.create({
 
 export default {
   getProjects() {
-    return mockApi.get("");
+    return mockApi.get("/projects");
   },
   postProject(project) {
-    return mockApi.post("/project", project);
+    return mockApi.post("/projects", project);
   }
 };
