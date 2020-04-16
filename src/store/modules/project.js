@@ -61,6 +61,6 @@ export const actions = {
 
 export const getters = {
   getProjectById: state => id => {
-    return state.project.find(project => project.id === id);
+    return state.projects.find(project => project.id === id);
   }
 };
