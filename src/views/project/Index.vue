@@ -1,12 +1,15 @@
 <template>
-  <div class="projects">
+  <div class="projectsPage">
     <h1>Projects</h1>
-    <ProjectPost
-      v-for="project in projects"
-      :key="project.id"
-      :projectTitle="project.title"
-    />
-  </div>
+      <ul class="projects">
+        <ProjectPost
+          class="projects__post"
+          v-for="project in projects"
+          :key="project.id"
+          :projectTitle="project.title"
+        />
+      </ul>
+    </div>
 </template>
 
 <script>
@@ -25,3 +28,16 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.projects {
+	display: grid;
+	grid-auto-flow: column;
+	grid-row: 1;
+	&__post {
+		display: block;
+		height: 100%;
+	}
+}
+
+</style>

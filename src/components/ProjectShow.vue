@@ -1,7 +1,9 @@
 <template>
-  <figure>
+  <li>
+    <figure>
     <h2>{{ projectTitle }}</h2>
-  </figure>
+    </figure>
+  </li>
 </template>
 
 <script>
