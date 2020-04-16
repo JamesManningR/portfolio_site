@@ -60,7 +60,7 @@ export default {
 		font-size: 1.4em;
 		list-style: none;
 	}
-	&__listItem> .router-link-active {
+	&__listItem> .router-link-exact-active {
 		color: #FAFAFA;
 		&::before {
 			transform: scaleX(1);
@@ -89,6 +89,12 @@ export default {
 				transform: scaleX(1);
 			}
 		}
+	}
+}
+
+.siteIdent {
+	&__logo {
+		fill: #555555;
 	}
 }
 
