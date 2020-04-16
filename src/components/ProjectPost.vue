@@ -1,15 +1,17 @@
 <template>
   <li>
-    <figure>
-    <h2>{{ projectTitle }}</h2>
-    </figure>
+    <router-link :to="{name: 'project-show', params: {id: project.id}}">
+      <figure>
+        <h2>{{ project.title }}</h2>
+      </figure>
+    </router-link>
   </li>
 </template>
 
 <script>
 export default {
   props: {
-    projectTitle: String
+    project: Object
   }
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
-  <div class="blog">
+  <main class="blog">
     <h1>Blog</h1>
     <p>Find out more about what I'm working on at the moment!</p>
-  </div>
+  </main>
 </template>
 
 <script>

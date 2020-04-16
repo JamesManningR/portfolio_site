@@ -13,7 +13,14 @@ const routes = [
   {
     path: "/projects",
     name: "Projects",
-    component: () => import("../views/project/Index.vue")
+    component: () => import("../views/project/Index.vue"),
+    children: [
+      {
+        path: ":id",
+        name: 'project-show',
+        component: () => import("../views/project/Show.vue")
+      }
+    ]
   },
   {
     path: "/skills",
@@ -29,6 +36,14 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: () => import("../views/Contact.vue")
+  },
+  {
+    path: "/404",
+    name: '404',
+    component: () => import("../views/404.vue")
+  },
+  {
+    path: '*', redirect: '/404'
   }
 ];
 

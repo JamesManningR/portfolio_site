@@ -1,15 +1,15 @@
 <template>
-  <div class="projectsPage">
+  <main class="projectsPage">
     <h1>Projects</h1>
       <ul class="projects">
         <ProjectPost
           class="projects__post"
           v-for="project in projects"
           :key="project.id"
-          :projectTitle="project.title"
+          :project="project"
         />
       </ul>
-    </div>
+    </main>
 </template>
 
 <script>

@@ -1,9 +1,9 @@
 <template>
-  <section class="project">
+  <main class="project">
     <ImageBanner :images="images" />
     <h1 class="project__title">{{ project.title }}</h1>
     <p class="project__body"></p>
-  </section>
+  </main>
 </template>
 
 <script>
