@@ -7,6 +7,7 @@ Here are some key aspects of this site:
 * Uses VueJS
 * Uses VueRouter
 * Uses VueX
+* Inline SVGs for higher page speeds, and more flexibility
 * No-Library CSS Animations and layouts
 * Flexbox and CSS Grid
 * BEM CSS Class notation

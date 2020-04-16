@@ -1,4 +1,4 @@
-import ProjectService from "@/services/firebaseApi.service.js";
+import BlogService from "@/services/firebaseApi.service.js";
 
 export const namespaced = true;
 
@@ -22,7 +22,7 @@ export const mutations = {
 export const actions = {
   createProject({ commit }, project) {
     // Post project to project api and commit the change
-    return ProjectService.postProject(project)
+    return BlogService.postProject(project)
       .then(() => {
         commit("ADD_PROJECT", project);
       })
@@ -33,7 +33,7 @@ export const actions = {
   },
   // Get all projects from the api
   fetchProjects({ commit }) {
-    return ProjectService.getProjects()
+    return BlogService.getProjects()
       .then(res => {
         commit("SET_PROJECTS", res.data);
         return res.data;
@@ -48,7 +48,7 @@ export const actions = {
       commit("SET_PROJECT", project);
       return project;
     } else {
-      return ProjectService.getProject(id)
+      return BlogService.getProject(id)
         .then(res => {
           commit("SET_PROJECT", res.data);
         })
