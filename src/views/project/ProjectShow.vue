@@ -1,19 +1,22 @@
 <template>
   <main class="project">
-    <h1 class="project__title">{{ project.title }}</h1>
-    <p class="project__body">{{ project.body }}</p>
+    <blog-text :project="project" />
   </main>
 </template>
 
 <script>
+import BlogText from "@/components/BlogText.vue";
+
 export default {
-  components: {},
+  components: {
+    BlogText,
+  },
   props: {
     project: {
       type: Object,
-      require: true
-    }
-  }
+      require: true,
+    },
+  },
 };
 </script>
 
