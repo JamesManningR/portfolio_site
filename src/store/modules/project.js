@@ -1,4 +1,4 @@
-import BlogService from "@/services/firebaseApi.service.js";
+import FirebaseService from "@/services/firebaseApi.service.js";
 
 export const namespaced = true;
 
@@ -9,7 +9,7 @@ export const state = {
 
 export const mutations = {
   ADD_PROJECT(state, project) {
-    state.projects.push(project);
+    state.project = {...state.project, ...project};
   },
   SET_PROJECTS(state, projects) {
     state.projects = projects;
@@ -22,7 +22,7 @@ export const mutations = {
 export const actions = {
   createProject({ commit }, project) {
     // Post project to project api and commit the change
-    return BlogService.postProject(project)
+    return FirebaseService.postProject(project)
       .then(() => {
         commit("ADD_PROJECT", project);
       })
@@ -32,7 +32,7 @@ export const actions = {
       });
   },
   fetchFeatured({ commit }) {
-    return BlogService.getFeaturedProjects()
+    return FirebaseService.getFeaturedProjects()
       .then(res => {
         commit("SET_PROJECTS", res.data);
         return res.data;
@@ -43,7 +43,7 @@ export const actions = {
   },
   // Get all projects from the api
   fetchProjects({ commit }) {
-    return BlogService.getAllProjects()
+    return FirebaseService.getAllProjects()
       .then(res => {
         commit("SET_PROJECTS", res.data);
         return res.data;
@@ -58,7 +58,7 @@ export const actions = {
       commit("SET_PROJECT", project);
       return project;
     } else {
-      return BlogService.getProject(id)
+      return FirebaseService.getProject(id)
         .then(res => {
           commit("SET_PROJECT", res.data);
         })
@@ -71,6 +71,6 @@ export const actions = {
 
 export const getters = {
   getProjectById: state => id => {
-    return state.projects.find(project => project.id === id);
+    return state.projects[id];
   }
 };

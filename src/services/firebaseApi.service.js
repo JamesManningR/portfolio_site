@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const mockApi = axios.create({
-  baseURL: "http://localhost:3000",
+const firebaseApi = axios.create({
+  baseURL: process.env.VUE_APP_DB_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
@@ -10,18 +10,18 @@ const mockApi = axios.create({
 
 export default {
   getFeaturedProjects() {
-    return mockApi.get("/projects?featured=true");
+    return firebaseApi.get("/projects.json?featured=true");
   },
   getAllProjects() {
-    return mockApi.get("/projects");
+    return firebaseApi.get("/projects.json");
   },
   getProject(id) {
-    return mockApi.get("/projects/" + id);
+    return firebaseApi.get("/projects/" + id);
   },
   postProject(project) {
-    return mockApi.post("/projects", project);
+    return firebaseApi.post("/projects.json", project);
   },
   getSkills() {
-    return mockApi.get("/skills");
+    return firebaseApi.get("/skills.json");
   }
 };
