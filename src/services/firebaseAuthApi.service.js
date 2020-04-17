@@ -9,7 +9,10 @@ const firebaseAuthApi = axios.create({
 });
 
 export default {
-  createUser(data) {
-    return firebaseAuthApi.post(`:signUp?key=${process.env.VUE_APP_API_KEY}`, data)
+  createUser(authData) {
+    return firebaseAuthApi.post(`:signUp?key=${process.env.VUE_APP_API_KEY}`, authData)
+  },
+  logInUser(authData){
+    return firebaseAuthApi.post(`:signInWithPassword?key=${process.env.VUE_APP_API_KEY}`, authData)
   }
 }
