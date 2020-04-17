@@ -29,6 +29,11 @@
             >Contact</router-link
           >
         </li>
+        <li class="header__listItem">
+          <router-link class="header__navLink" :to="{ name: 'Signup' }"
+            >Signup</router-link
+          >
+        </li>
       </ul>
     </nav>
   </header>
