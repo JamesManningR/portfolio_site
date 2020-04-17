@@ -8,6 +8,9 @@
         :key="project.id"
         :project="project"
       />
+      <li class="projects__post">
+        <h2>More Projects</h2>
+      </li>
     </ul>
   </main>
 </template>
@@ -18,25 +21,30 @@ import { mapState } from "vuex";
 
 export default {
   components: {
-    ProjectPost
+    ProjectPost,
   },
   created() {
     this.$store.dispatch("project/fetchProjects");
   },
   computed: {
-    ...mapState("project", ["projects"])
-  }
+    ...mapState("project", ["projects"]),
+  },
 };
 </script>
 
 <style lang="scss">
-.projects {
-  display: grid;
-  grid-auto-flow: column;
-  grid-row: 1;
-  &__post {
-    display: block;
-    height: 100%;
-  }
+.projectsPage {
+	display: flex;
+	align-content: stretch;
+	flex-direction: column;
 }
+.projects {
+	display: grid;
+	flex-grow: 1;
+	grid-auto-flow: row;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
+	list-style: none;
+}
+
 </style>

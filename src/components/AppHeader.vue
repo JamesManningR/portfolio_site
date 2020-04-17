@@ -1,7 +1,6 @@
 <template>
   <header class="header">
     <div class="header__ident">
-      <CuriousLogo class="header__logo" />
       <h3 class="header__itentText">Curious <strong>Digital</strong></h3>
     </div>
     <p class="header__info">The online portfolio of James Manning</p>
@@ -36,13 +35,7 @@
 </template>
 
 <script>
-
-import CuriousLogo from '@/assets/logo.svg';
-
 export default {
-  components: {
-    CuriousLogo
-  }
 };
 </script>
 
@@ -73,7 +66,7 @@ export default {
 		list-style: none;
 	}
 	&__listItem> .router-link-exact-active {
-		color: #FAFAFA;
+		color: #AFAFAF;
 		&::before {
 			transform: scaleX(1);
 		}
@@ -101,12 +94,6 @@ export default {
 				transform: scaleX(1);
 			}
 		}
-	}
-}
-
-.siteIdent {
-	&__logo {
-		fill: #555555;
 	}
 }
 

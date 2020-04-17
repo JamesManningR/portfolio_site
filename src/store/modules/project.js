@@ -31,9 +31,19 @@ export const actions = {
         throw err;
       });
   },
+  fetchFeatured({commit}){
+    return BlogService.getFeaturedProjects()
+      .then(res => {
+        commit("SET_PROJECTS", res.data);
+        return res.data;
+      })
+      .catch(err => {
+        console.log(`Error: ${err}`);
+      });
+  },
   // Get all projects from the api
   fetchProjects({ commit }) {
-    return BlogService.getProjects()
+    return BlogService.getAllProjects()
       .then(res => {
         commit("SET_PROJECTS", res.data);
         return res.data;

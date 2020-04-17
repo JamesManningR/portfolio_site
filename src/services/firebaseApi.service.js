@@ -9,7 +9,10 @@ const mockApi = axios.create({
 });
 
 export default {
-  getProjects() {
+  getFeaturedProjects(){
+    return mockApi.get("/projects?featured=true")
+  },
+  getAllProjects() {
     return mockApi.get("/projects");
   },
   getProject(id) {
