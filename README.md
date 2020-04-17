@@ -7,6 +7,7 @@ Here are some key aspects of this site:
 * Uses VueJS
 * Uses VueRouter
 * Uses VueX
+* Has Firebase Integration with bespoke blog creation and editing
 * Inline SVGs for higher page speeds, and more flexibility
 * No-Library CSS Animations and layouts
 * Uses reusable markdown component to format posts

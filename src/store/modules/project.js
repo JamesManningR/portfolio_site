@@ -3,7 +3,7 @@ import FirebaseService from "@/services/firebaseApi.service.js";
 export const namespaced = true;
 
 export const state = {
-  projects: [],
+  projects: {},
   project: {}
 };
 

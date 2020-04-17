@@ -2,7 +2,7 @@
   <li class="projectPost">
     <router-link
       class="projectPost__link"
-      :to="{ name: 'project-show', params: { id: project.id } }"
+      :to="{ name: 'project-show', params: { id: this.$vnode.key } }"
     >
       <figure class="projectPost__post" :style="blockStyling">
         <h2 class="projectPost__title">{{ project.title }}</h2>

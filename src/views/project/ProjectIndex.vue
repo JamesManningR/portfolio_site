@@ -6,8 +6,8 @@
     <ul class="projects">
       <ProjectPost
         class="projects__post"
-        v-for="project in projects"
-        :key="project.id"
+        v-for="(project, index) in projects"
+        :key="index"  
         :project="project"
       />
       <li class="projects__post">
