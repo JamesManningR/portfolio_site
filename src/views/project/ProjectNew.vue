@@ -1,11 +1,13 @@
 <template>
   <main class="newProject">
     <project-edit-form @change="project = $event">
-      <button class="btn btn--submit" slot="submit" type="submit">Submit</button>
+      <button class="btn btn--submit" slot="submit" type="submit">
+        Submit
+      </button>
     </project-edit-form>
 
     <div class="newProject__preview">
-      <blog-text :project="project"/>
+      <blog-text :project="project" />
     </div>
   </main>
 </template>
@@ -24,6 +26,7 @@ export default {
       project: {
         title: "title",
         body: "body",
+        link: "",
         images: [],
         featuredImage: "",
         color: "",
@@ -36,16 +39,14 @@ export default {
 
 <style lang="scss">
 .newProject {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	&__label {
-		&--body {
-			display: flex;
-			flex-grow: 1;
-		}
-	}
-	&__preview {
-	}
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 1rem;
+  &__label {
+    &--body {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
 }
-
 </style>

@@ -21,4 +21,7 @@ export default {
   display: grid;
   grid-template-columns: 33rem 1fr;
 }
+main {
+  padding: 1rem;
+}
 </style>
