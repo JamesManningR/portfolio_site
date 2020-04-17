@@ -1,7 +1,7 @@
 <template>
   <main class="newProject">
     <project-edit-form @change="project = $event">
-      <button class="btn btn--submit" slot="submit" type="submit">
+      <button @click.prevent="createProject" class="btn btn--submit" slot="submit" type="submit">
         Submit
       </button>
     </project-edit-form>
@@ -19,7 +19,7 @@ import BlogText from "@/components/BlogText.vue";
 export default {
   components: {
     ProjectEditForm,
-    BlogText
+    BlogText,
   },
   data() {
     return {
@@ -30,23 +30,36 @@ export default {
         images: [],
         featuredImage: "",
         color: "",
-        skills: []
-      }
+        skills: [],
+      },
     };
-  }
+  },
+  methods: {
+    createProject() {
+      this.$store
+        .dispatch("project/createProject", this.project)
+        .then(() => {
+          console.log("sucess");
+        })
+        .catch(() => {
+          console.log("failed");
+        });
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .newProject {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 1rem;
-  &__label {
-    &--body {
-      display: flex;
-      flex-grow: 1;
-    }
-  }
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	column-gap: 1rem;
+	&__label {
+		&--body {
+			display: flex;
+			flex-grow: 1;
+		}
+	}
 }
+
 </style>

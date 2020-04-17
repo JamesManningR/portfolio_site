@@ -9,6 +9,7 @@ Here are some key aspects of this site:
 * Uses VueX
 * Inline SVGs for higher page speeds, and more flexibility
 * No-Library CSS Animations and layouts
+* Uses reusable markdown component to format posts
 * Flexbox and CSS Grid
 * BEM CSS Class notation
 
