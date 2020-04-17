@@ -38,7 +38,7 @@
         id="ProjectFormFeatured"
         class="projectForm__input projectForm__input--featured"
         type="file"
-        @change="onFileSelected()"
+        @change="onFileSelected"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--submit">
@@ -55,7 +55,7 @@ export default {
         title: "title",
         body: "body",
         images: [],
-        featuredImage: "",
+        featuredImage: null,
         color: "",
         skills: []
       }
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     onFileSelected(evt){
-      console.log(evt);
+      this.selectedFile = evt.target.files[0]
     },
     update() {
       this.$emit("change", this.project);

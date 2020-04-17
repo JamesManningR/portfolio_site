@@ -19,9 +19,9 @@ export const mutations = {
   }
 };
 
+// Post project to project api and commit the change in vuex
 export const actions = {
   createProject({ commit }, project) {
-    // Post project to project api and commit the change
     return FirebaseService.postProject(project)
       .then(() => {
         commit("ADD_PROJECT", project);
@@ -31,6 +31,7 @@ export const actions = {
         throw err;
       });
   },
+  // Grab posts with featured tag
   fetchFeatured({ commit }) {
     return FirebaseService.getFeaturedProjects()
       .then(res => {
