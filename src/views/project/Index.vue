@@ -1,6 +1,8 @@
 <template>
   <main class="projectsPage">
     <h1>Projects</h1>
+    <router-link :to="{name: 'project-new'}">New post</router-link>
+
     <ul class="projects">
       <ProjectPost
         class="projects__post"
