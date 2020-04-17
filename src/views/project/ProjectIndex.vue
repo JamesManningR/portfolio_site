@@ -1,7 +1,7 @@
 <template>
   <main class="projectsPage">
     <h1>Projects</h1>
-    <router-link :to="{name: 'project-new'}">New post</router-link>
+    <router-link :to="{ name: 'project-new' }">New post</router-link>
 
     <ul class="projects">
       <ProjectPost
@@ -23,30 +23,29 @@ import { mapState } from "vuex";
 
 export default {
   components: {
-    ProjectPost,
+    ProjectPost
   },
   created() {
     this.$store.dispatch("project/fetchProjects");
   },
   computed: {
-    ...mapState("project", ["projects"]),
-  },
+    ...mapState("project", ["projects"])
+  }
 };
 </script>
 
 <style lang="scss">
 .projectsPage {
-	display: flex;
-	align-content: stretch;
-	flex-direction: column;
+  display: flex;
+  align-content: stretch;
+  flex-direction: column;
 }
 .projects {
-	display: grid;
-	flex-grow: 1;
-	grid-auto-flow: row;
-	grid-template-rows: repeat(3, 1fr);
-	grid-template-columns: repeat(4, 1fr);
-	list-style: none;
+  display: grid;
+  flex-grow: 1;
+  grid-auto-flow: row;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
 }
-
 </style>

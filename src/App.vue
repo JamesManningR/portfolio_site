@@ -9,7 +9,6 @@
 import appHeader from "@/components/AppHeader.vue";
 import "./assets/symbol-defs.svg";
 
-
 export default {
   components: {
     appHeader

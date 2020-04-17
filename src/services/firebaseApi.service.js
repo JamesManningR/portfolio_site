@@ -9,8 +9,8 @@ const mockApi = axios.create({
 });
 
 export default {
-  getFeaturedProjects(){
-    return mockApi.get("/projects?featured=true")
+  getFeaturedProjects() {
+    return mockApi.get("/projects?featured=true");
   },
   getAllProjects() {
     return mockApi.get("/projects");
@@ -21,7 +21,7 @@ export default {
   postProject(project) {
     return mockApi.post("/projects", project);
   },
-  getSkills(){
+  getSkills() {
     return mockApi.get("/skills");
   }
 };

@@ -4,7 +4,7 @@ export const namespaced = true;
 
 export const state = {
   projects: [],
-  project: []
+  project: {}
 };
 
 export const mutations = {
@@ -31,7 +31,7 @@ export const actions = {
         throw err;
       });
   },
-  fetchFeatured({commit}){
+  fetchFeatured({ commit }) {
     return BlogService.getFeaturedProjects()
       .then(res => {
         commit("SET_PROJECTS", res.data);
