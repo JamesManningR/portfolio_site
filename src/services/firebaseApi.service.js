@@ -1,4 +1,4 @@
-const firebase = require("firebase");
+const firebase = require("firebase/app");
 require("firebase/firestore");
 
 // Your web app's Firebase configuration
@@ -18,18 +18,20 @@ const firestoreApi = firebase.firestore();
 
 export default {
   getFeaturedProjects() {
-    return firestoreApi.get("/projects.json?featured=true");
+    return firestoreApi.collection('projects').get()
   },
   getAllProjects() {
-    return firestoreApi.get("/projects.json");
+    return firestoreApi.collection('projects').get()
   },
   getProject(id) {
-    return firestoreApi.get("/projects/" + id);
+    return firestoreApi.collection('projects').doc(id).get()
   },
   postProject(project, authData) {
-    return firestoreApi.post(`/projects.json?auth=${authData}`, project);
+    console.log(project);
+    console.log(authData);
+    return
   },
   getSkills() {
-    return firestoreApi.get("/skills.json");
+    return firestoreApi.collection('skills').get()
   }
 };

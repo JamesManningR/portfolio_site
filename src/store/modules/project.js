@@ -7,6 +7,14 @@ export const state = {
   project: {}
 };
 
+export function parseFirestoreResponse(res){
+  var resData = {}
+  res.docs.forEach(doc => {
+    resData[doc.id] = doc.data();
+  })
+  return resData
+};
+
 export const mutations = {
   ADD_PROJECT(state, project) {
     state.project = { ...state.project, ...project };
@@ -39,9 +47,10 @@ export const actions = {
   // Grab posts with featured tag
   fetchFeatured({ commit }) {
     return FirebaseService.getFeaturedProjects()
-      .then(res => {
-        commit("SET_PROJECTS", res.data);
-        return res.data;
+      .then(snapshot => {
+        const projects = parseFirestoreResponse(snapshot);
+        commit("SET_PROJECTS", projects);
+        return snapshot.data;
       })
       .catch(err => {
         console.log(`Error: ${err}`);
@@ -50,9 +59,10 @@ export const actions = {
   // Get all projects from the api
   fetchProjects({ commit }) {
     return FirebaseService.getAllProjects()
-      .then(res => {
-        commit("SET_PROJECTS", res.data);
-        return res.data;
+      .then(snapshot => {
+        const projects = parseFirestoreResponse(snapshot);
+        commit("SET_PROJECTS", projects);
+        return snapshot.data;
       })
       .catch(err => {
         console.log(`Error: ${err}`);
@@ -65,8 +75,8 @@ export const actions = {
       return project;
     } else {
       return FirebaseService.getProject(id)
-        .then(res => {
-          commit("SET_PROJECT", res.data);
+        .then(snapshot => {
+          commit("SET_PROJECT", snapshot.data());
         })
         .catch(err => {
           console.log(`Error: ${err}`);
