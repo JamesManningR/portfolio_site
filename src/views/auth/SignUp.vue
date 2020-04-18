@@ -20,12 +20,12 @@
 export default {
   methods: {
     submitSignUp() {
-      const formData = {
+      const userData = {
         email: this.user.email,
-        password: this.user.password,
-        returnSecureToken: true
+        password: this.user.password
       };
-      this.$store.dispatch("auth/signup", formData);
+      console.log(userData);
+      this.$store.dispatch("auth/signup", userData);
     }
   },
   data() {

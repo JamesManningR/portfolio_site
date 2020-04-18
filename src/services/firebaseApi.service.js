@@ -14,24 +14,29 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const firestoreApi = firebase.firestore();
+const firestore = firebase.firestore();
 
 export default {
   getFeaturedProjects() {
-    return firestoreApi.collection('projects').get()
+    return firestore.collection("projects").get();
   },
   getAllProjects() {
-    return firestoreApi.collection('projects').get()
+    return firestore.collection("projects").get();
   },
   getProject(id) {
-    return firestoreApi.collection('projects').doc(id).get()
+    return firestore
+      .collection("projects")
+      .doc(id)
+      .get();
   },
   postProject(project, authData) {
-    console.log(project);
     console.log(authData);
-    return
+    return firestore
+      .collection("projects")
+      .doc()
+      .add(project);
   },
   getSkills() {
-    return firestoreApi.collection('skills').get()
+    return firestore.collection("skills").get();
   }
 };

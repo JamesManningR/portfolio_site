@@ -1,24 +1,22 @@
-import axios from "axios";
+const firebase = require("firebase/app");
+require("firebase/firestore");
+require("firebase/auth");
 
-const firebaseAuthApi = axios.create({
-  baseURL: `https://identitytoolkit.googleapis.com/v1/accounts`,
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  }
-});
+const firebaseAuth = firebase.auth();
 
 export default {
   createUser(authData) {
-    return firebaseAuthApi.post(
-      `:signUp?key=${process.env.VUE_APP_API_KEY}`,
-      authData
-    );
+    return firebaseAuth
+      .createUserWithEmailAndPassword(authData.email, authData.password)
+      .catch(err => {
+        console.log(err);
+        throw err;
+      });
   },
-  logInUser(authData) {
-    return firebaseAuthApi.post(
-      `:signInWithPassword?key=${process.env.VUE_APP_API_KEY}`,
-      authData
-    );
+  logInUser() {
+    firebaseAuth.signOut();
+  },
+  logOutUser() {
+    firebaseAuth.signOut();
   }
 };

@@ -6,14 +6,14 @@
 
 <script>
 import BlogText from "@/components/BlogText.vue";
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   components: {
     BlogText
   },
   computed: {
-    ...mapState(['project'])
+    ...mapState(["project"])
   }
 };
 </script>

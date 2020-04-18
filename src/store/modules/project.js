@@ -7,13 +7,13 @@ export const state = {
   project: {}
 };
 
-export function parseFirestoreResponse(res){
-  var resData = {}
+export function parseFirestoreResponse(res) {
+  var resData = {};
   res.docs.forEach(doc => {
     resData[doc.id] = doc.data();
-  })
-  return resData
-};
+  });
+  return resData;
+}
 
 export const mutations = {
   ADD_PROJECT(state, project) {

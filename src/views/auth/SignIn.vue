@@ -19,8 +19,7 @@ export default {
     submitSignIn() {
       const formData = {
         email: this.user.email,
-        password: this.user.password,
-        returnSecureToken: true
+        password: this.user.password
       };
       this.$store.dispatch("auth/signin", formData);
     }
