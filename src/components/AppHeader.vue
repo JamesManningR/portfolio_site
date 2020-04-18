@@ -40,7 +40,7 @@
           >
         </li>
         <li v-if="isAuthed">
-          <button>Logout</button>
+          <button @click="onLogout">Logout</button>
         </li>
       </ul>
     </nav>
@@ -49,6 +49,11 @@
 
 <script>
 export default {
+  methods: {
+    onLogout() {
+      this.$store.dispatch("auth/logout");
+    }
+  },
   computed: {
     isAuthed() {
       return this.$store.getters["auth/isAuthenticated"];

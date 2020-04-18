@@ -34,7 +34,7 @@ export const actions = {
       });
     });
   },
-  signout({ commit }) {
+  logout({ commit }) {
     commit("UNAUTH_USER");
   }
 };
