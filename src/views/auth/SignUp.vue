@@ -2,7 +2,7 @@
   <div class="signup">
     <h1>Sign Up</h1>
 
-    <form @submit.prevent="submitSignup" action="">
+    <form @submit.prevent="submitSignUp" action="">
       <label
         >Email
         <input type="text" v-model="user.email" />
@@ -19,7 +19,7 @@
 <script>
 export default {
   methods: {
-    submitSignup() {
+    submitSignUp() {
       const formData = {
         email: this.user.email,
         password: this.user.password,

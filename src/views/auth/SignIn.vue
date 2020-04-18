@@ -16,7 +16,7 @@
 <script>
 export default {
   methods: {
-    submitSignup() {
+    submitSignIn() {
       const formData = {
         email: this.user.email,
         password: this.user.password,
