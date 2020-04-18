@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-header />
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -26,5 +28,23 @@ export default {
 }
 main {
   padding: 1rem;
+}
+
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.15s ease;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter {
+    transform: translateY(-10px);
+  }
+  &-leave-to {
+    transform: translateY(10px);
+  }
 }
 </style>
