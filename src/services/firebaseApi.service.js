@@ -18,8 +18,8 @@ export default {
   getProject(id) {
     return firebaseApi.get("/projects/" + id);
   },
-  postProject(project) {
-    return firebaseApi.post("/projects.json", project);
+  postProject(project, authData) {
+    return firebaseApi.post(`/projects.json?auth=${authData}`, project);
   },
   getSkills() {
     return firebaseApi.get("/skills.json");

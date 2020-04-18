@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import firebaseAuthService from '@/services/firebaseAuthApi.service'
-
 export default {
   methods: {
     submitSignup(){
@@ -23,7 +21,7 @@ export default {
         password: this.user.password,
         returnSecureToken: true
       }
-      firebaseAuthService.createUser(formData);
+      this.$store.dispatch('auth/signup', formData)
     }
   },
   data() {

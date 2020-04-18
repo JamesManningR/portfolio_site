@@ -14,8 +14,24 @@
 
 <script>
 export default {
-      // TODO: Add Signin change into the vuex instance
-
+  methods: {
+    submitSignup(){
+      const formData = {
+        email: this.user.email,
+        password: this.user.password,
+        returnSecureToken: true
+      }
+      this.$store.dispatch('auth/signin', formData)
+    }
+  },
+  data() {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  }
 };
 </script>
 

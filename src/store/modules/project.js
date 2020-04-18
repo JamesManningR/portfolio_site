@@ -21,8 +21,8 @@ export const mutations = {
 
 // Post project to project api and commit the change in vuex
 export const actions = {
-  createProject({ commit }, project) {
-    return FirebaseService.postProject(project)
+  createProject({ commit, rootState }, project) {
+    return FirebaseService.postProject(project, rootState.auth.idToken)
       .then(() => {
         commit("ADD_PROJECT", project);
       })
