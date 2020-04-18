@@ -1,7 +1,9 @@
 <template>
   <main class="projectsPage">
     <h1>Projects</h1>
-    <router-link :to="{ name: 'project-new' }">New post</router-link>
+    <router-link v-if="isAuthed" :to="{ name: 'project-new' }"
+      >New post</router-link
+    >
 
     <ul class="projects">
       <ProjectPost
@@ -29,6 +31,9 @@ export default {
     this.$store.dispatch("project/fetchProjects");
   },
   computed: {
+    isAuthed() {
+      return this.$store.getters["auth/isAuthenticated"];
+    },
     ...mapState("project", ["projects"])
   }
 };
