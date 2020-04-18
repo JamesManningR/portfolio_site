@@ -34,6 +34,14 @@
             >Signup</router-link
           >
         </li>
+        <li v-if="!isAuthed" class="header__listItem">
+          <router-link class="header__navLink" :to="{ name: 'Signin' }"
+            >Sign in</router-link
+          >
+        </li>
+        <li v-if="isAuthed">
+          <button>Logout</button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -43,7 +51,7 @@
 export default {
   computed: {
     isAuthed() {
-      return this.$store.getters.isAuthenticated;
+      return this.$store.getters["auth/isAuthenticated"];
     }
   }
 };

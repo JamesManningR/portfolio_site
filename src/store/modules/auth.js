@@ -28,7 +28,7 @@ export const actions = {
 };
 
 export const getters = {
-  isAuthenticated(state) {
+  isAuthenticated: state => {
     return state.idToken !== null;
   }
 };

@@ -1,5 +1,6 @@
 <template>
   <form @submit.prevent="submitSignIn" action="">
+    <h1>Sign In</h1>
     <label
       >Email
       <input type="text" v-model="user.email" />
