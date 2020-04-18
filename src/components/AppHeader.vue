@@ -31,7 +31,7 @@
         </li>
         <li v-if="!isAuthed" class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'Signup' }"
-            >Signup</router-link
+            >Sign up</router-link
           >
         </li>
         <li v-if="!isAuthed" class="header__listItem">
