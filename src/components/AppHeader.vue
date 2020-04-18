@@ -29,7 +29,7 @@
             >Contact</router-link
           >
         </li>
-        <li class="header__listItem">
+        <li v-if="!isAuthed" class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'Signup' }"
             >Signup</router-link
           >
@@ -40,7 +40,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isAuthed() {
+      return this.$store.getters.isAuthenticated;
+    }
+  }
+};
 </script>
 
 <style lang="scss">

@@ -9,14 +9,14 @@ import BlogText from "@/components/BlogText.vue";
 
 export default {
   components: {
-    BlogText,
+    BlogText
   },
   props: {
     project: {
       type: Object,
-      require: true,
-    },
-  },
+      require: true
+    }
+  }
 };
 </script>
 

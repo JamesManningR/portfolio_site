@@ -7,7 +7,7 @@
       <ProjectPost
         class="projects__post"
         v-for="(project, index) in projects"
-        :key="index"  
+        :key="index"
         :project="project"
       />
       <li class="projects__post">

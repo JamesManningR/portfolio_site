@@ -62,8 +62,8 @@ export default {
     };
   },
   methods: {
-    onFileSelected(evt){
-      this.selectedFile = evt.target.files[0]
+    onFileSelected(evt) {
+      this.selectedFile = evt.target.files[0];
     },
     update() {
       this.$emit("change", this.project);
@@ -74,40 +74,39 @@ export default {
 
 <style lang="scss">
 .projectForm {
-	display: flex;
-	flex-direction: column;
-	&__input {
-		width: 100%;
-		min-width: 2rem;
-		&--title {
-			margin-right: 1rem;
-			font-family: Muli;
-			font-size: 1.6em;
-			font-weight: 700;
-		}
-		&--body {
-			flex-grow: 1;
-			font-family: inherit;
-		}
-		&--color {
-			height: 4rem;
-			padding: 0;
-			border: 0;
-		}
-	}
-	&__formGroup {
-		width: 100%;
-		margin-bottom: 1rem;
-		&--title {
-			display: flex;
-			margin-bottom: 1.5rem;
-		}
-		&--body {
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-		}
-	}
+  display: flex;
+  flex-direction: column;
+  &__input {
+    width: 100%;
+    min-width: 2rem;
+    &--title {
+      margin-right: 1rem;
+      font-family: Muli;
+      font-size: 1.6em;
+      font-weight: 700;
+    }
+    &--body {
+      flex-grow: 1;
+      font-family: inherit;
+    }
+    &--color {
+      height: 4rem;
+      padding: 0;
+      border: 0;
+    }
+  }
+  &__formGroup {
+    width: 100%;
+    margin-bottom: 1rem;
+    &--title {
+      display: flex;
+      margin-bottom: 1.5rem;
+    }
+    &--body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  }
 }
-
 </style>

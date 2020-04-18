@@ -9,7 +9,7 @@ export const state = {
 
 export const mutations = {
   ADD_PROJECT(state, project) {
-    state.project = {...state.project, ...project};
+    state.project = { ...state.project, ...project };
   },
   SET_PROJECTS(state, projects) {
     state.projects = projects;
@@ -22,6 +22,11 @@ export const mutations = {
 // Post project to project api and commit the change in vuex
 export const actions = {
   createProject({ commit, rootState }, project) {
+    // If there is no authentication token
+    if (!rootState.auth.idToken) {
+      // Return without posting making request
+      return;
+    }
     return FirebaseService.postProject(project, rootState.auth.idToken)
       .then(() => {
         commit("ADD_PROJECT", project);

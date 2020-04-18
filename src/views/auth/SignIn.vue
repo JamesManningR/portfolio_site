@@ -15,22 +15,22 @@
 <script>
 export default {
   methods: {
-    submitSignup(){
+    submitSignup() {
       const formData = {
         email: this.user.email,
         password: this.user.password,
         returnSecureToken: true
-      }
-      this.$store.dispatch('auth/signin', formData)
+      };
+      this.$store.dispatch("auth/signin", formData);
     }
   },
   data() {
     return {
       user: {
-        email: '',
-        password: ''
+        email: "",
+        password: ""
       }
-    }
+    };
   }
 };
 </script>
