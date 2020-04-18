@@ -1,27 +1,35 @@
-import axios from "axios";
+const firebase = require("firebase");
+require("firebase/firestore");
 
-const firebaseApi = axios.create({
-  baseURL: process.env.VUE_APP_DB_URL,
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  }
-});
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: process.env.VUE_APP_API_KEY,
+  authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_DB_URL,
+  projectId: process.env.VUE_APP_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_SENDER_ID,
+  appId: process.env.VUE_APP_APP_ID
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+const firestoreApi = firebase.firestore();
 
 export default {
   getFeaturedProjects() {
-    return firebaseApi.get("/projects.json?featured=true");
+    return firestoreApi.get("/projects.json?featured=true");
   },
   getAllProjects() {
-    return firebaseApi.get("/projects.json");
+    return firestoreApi.get("/projects.json");
   },
   getProject(id) {
-    return firebaseApi.get("/projects/" + id);
+    return firestoreApi.get("/projects/" + id);
   },
   postProject(project, authData) {
-    return firebaseApi.post(`/projects.json?auth=${authData}`, project);
+    return firestoreApi.post(`/projects.json?auth=${authData}`, project);
   },
   getSkills() {
-    return firebaseApi.get("/skills.json");
+    return firestoreApi.get("/skills.json");
   }
 };
