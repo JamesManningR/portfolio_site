@@ -1,24 +1,27 @@
-const firebase = require("firebase/app");
+import store from "@/store";
 require("firebase/auth");
 
-console.log(firebase.auth());
+const firebase = require("firebase/app");
+const firebaseAuth = firebase.auth();
 
-const FirebaseAuth = firebase.auth();
+firebaseAuth.onAuthStateChanged(user => {
+  store.dispatch("auth/fetchUser", user);
+});
 
 export default {
   createUser(authData) {
-    return FirebaseAuth.createUserWithEmailAndPassword(
+    return firebaseAuth.createUserWithEmailAndPassword(
       authData.email,
       authData.password
     );
   },
   logInUser(authData) {
-    return FirebaseAuth.signInWithEmailAndPassword(
+    return firebaseAuth.signInWithEmailAndPassword(
       authData.email,
       authData.password
     );
   },
   logOutUser() {
-    FirebaseAuth.signOut();
+    firebaseAuth.signOut();
   }
 };

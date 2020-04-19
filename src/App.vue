@@ -14,9 +14,6 @@ import "./assets/symbol-defs.svg";
 export default {
   components: {
     appHeader
-  },
-  created() {
-    this.$store.dispatch("auth/autoSignin");
   }
 };
 </script>

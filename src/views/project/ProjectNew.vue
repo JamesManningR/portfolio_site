@@ -41,14 +41,7 @@ export default {
   },
   methods: {
     createProject() {
-      this.$store
-        .dispatch("project/createProject", this.project)
-        .then(() => {
-          console.log("success");
-        })
-        .catch(() => {
-          console.log("failed");
-        });
+      this.$store.dispatch("project/createProject", this.project);
     }
   }
 };

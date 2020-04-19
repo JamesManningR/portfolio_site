@@ -29,17 +29,17 @@
             >Contact</router-link
           >
         </li>
-        <li v-if="!isAuthed" class="header__listItem">
+        <li v-if="!isAuthenticated" class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'Signup' }"
             >Sign up</router-link
           >
         </li>
-        <li v-if="!isAuthed" class="header__listItem">
+        <li v-if="!isAuthenticated" class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'Signin' }"
             >Sign in</router-link
           >
         </li>
-        <li v-if="isAuthed">
+        <li v-if="isAuthenticated">
           <button @click="onLogout">Logout</button>
         </li>
       </ul>
@@ -48,14 +48,16 @@
 </template>
 
 <script>
+import auth from "@/services/firebaseAuth.service";
+
 export default {
   methods: {
     onLogout() {
-      this.$store.dispatch("auth/signout");
+      auth.logOutUser();
     }
   },
   computed: {
-    isAuthed() {
+    isAuthenticated() {
       return this.$store.getters["auth/isAuthenticated"];
     }
   }

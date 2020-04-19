@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import firebaseAuth from "@/services/firebaseAuth.service";
+
 export default {
   methods: {
     submitSignUp() {
@@ -24,7 +26,7 @@ export default {
         email: this.user.email,
         password: this.user.password
       };
-      this.$store.dispatch("auth/signup", userData);
+      firebaseAuth.createUser(userData);
     }
   },
   data() {

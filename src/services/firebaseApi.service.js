@@ -29,12 +29,8 @@ export default {
       .doc(id)
       .get();
   },
-  postProject(project, authData) {
-    console.log(authData);
-    return firestore
-      .collection("projects")
-      .doc()
-      .add(project);
+  postProject(project) {
+    return firestore.collection("projects").add(project);
   },
   getSkills() {
     return firestore.collection("skills").get();
