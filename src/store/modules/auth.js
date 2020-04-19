@@ -1,4 +1,4 @@
-import firebaseAuth from "@/services/firebaseAuth.service";
+import FirebaseAuth from "@/services/firebaseAuth.service";
 
 export const namespaced = true;
 
@@ -9,37 +9,22 @@ export const state = {
 
 export const mutations = {
   SET_USER(state, userData) {
-    state.email = userData
+    state.email = userData;
   },
   UNSET_USER(state) {
-    (state.idToken = null), (state.userId = null);
+    state.email = "";
   }
 };
 
 export const actions = {
-  signup({commit}, userData) {
-    return firebaseAuth.createUser(userData).then( () =>{
-      commit('SET_USER', userData.email)
+  signup({ commit }, userData) {
+    return FirebaseAuth.createUser(userData).then(() => {
+      commit("SET_USER", userData.email);
     });
   },
-  signin({commit}, userData) {
-    commit("AUTH_USER", { userData });
-    firebaseAuth.logInUser(userData);
-
-  },
-  autoSignin({ commit }) {
-    // Gets token from local storage, checks if still valid and sets state
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return;
-    }
-    const tokenExpiry = localStorage.getItem("tokenExpiry");
-    const now = new Date();
-    if (now < tokenExpiry) {
-      return;
-    }
-    const userId = localStorage.getItem("userId");
-    commit("AUTH_USER", { token, userId });
+  fetchUser({ commit }, userData) {
+    FirebaseAuth.logInUser(userData);
+    commit("SET_USER", { userData });
   },
   signout() {
     FirebaseAuth.logOutUser();
@@ -48,6 +33,6 @@ export const actions = {
 
 export const getters = {
   isAuthenticated: () => {
-    FirebaseAuth.isAuthenticated;
+    return FirebaseAuth.currentUser != null;
   }
 };

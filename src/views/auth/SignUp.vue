@@ -24,7 +24,6 @@ export default {
         email: this.user.email,
         password: this.user.password
       };
-      console.log(userData);
       this.$store.dispatch("auth/signup", userData);
     }
   },

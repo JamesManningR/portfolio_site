@@ -51,7 +51,7 @@
 export default {
   methods: {
     onLogout() {
-      this.$store.dispatch("auth/logout");
+      this.$store.dispatch("auth/signout");
     }
   },
   computed: {

@@ -1,18 +1,24 @@
 const firebase = require("firebase/app");
-require("firebase/firestore");
 require("firebase/auth");
 
-const firebaseAuth = firebase.auth();
+console.log(firebase.auth());
+
+const FirebaseAuth = firebase.auth();
 
 export default {
   createUser(authData) {
-    return firebaseAuth
-    .createUserWithEmailAndPassword(authData.email, authData.password)
+    return FirebaseAuth.createUserWithEmailAndPassword(
+      authData.email,
+      authData.password
+    );
   },
-  logInUser() {
-    firebaseAuth.signOut();
+  logInUser(authData) {
+    return FirebaseAuth.signInWithEmailAndPassword(
+      authData.email,
+      authData.password
+    );
   },
   logOutUser() {
-    firebaseAuth.signOut();
+    FirebaseAuth.signOut();
   }
 };
