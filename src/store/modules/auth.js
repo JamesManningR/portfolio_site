@@ -1,4 +1,4 @@
-import FirebaseAuthService from "@/services/firebaseAuthApi.service.js";
+import firebaseAuth from "@/services/firebaseAuth.service";
 
 export const namespaced = true;
 
@@ -8,26 +8,23 @@ export const state = {
 };
 
 export const mutations = {
-  AUTH_USER(state, userData) {
-    state.idToken = userData.token;
-    state.userId = userData.userId;
+  SET_USER(state, userData) {
+    state.email = userData
   },
-  UNAUTH_USER(state) {
+  UNSET_USER(state) {
     (state.idToken = null), (state.userId = null);
   }
 };
 
 export const actions = {
   signup({commit}, userData) {
-    console.log(userData);
-    commit("TEST", { userData });
-    return FirebaseAuthService.createUser(userData);
-
+    return firebaseAuth.createUser(userData).then( () =>{
+      commit('SET_USER', userData.email)
+    });
   },
   signin({commit}, userData) {
-    console.log(userData);
     commit("AUTH_USER", { userData });
-    FirebaseAuthService.logInUser(userData);
+    firebaseAuth.logInUser(userData);
 
   },
   autoSignin({ commit }) {
@@ -45,12 +42,12 @@ export const actions = {
     commit("AUTH_USER", { token, userId });
   },
   signout() {
-    FirebaseAuthService.logOutUser();
+    FirebaseAuth.logOutUser();
   }
 };
 
 export const getters = {
   isAuthenticated: () => {
-    FirebaseAuthService.isAuthenticated;
+    FirebaseAuth.isAuthenticated;
   }
 };
