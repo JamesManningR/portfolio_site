@@ -10,56 +10,42 @@
           <router-link class="header__navLink" to="/">Home</router-link>
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'Projects' }"
+          <router-link class="header__navLink" :to="{ name: 'projects' }"
             >Projects</router-link
           >
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'Skills' }"
+          <router-link class="header__navLink" :to="{ name: 'skills' }"
             >Skills</router-link
           >
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'Blog' }"
+          <router-link class="header__navLink" :to="{ name: 'blog' }"
             >Blog</router-link
           >
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'Contact' }"
+          <router-link class="header__navLink" :to="{ name: 'contact' }"
             >Contact</router-link
           >
         </li>
         <li v-if="!isAuthenticated" class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'Signup' }"
-            >Sign up</router-link
+          <router-link class="header__navLink" :to="{ name: 'register' }"
+            >Register</router-link
           >
-        </li>
-        <li v-if="!isAuthenticated" class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'Signin' }"
-            >Sign in</router-link
-          >
-        </li>
-        <li v-if="isAuthenticated">
-          <button @click="onLogout">Logout</button>
         </li>
       </ul>
     </nav>
+    <app-account/>
   </header>
 </template>
 
 <script>
-import auth from "@/services/firebaseAuth.service";
+import appAccount from "@/components/AppAccount.vue"
 
 export default {
-  methods: {
-    onLogout() {
-      auth.logOutUser();
-    }
-  },
-  computed: {
-    isAuthenticated() {
-      return this.$store.getters["auth/isAuthenticated"];
-    }
+  components: {
+    appAccount
   }
 };
 </script>

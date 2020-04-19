@@ -49,14 +49,15 @@ export default {
 
 <style lang="scss">
 .newProject {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 1rem;
-  &__label {
-    &--body {
-      display: flex;
-      flex-grow: 1;
-    }
-  }
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	column-gap: 1rem;
+	&__label {
+		&--body {
+			display: flex;
+			flex-grow: 1;
+		}
+	}
 }
+
 </style>

@@ -20,28 +20,28 @@ export default {
 
 <style lang="scss">
 #app {
-  display: grid;
-  grid-template-columns: 33rem 1fr;
+	display: grid;
+	grid-template-columns: 33rem 1fr;
 }
 main {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .fade {
-  &-enter-active,
-  &-leave-active {
-    transition: all 0.15s ease;
-  }
+	&-enter-active, &-leave-active {
+		transition: all 0.15s ease;
+	}
 
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-  }
-  &-enter {
-    transform: translateY(-10px);
-  }
-  &-leave-to {
-    transform: translateY(10px);
-  }
+	&-enter, &-leave-to {
+		transform-origin: bottom;
+		opacity: 0;
+	}
+	&-enter {
+		transform: scaleY(0.98);
+	}
+	&-leave-to {
+		transform: scaleY(0.98);
+	}
 }
+
 </style>

@@ -8,23 +8,24 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "index",
     component: Home
   },
   {
     path: "/projects",
-    name: "Projects",
+    name: "projects",
     component: () => import("../views/project/ProjectIndex.vue")
   },
   {
     path: "/projects/new",
     name: "project-new",
-    component: () => import("../views/project/ProjectNew.vue")
+    component: () => import("../views/project/ProjectNew.vue"),
+    meta: { authRequired: true }
   },
   {
     path: "/projects/:id",
     name: "project-show",
-    component: () => import("../views/project/ProjectShow.vue"),
+    component: () => import("@/views/project/ProjectShow.vue"),
     props: true,
     beforeEnter(routeTo, routeFrom, next) {
       store
@@ -37,28 +38,28 @@ const routes = [
   },
   {
     path: "/skills",
-    name: "Skills",
+    name: "skills",
     component: () => import("../views/skills/SkillsIndex.vue")
   },
   {
     path: "/blog",
-    name: "Blog",
+    name: "blog",
     component: () => import("../views/blog/BlogIndex.vue")
   },
   {
     path: "/contact",
-    name: "Contact",
+    name: "contact",
     component: () => import("../views/Contact.vue")
   },
   {
-    path: "/signup",
-    name: "Signup",
-    component: () => import("../views/auth/SignUp.vue")
+    path: "/register",
+    name: "register",
+    component: () => import("../views/auth/AuthRegister.vue")
   },
   {
-    path: "/signin",
-    name: "Signin",
-    component: () => import("../views/auth/SignIn.vue")
+    path: "/login",
+    name: "login",
+    component: () => import("../views/auth/AuthLogin.vue")
   },
   {
     path: "/404",
@@ -76,5 +77,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+router.beforeEach((routeTo, routeFrom, next) => {
+  const authRequired = routeTo.matched.some(record => record.meta.authRequired)
+  const userAuthed = store.getters["auth/isAuthenticated"];
+
+  if (!authRequired || userAuthed){
+    next()
+  } else {
+    next({name: 'login'})
+  }
+})
 
 export default router;
