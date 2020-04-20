@@ -33,12 +33,10 @@
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--featured">
-      <input
+      <file-uploader
         aria-label="project featured image"
         id="ProjectFormFeatured"
         class="projectForm__input projectForm__input--featured"
-        type="file"
-        @change="onFileSelected"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--submit">
@@ -48,6 +46,8 @@
 </template>
 
 <script>
+import fileUploader from "@/components/FileUploader.vue";
+
 export default {
   data() {
     return {
@@ -68,6 +68,9 @@ export default {
     update() {
       this.$emit("change", this.project);
     }
+  },
+  components: {
+    fileUploader
   }
 };
 </script>

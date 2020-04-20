@@ -79,14 +79,14 @@ const router = new VueRouter({
 });
 
 router.beforeEach((routeTo, routeFrom, next) => {
-  const authRequired = routeTo.matched.some(record => record.meta.authRequired)
+  const authRequired = routeTo.matched.some(record => record.meta.authRequired);
   const userAuthed = store.getters["auth/isAuthenticated"];
 
-  if (!authRequired || userAuthed){
-    next()
+  if (!authRequired || userAuthed) {
+    next();
   } else {
-    next({name: 'login'})
+    next({ name: "login" });
   }
-})
+});
 
 export default router;

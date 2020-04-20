@@ -36,12 +36,12 @@
         </li>
       </ul>
     </nav>
-    <app-account/>
+    <app-account />
   </header>
 </template>
 
 <script>
-import appAccount from "@/components/AppAccount.vue"
+import appAccount from "@/components/AppAccount.vue";
 
 export default {
   components: {

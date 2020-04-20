@@ -1,5 +1,6 @@
 import store from "@/store";
 import router from "@/router";
+require("firebase/auth");
 
 const firebase = require("firebase/app");
 const firebaseAuth = firebase.auth();
@@ -23,6 +24,6 @@ export default {
   },
   logOutUser() {
     firebaseAuth.signOut();
-    router.push("/")
+    router.push("/");
   }
 };

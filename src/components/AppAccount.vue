@@ -1,16 +1,12 @@
 <template>
   <div class="account">
-    <router-link
-      v-if="!isAuthenticated"
-      :to="{ name: 'login' }"
+    <router-link v-if="!isAuthenticated" :to="{ name: 'login' }"
       >Log in</router-link
     >
-    <router-link
-      v-if="!isAuthenticated"
-      :to="{ name: 'register' }"
+    <router-link v-if="!isAuthenticated" :to="{ name: 'register' }"
       >Register</router-link
     >
-      <button v-if="isAuthenticated" @click="onLogout">Log out</button>
+    <button v-if="isAuthenticated" @click="onLogout">Log out</button>
   </div>
 </template>
 
@@ -24,18 +20,17 @@ export default {
     }
   },
   computed: {
-    isAuthenticated(){
-      return this.$store.getters['auth/isAuthenticated']
+    isAuthenticated() {
+      return this.$store.getters["auth/isAuthenticated"];
     }
-  },
+  }
 };
 </script>
 
 <style>
 .account {
-	position: absolute;
-	top: 0;
-	right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-
 </style>
