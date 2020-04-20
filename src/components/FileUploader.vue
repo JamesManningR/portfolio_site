@@ -29,9 +29,8 @@ export default {
       //   });
       this.files = evt.target.files;
       this.files.forEach(file => {
-        console.log(file);
-        firebaseStorage
-          .upload(file)
+        return firebaseStorage
+          .upload(file, file.name)
           .then(() => {
             console.log("Uploaded");
           })
