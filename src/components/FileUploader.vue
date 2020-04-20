@@ -7,7 +7,7 @@
       type="file"
       multiple
       :disabled="disabled"
-      @change="handleChange($event)"
+      @change="fileSelect($event)"
     />
   </div>
 </template>
@@ -17,22 +17,13 @@ import firebaseStorage from "@/services/firebaseStorage.service";
 
 export default {
   methods: {
-    handleChange(evt) {
-      // this.disabled = true;
-      // return firebaseStorage
-      //   .upload(event.target.files[0], event.target.files[0].name)
-      //   .then(() => {
-      //     this.disabled = false;
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //   });
-      this.files = evt.target.files;
-      this.files.forEach(file => {
+    fileSelect(evt) {
+      evt.target.files.forEach(file => {
         return firebaseStorage
           .upload(file, file.name)
-          .then(() => {
-            console.log("Uploaded");
+          .then((fileUrl) => {
+            const uploadInfo = {fileUrl, name: file.name}
+            this.files.push(uploadInfo)
           })
           .catch(err => console.log(err));
       });
@@ -40,6 +31,7 @@ export default {
   },
   data() {
     return {
+      featured: "",
       files: [],
       disabled: false
     };

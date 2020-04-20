@@ -16,7 +16,7 @@ Here are some key aspects of this site:
 * BEM CSS Class notation
 
 [Changed features]
-* Axios for api calls - This was changed to the dedicated firebase auth library: since - change/firestore branch
+* Axios for api calls - This was changed to the dedicated firebase library: change/firestore branch
 
 This is a Vue js and Firebase single page application which should hopefully showcase my previous work, while being a great showcase of my skill in itself!
 

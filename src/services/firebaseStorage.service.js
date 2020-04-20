@@ -7,7 +7,7 @@ export default {
     const storageRef = firebaseStorage.ref(`uploads/${fileRef}`);
     let task = storageRef.put(file);
 
-    return task.on(
+    task.on(
       "state_changed",
       function progress(snapshot) {
         let percentage =
@@ -21,5 +21,9 @@ export default {
         return;
       }
     );
+
+    return task.then(() => {
+      return storageRef.getDownloadURL();
+    });
   }
 };
