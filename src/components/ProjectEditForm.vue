@@ -34,9 +34,10 @@
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--featured">
       <file-uploader
-        aria-label="project featured image"
+        aria-label="project image"
         id="ProjectFormFeatured"
         class="projectForm__input projectForm__input--featured"
+        @fileUploaded="onFileUpload"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--submit">
@@ -62,8 +63,9 @@ export default {
     };
   },
   methods: {
-    onFileSelected(evt) {
-      this.selectedFile = evt.target.files[0];
+    onFileUpload(files) {
+      this.project.images = files;
+      this.update();
     },
     update() {
       this.$emit("change", this.project);

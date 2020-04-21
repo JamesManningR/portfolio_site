@@ -5,12 +5,9 @@ export const state = {
 };
 
 export const mutations = {
-  SET_UPLOADS(uploads){
-    state.uploads = {...state.uploads, ...uploads}
+  SET_UPLOADS(uploads) {
+    state.uploads = { ...state.uploads, ...uploads };
   }
 };
-export const actions = {
-
-};
-export const getters = {
-};
+export const actions = {};
+export const getters = {};

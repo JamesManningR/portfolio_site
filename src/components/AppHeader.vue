@@ -55,7 +55,6 @@ export default {
   display: grid;
   height: 100vh;
   padding: 4rem;
-  align-content: center;
   grid-template-rows: 1fr 1fr 4fr;
   &__ident {
     display: flex;
