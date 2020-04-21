@@ -1,18 +1,14 @@
 <template>
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
-      <li
-        v-for="(file, index) in files"
-        :key="index"
-        @click="this.featured = file"
-      >
+      <li v-for="(file, index) in image.files" :key="index">
         <label>
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
           <input
             type="radio"
             v-model="featured"
-            :id="file.name"
             :value="file.fileUrl"
+            name="featured"
           />
         </label>
         <label>
@@ -43,7 +39,7 @@ export default {
           .then(fileUrl => {
             // Upon success
             // push file data onto the files array
-            this.files.push({ fileUrl, name: file.name });
+            this.images.files.push({ fileUrl, name: file.name });
           })
           .catch(err => console.log(err)); // catch errors
       });
@@ -51,14 +47,19 @@ export default {
   },
   data() {
     return {
-      featured: {},
-      files: [],
+      images: {
+        featured: "",
+        files: []
+      },
       disabled: false
     };
   },
   watch: {
-    files: function() {
-      this.$emit("fileUploaded", this.files);
+    images: function() {
+      this.$emit("fileUploaded", {
+        files: this.images.files,
+        featured: this.images.featured
+      });
     }
   }
 };
