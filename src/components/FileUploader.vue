@@ -1,7 +1,7 @@
 <template>
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
-      <li v-for="(file, index) in image.files" :key="index">
+      <li v-for="(file, index) in images.files" :key="index">
         <label>
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
           <input
@@ -28,6 +28,7 @@
 
 <script>
 import firebaseStorage from "@/services/firebaseStorage.service";
+import firebaseApi from "@/services/firebaseApi.service";
 
 export default {
   methods: {
@@ -39,7 +40,11 @@ export default {
           .then(fileUrl => {
             // Upon success
             // push file data onto the files array
-            this.images.files.push({ fileUrl, name: file.name });
+            const dbData = { src: fileUrl, name: file.name };
+            return firebaseApi.postMedia(dbData).then(res => {
+              this.images.files.push({ fileUrl, name: file.name });
+              this.images.uploadIds.push(res.id);
+            });
           })
           .catch(err => console.log(err)); // catch errors
       });
@@ -49,15 +54,16 @@ export default {
     return {
       images: {
         featured: "",
-        files: []
+        files: [],
+        uploadIds: []
       },
       disabled: false
     };
   },
   watch: {
-    images: function() {
+    uploadIds: function() {
       this.$emit("fileUploaded", {
-        files: this.images.files,
+        fileIds: this.images.uploadIds,
         featured: this.images.featured
       });
     }
