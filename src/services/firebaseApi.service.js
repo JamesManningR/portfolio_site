@@ -37,5 +37,8 @@ export default {
   },
   postMedia(mediaInfo) {
     return firestore.collection("media").add(mediaInfo);
+  },
+  getMedia(mediaIds){
+    return firestore.collection("media").where(firebase.firestore.FieldPath.documentId(), 'in', mediaIds);
   }
 };

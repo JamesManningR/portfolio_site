@@ -15,6 +15,18 @@ export function parseFirestoreResponse(res) {
   return resData;
 }
 
+export function fetchImages(res) {
+  let imageKeys = []
+  let projects = res
+  Object.keys(projects).forEach(item => {
+    imageKeys.push(projects[item].images);
+  })
+  FirebaseService.getMedia(imageKeys).then((res)=>{
+    console.log(res)
+  });
+  return res;
+}
+
 export const mutations = {
   ADD_PROJECT(state, project) {
     state.project = { ...state.project, ...project };
@@ -24,6 +36,9 @@ export const mutations = {
   },
   SET_PROJECT(state, project) {
     state.project = project;
+  },
+  SET_PROJECT_MEDIA(state, media){
+    state.project.media = media;
   }
 };
 
@@ -55,7 +70,8 @@ export const actions = {
   fetchProjects({ commit }) {
     return FirebaseService.getAllProjects()
       .then(snapshot => {
-        const projects = parseFirestoreResponse(snapshot);
+        const parsedRes = parseFirestoreResponse(snapshot);
+        const projects = fetchImages(parsedRes);
         commit("SET_PROJECTS", projects);
         return snapshot.data;
       })
