@@ -2,17 +2,18 @@
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
       <li
-        v-for="(file, index) in files"
+        v-for="(file, index) in settings.files"
         :key="index"
-        @click="this.featured = file"
+        @click="this.settings.featured = file"
       >
         <label>
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
           <input
             type="radio"
-            v-model="featured"
-            :id="file.name"
+            v-model="settings.featured"
             :value="file.fileUrl"
+            :id="file.name"
+            name="featured"
           />
         </label>
         <label>
@@ -43,7 +44,7 @@ export default {
           .then(fileUrl => {
             // Upon success
             // push file data onto the files array
-            this.files.push({ fileUrl, name: file.name });
+            this.settings.files.push({ fileUrl, name: file.name });
           })
           .catch(err => console.log(err)); // catch errors
       });
@@ -51,15 +52,22 @@ export default {
   },
   data() {
     return {
-      featured: {},
-      files: [],
+      settings : {
+        featured: "",
+        files: []
+      },
       disabled: false
     };
   },
   watch: {
-    files: function() {
-      this.$emit("fileUploaded", this.files);
+    settings: {
+      deep: true,
+      handler() {
+        console.log('this jhappened')
+        this.$emit("fileUploaded", this.settings);
+      }
     }
+    
   }
 };
 </script>
