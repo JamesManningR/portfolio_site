@@ -7,7 +7,7 @@ export const state = {
   project: {}
 };
 
-export function parseFirestoreResponse(res) {
+export function mapFirestoreResponse(res) {
   var resData = {};
   res.docs.forEach(doc => {
     resData[doc.id] = doc.data();
@@ -43,7 +43,7 @@ export const actions = {
   fetchFeatured({ commit }) {
     return FirebaseService.getFeaturedProjects()
       .then(snapshot => {
-        const projects = parseFirestoreResponse(snapshot);
+        const projects = mapFirestoreResponse(snapshot);
         commit("SET_PROJECTS", projects);
         return snapshot.data;
       })
@@ -55,7 +55,7 @@ export const actions = {
   fetchProjects({ commit }) {
     return FirebaseService.getAllProjects()
       .then(snapshot => {
-        const projects = parseFirestoreResponse(snapshot);
+        const projects = mapFirestoreResponse(snapshot);
         commit("SET_PROJECTS", projects);
         return snapshot.data;
       })
@@ -78,6 +78,14 @@ export const actions = {
         });
     }
   }
+  // ,
+  // fetchMedia({commit}, ids){
+  //   return Firebaseservice.resolveIds(ids).then((snapshot) => {
+  //     const media = mapFistoreResponse(snapshot);
+  //   }).catch(err => {
+  //     console.log(err);
+  //   })
+  // }
 };
 
 export const getters = {

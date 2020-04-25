@@ -37,5 +37,13 @@ export default {
   },
   postMedia(mediaInfo) {
     return firestore.collection("media").add(mediaInfo);
+  },
+  getAllMedia() {
+    return firestore.collection("media").get();
+  },
+  async resolveIds(collection, idArr) {
+    const queries = idArr.map(id => collection.doc(id).get());
+    const result = await Promise.all(queries);
+    return result.map(res => res.data());
   }
 };

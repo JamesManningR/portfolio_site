@@ -63,9 +63,8 @@ export default {
     };
   },
   methods: {
-    onFileUpload(settings) {
-      this.project.images = settings.files;
-      this.project.featuredImage = settings.featured;
+    onFileUpload(ids) {
+      this.project.images = ids;
       this.update();
     },
     update() {

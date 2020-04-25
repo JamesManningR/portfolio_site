@@ -10,7 +10,7 @@
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
           <input
             type="radio"
-            v-model="settings.featured"
+            v-model="images.featured"
             :value="file.fileUrl"
             :id="file.name"
             name="featured"
@@ -52,20 +52,20 @@ export default {
   },
   data() {
     return {
-      settings : {
-        featured: "",
-        files: []
+      images: {
+        featured: " ",
+        files: [],
+        uploadIds: []
       },
       disabled: false
     };
   },
   watch: {
-    settings: {
-      deep: true,
-      handler() {
-        console.log('this jhappened')
-        this.$emit("fileUploaded", this.settings);
-      }
+    "images.uploadIds": function() {
+      this.$emit("fileUploaded", this.images.uploadIds);
+    },
+    "images.featured": function() {
+      this.$emit("featuredSelected", this.images.featured);
     }
     
   }
