@@ -25,7 +25,7 @@ export const mutations = {
   SET_PROJECT(state, project) {
     state.project = project;
   },
-  SET_UPLOADS(state, images) {
+  SET_PROJECT_MEDIA(state, images) {
     state.project.images = images;
   }
 };
