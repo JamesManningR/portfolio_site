@@ -41,8 +41,13 @@ export default {
   getAllMedia() {
     return firestore.collection("media").get();
   },
-  async resolveIds(collection, idArr) {
-    const queries = idArr.map(id => collection.doc(id).get());
+  async getDocuemntInCollectionById(collection, ids) {
+    const queries = ids.map(id =>
+      firestore
+        .collection(collection)
+        .doc(id)
+        .get()
+    );
     const result = await Promise.all(queries);
     return result.map(res => res.data());
   }

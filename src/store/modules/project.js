@@ -24,6 +24,9 @@ export const mutations = {
   },
   SET_PROJECT(state, project) {
     state.project = project;
+  },
+  SET_UPLOADS(state, images) {
+    state.project.images = images;
   }
 };
 
@@ -63,25 +66,39 @@ export const actions = {
         console.log(`Error: ${err}`);
       });
   },
-  fetchProject({ commit, getters }, id) {
+  fetchProject({ commit, dispatch, getters }, id) {
     let project = getters.getProjectById(id);
     if (project) {
       commit("SET_PROJECT", project);
+      dispatch("fetchProjectMedia", project.images);
       return project;
     } else {
       return FirebaseService.getProject(id)
         .then(snapshot => {
-          commit("SET_PROJECT", snapshot.data());
+          const project = snapshot.data();
+          commit("SET_PROJECT", project);
+          dispatch("fetchProjectMedia", project.images);
         })
         .catch(err => {
           console.log(`Error: ${err}`);
         });
     }
+  },
+  fetchProjectMedia({ commit }, ids) {
+    return FirebaseService.getDocuemntInCollectionById("media", ids)
+      .then(snapshot => {
+        const media = snapshot;
+        console.log(media);
+        commit("SET_PROJECT_MEDIA", media);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   // ,
   // fetchMedia({commit}, ids){
   //   return Firebaseservice.resolveIds(ids).then((snapshot) => {
-  //     const media = mapFistoreResponse(snapshot);
+  //     const media = mapFirestoreResponse(snapshot);
   //   }).catch(err => {
   //     console.log(err);
   //   })
