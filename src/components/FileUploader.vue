@@ -67,7 +67,6 @@ export default {
     "images.featured": function() {
       this.$emit("featuredSelected", this.images.featured);
     }
-    
   }
 };
 </script>
