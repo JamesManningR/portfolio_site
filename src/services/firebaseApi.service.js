@@ -35,6 +35,9 @@ export default {
   getSkills() {
     return firestore.collection("skills").get();
   },
+  postSkills() {
+    return firestore.collection("skills").add();
+  },
   postMedia(mediaInfo) {
     return firestore.collection("media").add(mediaInfo);
   },

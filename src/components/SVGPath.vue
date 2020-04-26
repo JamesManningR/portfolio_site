@@ -1,6 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-    <path :d="path" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    width="32"
+    height="32"
+  >
+    <path :fill="color" :d="path" />
   </svg>
 </template>
 
@@ -13,7 +18,10 @@ export default {
   },
   computed: {
     path() {
-      return icons[this.name];
+      return icons[this.name].path;
+    },
+    color() {
+      return icons[this.name].color;
     }
   }
 };
