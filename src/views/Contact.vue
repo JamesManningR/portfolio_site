@@ -2,16 +2,18 @@
   <main>
     <h1>Contact Me</h1>
     <ul>
-      <li>Email: <svg v-svg symbol="icon-linkedin"></svg></li>
-      <li>Linked In: <svg v-svg symbol="icon-linkedin"></svg></li>
-      <li>Linked In: <svg v-svg symbol="icon-linkedin"></svg></li>
-      <li>Linked In: <svg v-svg symbol="icon-linkedin"></svg></li>
+      <li>Email: <svg-path name="linkedin" /></li>
     </ul>
   </main>
 </template>
 
 <script>
-export default {};
+import svgPath from "@/components/SVGPath.vue";
+export default {
+  components: {
+    svgPath
+  }
+};
 </script>
 
 <style></style>
