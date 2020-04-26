@@ -2,9 +2,9 @@
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
       <li
-        v-for="(file, index) in settings.files"
+        v-for="(file, index) in images.files"
         :key="index"
-        @click="this.settings.featured = file"
+        @click="this.images.featured = file"
       >
         <label>
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
@@ -44,7 +44,7 @@ export default {
           .then(fileUrl => {
             // Upon success
             // push file data onto the files array
-            this.settings.files.push({ fileUrl, name: file.name });
+            this.images.files.push({ fileUrl, name: file.name });
           })
           .catch(err => console.log(err)); // catch errors
       });
