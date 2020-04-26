@@ -15,15 +15,16 @@ import icons from "@/assets/symbols";
 
 export default {
   props: {
+    set: String,
     name: String,
     label: String
   },
   computed: {
     path() {
-      return icons[this.name].path;
+      return icons[this.set][this.name].path;
     },
     color() {
-      return icons[this.name].color;
+      return icons[this.set][this.name].color;
     }
   }
 };
