@@ -1,9 +1,10 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
-    width="32"
+    viewBox="0 0 1025 1025"
     height="32"
+    width="32"
+    :aria-label="label"
   >
     <path :fill="color" :d="path" />
   </svg>
@@ -14,7 +15,8 @@ import icons from "@/assets/symbols";
 
 export default {
   props: {
-    name: String
+    name: String,
+    label: String
   },
   computed: {
     path() {

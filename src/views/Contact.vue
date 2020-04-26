@@ -2,7 +2,10 @@
   <main>
     <h1>Contact Me</h1>
     <ul>
-      <li>Email: <svg-path name="linkedin" /></li>
+      <li>Email: <svg-path name="email" label="Email" /></li>
+      <li>Email: <svg-path name="sass" /></li>
+      <li>Email: <svg-path name="vue" /></li>
+      <li>Email: <svg-path name="sass" /></li>
     </ul>
   </main>
 </template>
