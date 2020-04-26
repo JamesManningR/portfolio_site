@@ -2,16 +2,16 @@
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
       <li
-        v-for="(file, index) in images.files"
-        :key="index"
-        @click="this.images.featured = file"
+        v-for="file in images.files"
+        :key="file.id"
+        @click="this.images.featured = file.id"
       >
         <label>
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
           <input
             type="radio"
             v-model="images.featured"
-            :value="file.fileUrl"
+            :value="file.id"
             :id="file.name"
             name="featured"
           />
@@ -33,6 +33,7 @@
 
 <script>
 import firebaseStorage from "@/services/firebaseStorage.service";
+import firebaseService from "@/services/firebaseApi.service";
 
 export default {
   methods: {
@@ -44,7 +45,19 @@ export default {
           .then(fileUrl => {
             // Upon success
             // push file data onto the files array
-            this.images.files.push({ fileUrl, name: file.name });
+            return firebaseService
+              .postMedia({ src: fileUrl, name: file.name })
+              .then(docRef => {
+                this.images.files.push({
+                  id: docRef.id,
+                  fileUrl,
+                  name: file.name
+                });
+              })
+              .catch(err => {
+                console.log(err);
+              });
+            // this.images.uploadIds.push()
           })
           .catch(err => console.log(err)); // catch errors
       });
@@ -54,15 +67,17 @@ export default {
     return {
       images: {
         featured: " ",
-        files: [],
-        uploadIds: []
+        files: []
       },
       disabled: false
     };
   },
   watch: {
-    "images.uploadIds": function() {
-      this.$emit("fileUploaded", this.images.uploadIds);
+    "images.files": function() {
+      this.$emit(
+        "fileUploaded",
+        this.images.files.map(a => a.id)
+      );
     },
     "images.featured": function() {
       this.$emit("featuredSelected", this.images.featured);
