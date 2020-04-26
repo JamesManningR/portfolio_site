@@ -37,9 +37,10 @@
         aria-label="project image"
         id="ProjectFormFeatured"
         class="projectForm__input projectForm__input--featured"
-        @fileUploaded="onFileUpload"
+        @fileUploaded="project.images = $event"
       />
     </div>
+    <project-skill-picker @skillsChanged="project.skills = $event" />
     <div class="projectForm__formGroup projectForm__formGroup--submit">
       <slot name="submit"></slot>
     </div>
@@ -48,6 +49,7 @@
 
 <script>
 import fileUploader from "@/components/FileUploader.vue";
+import projectSkillPicker from "@/components/ProjectSkillPicker.vue";
 
 export default {
   data() {
@@ -62,17 +64,18 @@ export default {
       }
     };
   },
-  methods: {
-    onFileUpload(ids) {
-      this.project.images = ids;
-      this.update();
-    },
-    update() {
-      this.$emit("change", this.project);
+  watch: {
+    project: {
+      deep: true,
+
+      handler() {
+        this.$emit("change", this.project);
+      }
     }
   },
   components: {
-    fileUploader
+    fileUploader,
+    projectSkillPicker
   }
 };
 </script>
