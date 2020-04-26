@@ -29,11 +29,6 @@
             >Contact</router-link
           >
         </li>
-        <li v-if="!isAuthenticated" class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'register' }"
-            >Register</router-link
-          >
-        </li>
       </ul>
     </nav>
     <app-account />
