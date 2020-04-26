@@ -1,8 +1,10 @@
 <template>
   <div class="skillPicker">
     <h3>Skills</h3>
-    <input type="text" v-model="search" />
-    <svg-path set="iconMoon" name="search" />
+    <div class="skillPicker__search">
+      <input class="skillPicker__searchInput" type="text" v-model="search" />
+      <svg-path set="iconMoon" name="search" />
+    </div>
     <ul class="skills">
       <li
         v-for="(brand, key) in filteredBrands"
@@ -69,11 +71,31 @@ export default {
 </script>
 
 <style lang="scss">
+.skillPicker {
+  &__search {
+    width: 100%;
+    position: relative;
+    input {
+      width: 100%;
+      height: 100%;
+      text-align: left;
+    }
+    svg {
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
 .skills {
   display: flex;
   height: 200px;
   overflow: scroll;
   flex-wrap: wrap;
+  justify-content: space-between;
   list-style: none;
   &__skill {
     margin: 0.2em;
@@ -87,6 +109,10 @@ export default {
     padding: 0.4em;
     border: 2px solid transparent;
     border-radius: 0.2em;
+    &:hover {
+      background-color: #f6f6f6;
+      border-color: #dedede;
+    }
   }
   &__icon > path {
     filter: grayscale(1) contrast(0);

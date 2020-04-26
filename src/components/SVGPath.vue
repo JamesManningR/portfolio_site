@@ -17,7 +17,8 @@ export default {
   props: {
     set: String,
     name: String,
-    label: String
+    label: String,
+    class: String
   },
   computed: {
     path() {

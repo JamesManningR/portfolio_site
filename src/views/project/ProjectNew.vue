@@ -50,7 +50,7 @@ export default {
 <style lang="scss">
 .newProject {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 1rem;
   &__label {
     &--body {
