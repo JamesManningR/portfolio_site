@@ -5,10 +5,10 @@
       <input class="skillPicker__searchInput" type="text" v-model="search" />
       <svg-path set="iconMoon" name="search" />
     </div>
-    <ul class="skills">
+    <transition-group name="slide" tag="ul" class="skills">
       <li
         v-for="(brand, key) in filteredBrands"
-        :key="key"
+        :key="`key-${key}`"
         @click="brand.selected = true"
         class="skills__skill"
       >
@@ -25,14 +25,14 @@
           class="skills__label"
         >
           <svg-path
-            class="skills__icon"
+            className="skills__icon"
             set="brands"
             :name="key"
             :label="key"
           />
         </label>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
@@ -78,14 +78,17 @@ export default {
     input {
       width: 100%;
       height: 100%;
+      padding: 0.1em;
+      font-size: 1.1em;
       text-align: left;
     }
     svg {
       width: 1em;
       height: 1em;
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 0.5em;
+      right: 0.5em;
+      pointer-events: none;
     }
   }
 }
@@ -94,8 +97,9 @@ export default {
   display: flex;
   height: 200px;
   overflow: scroll;
+  align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   list-style: none;
   &__skill {
     margin: 0.2em;
@@ -122,6 +126,25 @@ export default {
     .skills__icon > path {
       filter: none;
     }
+  }
+}
+
+.slide {
+  &-enter {
+    opacity: 0;
+    &-active {
+      transition: opacity 0.2s;
+    }
+  }
+  &-leave {
+    &-active {
+      position: absolute;
+      transition: opacity 0.2s;
+      opacity: 0;
+    }
+  }
+  &-move {
+    transition: transform 0.5s;
   }
 }
 </style>

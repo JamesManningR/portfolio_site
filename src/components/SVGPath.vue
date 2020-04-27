@@ -5,6 +5,7 @@
     height="32"
     width="32"
     :aria-label="label"
+    :class="className"
   >
     <path :fill="color" :d="path" />
   </svg>
@@ -18,7 +19,7 @@ export default {
     set: String,
     name: String,
     label: String,
-    class: String
+    className: String
   },
   computed: {
     path() {
