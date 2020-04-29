@@ -26,7 +26,7 @@
         >
           <svg-path
             className="skills__icon"
-            set="brands"
+            set="skills"
             :name="key"
             :label="key"
           />
@@ -43,7 +43,7 @@ import svgPath from "@/components/SVGPath.vue";
 export default {
   data() {
     return {
-      brands: symbols.brands,
+      brands: symbols.skills,
       skills: [],
       search: ""
     };
