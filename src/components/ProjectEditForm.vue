@@ -38,6 +38,7 @@
         id="ProjectFormFeatured"
         class="projectForm__input projectForm__input--featured"
         @fileUploaded="project.images = $event"
+        @featuredSelected="project.featuredImage = $event"
       />
     </div>
     <project-skill-picker @skillsChanged="project.skills = $event" />

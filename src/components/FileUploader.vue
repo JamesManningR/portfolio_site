@@ -1,11 +1,7 @@
 <template>
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
-      <li
-        v-for="file in images.files"
-        :key="file.id"
-        @click="this.images.featured = file.id"
-      >
+      <li v-for="file in images.files" :key="file.id">
         <label>
           <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
           <input
@@ -66,7 +62,7 @@ export default {
   data() {
     return {
       images: {
-        featured: " ",
+        featured: "",
         files: []
       },
       disabled: false
