@@ -55,10 +55,11 @@ export const actions = {
       });
   },
   // Get all projects from the api
-  fetchProjects({ commit }) {
+  fetchProjects({ commit, dispatch }) {
     return FirebaseService.getAllProjects()
       .then(snapshot => {
         const projects = mapFirestoreResponse(snapshot);
+        dispatch("fetchFeaturedImages", projects);
         commit("SET_PROJECTS", projects);
         return snapshot.data;
       })
@@ -88,21 +89,23 @@ export const actions = {
     return FirebaseService.getDocuemntInCollectionById("media", ids)
       .then(snapshot => {
         const media = snapshot;
-        console.log(media);
         commit("SET_PROJECT_MEDIA", media);
       })
       .catch(err => {
         console.log(err);
       });
+  },
+  fetchFeaturedImages({commit}, projects){
+    return FirebaseService.getFeaturedImages(projects)
+    .then(data => {
+      const media = data;
+      console.log(data)
+      commit("SET_FEATURED", media);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
-  // ,
-  // fetchMedia({commit}, ids){
-  //   return Firebaseservice.resolveIds(ids).then((snapshot) => {
-  //     const media = mapFirestoreResponse(snapshot);
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-  // }
 };
 
 export const getters = {

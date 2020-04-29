@@ -44,6 +44,17 @@ export default {
   getAllMedia() {
     return firestore.collection("media").get();
   },
+  getMediaById(id){
+    return firestore.collection("media").doc(id).get;
+  },
+  async getFeaturedImages(projects){
+    let queries = []
+    Object.keys(projects).map(key => {
+      queries[key] = firestore.collection('media').doc(projects[key].FeaturedImage).get()
+    });
+    const result = await Promise.all(queries);
+    return result.map(res => res.data());
+  },
   async getDocuemntInCollectionById(collection, ids) {
     const queries = ids.map(id =>
       firestore
