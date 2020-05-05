@@ -7,14 +7,6 @@ export const state = {
   project: {}
 };
 
-export function mapFirestoreResponse(res) {
-  var resData = {};
-  res.docs.forEach(doc => {
-    resData[doc.id] = doc.data();
-  });
-  return resData;
-}
-
 export const mutations = {
   ADD_PROJECT(state, project) {
     state.project = { ...state.project, ...project };
@@ -45,23 +37,22 @@ export const actions = {
   // Grab posts with featured tag
   fetchFeatured({ commit }) {
     return FirebaseService.getFeaturedProjects()
-      .then(snapshot => {
-        const projects = mapFirestoreResponse(snapshot);
+      .then(projects => {
         commit("SET_PROJECTS", projects);
-        return snapshot.data;
+        return projects;
       })
       .catch(err => {
         console.log(`Error: ${err}`);
       });
   },
   // Get all projects from the api
-  fetchProjects({ commit, dispatch }) {
+  fetchProjects({ commit }) {
     return FirebaseService.getAllProjects()
-      .then(snapshot => {
-        const projects = mapFirestoreResponse(snapshot);
-        dispatch("fetchFeaturedImages", projects);
-        commit("SET_PROJECTS", projects);
-        return snapshot.data;
+      .then(projects => {
+        if (projects) {
+          commit("SET_PROJECTS", projects);
+        }
+        return projects;
       })
       .catch(err => {
         console.log(`Error: ${err}`);
@@ -75,8 +66,7 @@ export const actions = {
       return project;
     } else {
       return FirebaseService.getProject(id)
-        .then(snapshot => {
-          const project = snapshot.data();
+        .then(project => {
           commit("SET_PROJECT", project);
           dispatch("fetchProjectMedia", project.images);
         })
@@ -87,24 +77,12 @@ export const actions = {
   },
   fetchProjectMedia({ commit }, ids) {
     return FirebaseService.getDocuemntInCollectionById("media", ids)
-      .then(snapshot => {
-        const media = snapshot;
+      .then(media => {
         commit("SET_PROJECT_MEDIA", media);
       })
       .catch(err => {
         console.log(err);
       });
-  },
-  fetchFeaturedImages({commit}, projects){
-    return FirebaseService.getFeaturedImages(projects)
-    .then(data => {
-      const media = data;
-      console.log(data)
-      commit("SET_FEATURED", media);
-    })
-    .catch(err => {
-      console.log(err);
-    })
   }
 };
 

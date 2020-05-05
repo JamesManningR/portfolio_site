@@ -45,7 +45,7 @@ export default {
               .postMedia({ src: fileUrl, name: file.name })
               .then(docRef => {
                 this.images.files.push({
-                  id: docRef.id,
+                  id: docRef,
                   fileUrl,
                   name: file.name
                 });

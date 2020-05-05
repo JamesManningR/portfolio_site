@@ -14,50 +14,129 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const firestore = firebase.firestore();
+const db = firebase.firestore();
+if (location.hostname === "localhost"){
+  console.log('connecting to localhost')
+  db.settings({
+    host: "localhost:8080",
+    ssl: false
+  })
+}
+
+function mapFirestoreResponse(res) {
+  var resData = {};
+  res.forEach(doc => {
+    resData[doc.id] = doc.data();
+  });
+  return resData;
+}
 
 export default {
-  getFeaturedProjects() {
-    return firestore.collection("projects").get();
+  async getFeaturedProjects() {
+    return db
+      .collection("projects")
+      .where("featured", "==", "true")
+      .get()
+      .then(res => {
+        return mapFirestoreResponse(res);
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  getAllProjects() {
-    return firestore.collection("projects").get();
+  async getAllProjects() {
+    return db
+      .collection("projects")
+      .get()
+      .then(res => {
+        return mapFirestoreResponse(res);
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  getProject(id) {
-    return firestore
+  async getProject(id) {
+    return db.then
       .collection("projects")
       .doc(id)
-      .get();
+      .get()
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  postProject(project) {
-    return firestore.collection("projects").add(project);
+  async postProject(project) {
+    return db
+      .collection("projects")
+      .add(project)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  getSkills() {
-    return firestore.collection("skills").get();
+  async getSkills() {
+    return db
+      .collection("skills")
+      .get()
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  postSkills() {
-    return firestore.collection("skills").add();
+  async postSkills() {
+    return db
+      .collection("skills")
+      .add()
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  postMedia(mediaInfo) {
-    return firestore.collection("media").add(mediaInfo);
+  async postMedia(mediaInfo) {
+    return db
+      .collection("media")
+      .add(mediaInfo)
+      .then(res => {
+        return res.id;
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  getAllMedia() {
-    return firestore.collection("media").get();
+  async getAllMedia() {
+    return db
+      .collection("media")
+      .get()
+      .then(res => {
+        return mapFirestoreResponse(res);
+      })
+      .catch(err => {
+        throw err;
+      });
   },
-  getMediaById(id){
-    return firestore.collection("media").doc(id).get;
-  },
-  async getFeaturedImages(projects){
-    let queries = []
-    Object.keys(projects).map(key => {
-      queries[key] = firestore.collection('media').doc(projects[key].FeaturedImage).get()
-    });
-    const result = await Promise.all(queries);
-    return result.map(res => res.data());
+  async getMediaById(id) {
+    return db
+      .collection("media")
+      .doc(id)
+      .get()
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
   },
   async getDocuemntInCollectionById(collection, ids) {
     const queries = ids.map(id =>
-      firestore
+      db
         .collection(collection)
         .doc(id)
         .get()

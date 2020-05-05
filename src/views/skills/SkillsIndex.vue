@@ -8,11 +8,7 @@
 </template>
 
 <script>
-export default {
-  created() {
-    this.$store.dispatch("skills/fetchSkills");
-  }
-};
+export default {};
 </script>
 
 <style></style>
