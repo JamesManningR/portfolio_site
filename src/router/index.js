@@ -20,7 +20,6 @@ const routes = [
     path: "/projects/new",
     name: "project-new",
     component: () => import("../views/project/ProjectNew.vue"),
-    meta: { authRequired: true }
   },
   {
     path: "/projects/:id",
@@ -76,17 +75,6 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
-});
-
-router.beforeEach((routeTo, routeFrom, next) => {
-  const authRequired = routeTo.matched.some(record => record.meta.authRequired);
-  const userAuthed = store.getters["auth/isAuthenticated"];
-
-  if (!authRequired || userAuthed) {
-    next();
-  } else {
-    next({ name: "login" });
-  }
 });
 
 export default router;

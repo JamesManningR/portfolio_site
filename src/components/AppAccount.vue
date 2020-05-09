@@ -11,17 +11,18 @@
 </template>
 
 <script>
-import auth from "@/services/firebaseAuth.service";
 
 export default {
   methods: {
     onLogout() {
-      auth.logOutUser();
+      // TODO - Logout
+      return;
     }
   },
   computed: {
     isAuthenticated() {
-      return this.$store.getters["auth/isAuthenticated"];
+      // TODO - Check auth status
+      return true
     }
   }
 };

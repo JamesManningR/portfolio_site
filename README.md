@@ -7,10 +7,6 @@ Here are some key skills used while making this site:
 * VueJS
 * VueRouter
 * VueX
-* Firebase firestore Integration with bespoke blog creation and editing
-* Firestore rules to allow only privilaged users to write posts (This mostly on the firebase end)
-* Firebase authentication
-* Firebase storage for image uploads
 * Normalised database structure for minimised database duplication
 * Inline SVGs for more flexibility and scalability
 * No-Library CSS Animations and layouts
@@ -18,8 +14,20 @@ Here are some key skills used while making this site:
 * Flexbox and CSS Grid
 * BEM CSS Class notation
 
+[Planned features]
+* Node JS backend
+* Express bespoke blog system
+* MondoDb Database
+* Authentication with Passport
+* Axios for Node backend calls
+* Hosting on ???
+
 [Changed features]
-* Axios for api calls - This was changed to the dedicated firebase library: change/firestore branch
+* Axios for firebase api calls - This was changed to the dedicated firebase library: change/firestore branch
+* Firebase firestore Integration with bespoke blog creation and editing: change/nodeBackend branch
+* Firestore rules to allow only privilaged users to write posts (This mostly on the firebase end): change/nodeBackend branch
+* Firebase authentication: change/nodeBackend branch
+* Firebase storage for image uploads: change/nodeBackend branch
 
 This is a Vue js and Firebase single page application which should hopefully showcase my previous work, while being a great showcase of my skill in itself!
 

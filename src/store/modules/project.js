@@ -1,4 +1,4 @@
-import FirebaseService from "@/services/firebaseApi.service.js";
+import db from "@/services/nodeApi.service.js";
 
 export const namespaced = true;
 
@@ -6,14 +6,6 @@ export const state = {
   projects: {},
   project: {}
 };
-
-export function mapFirestoreResponse(res) {
-  var resData = {};
-  res.docs.forEach(doc => {
-    resData[doc.id] = doc.data();
-  });
-  return resData;
-}
 
 export const mutations = {
   ADD_PROJECT(state, project) {
@@ -33,8 +25,8 @@ export const mutations = {
 // Post project to project api and commit the change in vuex
 export const actions = {
   createProject({ commit, rootState }, project) {
-    return FirebaseService.postProject(project, rootState.auth.idToken)
-      .then(() => {
+    return db.postProject(project, rootState.auth.idToken)
+      .then((project) => {
         commit("ADD_PROJECT", project);
       })
       .catch(err => {
@@ -42,67 +34,32 @@ export const actions = {
         throw err;
       });
   },
-  // Grab posts with featured tag
-  fetchFeatured({ commit }) {
-    return FirebaseService.getFeaturedProjects()
-      .then(snapshot => {
-        const projects = mapFirestoreResponse(snapshot);
-        commit("SET_PROJECTS", projects);
-        return snapshot.data;
-      })
-      .catch(err => {
-        console.log(`Error: ${err}`);
-      });
-  },
   // Get all projects from the api
   fetchProjects({ commit }) {
-    return FirebaseService.getAllProjects()
-      .then(snapshot => {
-        const projects = mapFirestoreResponse(snapshot);
+    return db.getAllProjects()
+      .then(projects => {
         commit("SET_PROJECTS", projects);
-        return snapshot.data;
+        return projects;
       })
       .catch(err => {
         console.log(`Error: ${err}`);
       });
   },
-  fetchProject({ commit, dispatch, getters }, id) {
+  fetchProject({ commit, getters }, id) {
     let project = getters.getProjectById(id);
     if (project) {
       commit("SET_PROJECT", project);
-      dispatch("fetchProjectMedia", project.images);
       return project;
     } else {
-      return FirebaseService.getProject(id)
-        .then(snapshot => {
-          const project = snapshot.data();
+      return db.getProject(id)
+        .then(project => {
           commit("SET_PROJECT", project);
-          dispatch("fetchProjectMedia", project.images);
         })
         .catch(err => {
           console.log(`Error: ${err}`);
         });
     }
-  },
-  fetchProjectMedia({ commit }, ids) {
-    return FirebaseService.getDocuemntInCollectionById("media", ids)
-      .then(snapshot => {
-        const media = snapshot;
-        console.log(media);
-        commit("SET_PROJECT_MEDIA", media);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   }
-  // ,
-  // fetchMedia({commit}, ids){
-  //   return Firebaseservice.resolveIds(ids).then((snapshot) => {
-  //     const media = mapFirestoreResponse(snapshot);
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-  // }
 };
 
 export const getters = {

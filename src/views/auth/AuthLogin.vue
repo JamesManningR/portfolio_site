@@ -14,16 +14,12 @@
 </template>
 
 <script>
-import firebaseAuth from "@/services/firebaseAuth.service";
 
 export default {
   methods: {
     submitSignIn() {
-      const formData = {
-        email: this.user.email,
-        password: this.user.password
-      };
-      firebaseAuth.logInUser(formData);
+      // TODO - Sign In Logic
+      return;
     }
   },
   data() {

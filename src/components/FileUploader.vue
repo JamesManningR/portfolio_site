@@ -28,35 +28,15 @@
 </template>
 
 <script>
-import firebaseStorage from "@/services/firebaseStorage.service";
-import firebaseService from "@/services/firebaseApi.service";
+// TODO: Build the upload logic
+// TODO: Store this data in the database
+// import db from "@/services/nodeApi.service";
 
 export default {
   methods: {
     // On file drag and drop
-    fileSelect(evt) {
-      evt.target.files.forEach(file => {
-        return firebaseStorage // Upload to firebase
-          .upload(file, file.name)
-          .then(fileUrl => {
-            // Upon success
-            // push file data onto the files array
-            return firebaseService
-              .postMedia({ src: fileUrl, name: file.name })
-              .then(docRef => {
-                this.images.files.push({
-                  id: docRef.id,
-                  fileUrl,
-                  name: file.name
-                });
-              })
-              .catch(err => {
-                console.log(err);
-              });
-            // this.images.uploadIds.push()
-          })
-          .catch(err => console.log(err)); // catch errors
-      });
+    fileSelect() {
+      return
     }
   },
   data() {

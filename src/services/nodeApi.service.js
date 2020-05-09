@@ -20,6 +20,8 @@ export default {
   // Read ------------------------------
   // Multiple
   async getAllProjects() {
+    console.log(API_URL)
+    console.log(`${API_URL}/projects`)
     axios
       .get(`${API_URL}/projects`)
       .then(res => {

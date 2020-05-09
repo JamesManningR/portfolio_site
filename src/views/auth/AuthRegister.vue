@@ -17,16 +17,12 @@
 </template>
 
 <script>
-import firebaseAuth from "@/services/firebaseAuth.service";
 
 export default {
   methods: {
     submitSignUp() {
-      const userData = {
-        email: this.user.email,
-        password: this.user.password
-      };
-      firebaseAuth.createUser(userData);
+      // TODO - Signup Logic
+      return;
     }
   },
   data() {
