@@ -11,7 +11,6 @@
 </template>
 
 <script>
-
 export default {
   methods: {
     onLogout() {
@@ -22,7 +21,7 @@ export default {
   computed: {
     isAuthenticated() {
       // TODO - Check auth status
-      return true
+      return true;
     }
   }
 };

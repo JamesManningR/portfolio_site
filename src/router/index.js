@@ -19,7 +19,7 @@ const routes = [
   {
     path: "/projects/new",
     name: "project-new",
-    component: () => import("../views/project/ProjectNew.vue"),
+    component: () => import("../views/project/ProjectNew.vue")
   },
   {
     path: "/projects/:id",

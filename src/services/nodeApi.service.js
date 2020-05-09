@@ -6,10 +6,10 @@ export default {
   // Projects ============================
   // Create ------------------------------
   async postProject(project) {
-    axios
+    return axios
       .post(`${API_URL}/projects`, project)
       .then(res => {
-        return res;
+        return res.data;
       })
       .catch(err => {
         console.log(err);
@@ -20,12 +20,10 @@ export default {
   // Read ------------------------------
   // Multiple
   async getAllProjects() {
-    console.log(API_URL)
-    console.log(`${API_URL}/projects`)
-    axios
+    return axios
       .get(`${API_URL}/projects`)
       .then(res => {
-        return res;
+        return res.data;
       })
       .catch(err => {
         console.log(err);
@@ -34,10 +32,10 @@ export default {
   },
   // Single
   async getProject(id) {
-    axios
+    return axios
       .get(`${API_URL}/projects/${id}`)
       .then(res => {
-        return res;
+        return res.data;
       })
       .catch(err => {
         console.log(err);
@@ -47,11 +45,14 @@ export default {
 
   // Media ================================
   // Create ------------------------------
-  async postMedia(mediaInfo) {
-    axios
-      .post(`${API_URL}/media`, mediaInfo)
+  async uploadMedia(file) {
+    const formData = new FormData();
+    formData.append("image", file);
+    return axios
+      .post(`${API_URL}/media`, formData)
       .then(res => {
-        return res;
+        console.log(res);
+        return res.data;
       })
       .catch(err => {
         console.log(err);
@@ -59,10 +60,10 @@ export default {
       });
   },
   async getAllMedia() {
-    axios
+    return axios
       .get(`${API_URL}/media`)
       .then(res => {
-        return res;
+        return res.data;
       })
       .catch(err => {
         console.log(err);
@@ -70,10 +71,10 @@ export default {
       });
   },
   async getMediaById(id) {
-    axios
+    return axios
       .get(`${API_URL}/media/${id}`)
       .then(res => {
-        return res;
+        return res.data;
       })
       .catch(err => {
         console.log(err);

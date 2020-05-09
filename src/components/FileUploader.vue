@@ -28,15 +28,15 @@
 </template>
 
 <script>
-// TODO: Build the upload logic
-// TODO: Store this data in the database
-// import db from "@/services/nodeApi.service";
+import db from "@/services/nodeApi.service";
 
 export default {
   methods: {
     // On file drag and drop
-    fileSelect() {
-      return
+    fileSelect(evt) {
+      evt.target.files.forEach(file => {
+        db.uploadMedia(file);
+      });
     }
   },
   data() {
