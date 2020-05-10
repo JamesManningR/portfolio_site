@@ -24,9 +24,9 @@ export const mutations = {
 
 // Post project to project api and commit the change in vuex
 export const actions = {
-  createProject({ commit, rootState }, project) {
+  createProject({ commit }, project) {
     return db
-      .postProject(project, rootState.auth.idToken)
+      .postProject(project)
       .then(project => {
         commit("ADD_PROJECT", project);
       })
@@ -40,7 +40,6 @@ export const actions = {
     return db
       .getAllProjects()
       .then(projects => {
-        console.log(projects);
         commit("SET_PROJECTS", projects);
         return projects;
       })

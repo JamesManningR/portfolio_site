@@ -20,7 +20,7 @@ export default {
     blockStyling() {
       return {
         backgroundColor: this.project.color,
-        backgroundImage: `url(${this.project.featuredImage})`
+        backgroundImage: `url(${this.project.featuredImage.src})`
       };
     }
   }

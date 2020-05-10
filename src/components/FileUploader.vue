@@ -1,14 +1,13 @@
 <template>
   <div class="fileUploader">
     <ul class="fileUploader__uploaded">
-      <li v-for="file in images.files" :key="file.id">
+      <li v-for="file in images.files" :key="file._id">
         <label>
-          <img class="fileUploader__img" :src="file.fileUrl" :alt="file.name" />
+          <img class="fileUploader__img" :src="file.src" :alt="file.name" />
           <input
             type="radio"
             v-model="images.featured"
-            :value="file.id"
-            :id="file.name"
+            :value="file._id"
             name="featured"
           />
         </label>
@@ -33,10 +32,13 @@ import db from "@/services/nodeApi.service";
 export default {
   methods: {
     // On file drag and drop
-    fileSelect(evt) {
+    async fileSelect(evt) {
+      let filePromises = [];
       evt.target.files.forEach(file => {
-        db.uploadMedia(file);
+        filePromises.push(db.uploadMedia(file));
       });
+      const resolved = await Promise.all(filePromises);
+      this.images.files = resolved;
     }
   },
   data() {
@@ -52,7 +54,7 @@ export default {
     "images.files": function() {
       this.$emit(
         "fileUploaded",
-        this.images.files.map(a => a.id)
+        this.images.files.map(a => a._id)
       );
     },
     "images.featured": function() {

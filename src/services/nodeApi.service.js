@@ -51,7 +51,6 @@ export default {
     return axios
       .post(`${API_URL}/media`, formData)
       .then(res => {
-        console.log(res);
         return res.data;
       })
       .catch(err => {

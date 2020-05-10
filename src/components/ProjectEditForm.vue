@@ -8,7 +8,6 @@
         class="projectForm__input projectForm__input--title"
         type="text"
         v-model="project.title"
-        @input="update()"
       />
       <input type="url" placeholder="link" />
     </div>
@@ -19,7 +18,6 @@
         placeholder="Body"
         class="projectForm__input projectForm__input--body"
         v-model="project.body"
-        @input="update()"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--color">
@@ -29,7 +27,6 @@
         class="projectForm__input projectForm__input--color"
         type="color"
         v-model="project.color"
-        @input="update()"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--featured">
