@@ -83,9 +83,9 @@ export default {
 
   // Auth ============================
   // Register -----------------------
-  async register(name, password) {
+  async register(authData) {
     return axios
-      .post(`${API_URL}/register`, { name, password })
+      .post(`${API_URL}/register`, authData)
       .then(res => {
         console.log(res.data);
         return res.data;
@@ -97,9 +97,9 @@ export default {
   },
 
   // Login -----------------------
-  async login(name, password) {
+  async login(authData) {
     return axios
-      .post(`${API_URL}/login`, { name, password })
+      .post(`${API_URL}/login`, authData)
       .then(res => {
         console.log(res.data);
         return res.data;
