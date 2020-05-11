@@ -79,5 +79,34 @@ export default {
         console.log(err);
         throw err;
       });
+  },
+
+  // Auth ============================
+  // Register -----------------------
+  async register(name, password) {
+    return axios
+      .post(`${API_URL}/register`, { name, password })
+      .then(res => {
+        console.log(res.data);
+        return res.data;
+      })
+      .catch(err => {
+        console.log(err);
+        throw err;
+      });
+  },
+
+  // Login -----------------------
+  async login(name, password) {
+    return axios
+      .post(`${API_URL}/login`, { name, password })
+      .then(res => {
+        console.log(res.data);
+        return res.data;
+      })
+      .catch(err => {
+        console.log(err);
+        throw err;
+      });
   }
 };

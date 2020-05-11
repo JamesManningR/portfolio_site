@@ -18,9 +18,13 @@ export default {
   },
   computed: {
     blockStyling() {
+      const backgroundImage = this.project.featuredImage
+        ? this.project.featuredImage.src
+        : "";
+      const backgroundColor = this.project.color ? this.project.color : "";
       return {
-        backgroundColor: this.project.color,
-        backgroundImage: `url(${this.project.featuredImage.src})`
+        backgroundColor,
+        backgroundImage
       };
     }
   }
