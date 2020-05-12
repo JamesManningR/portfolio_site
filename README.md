@@ -13,13 +13,13 @@ Here are some key skills used while making this site:
 * Uses reusable markdown component to format posts
 * Flexbox and CSS Grid
 * BEM CSS Class notation
-
-[Planned features]
+* Axios for Node backend calls
+* MondoDb Database
 * Node JS backend
 * Express bespoke blog system
-* MondoDb Database
-* Authentication with Passport
-* Axios for Node backend calls
+* Token based Authentication
+
+[Planned features]
 * Hosting on ???
 
 [Changed features]
