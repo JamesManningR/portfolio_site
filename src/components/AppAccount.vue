@@ -11,18 +11,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   methods: {
     onLogout() {
-      // TODO - Logout
+      this.$store.dispatch("auth/logout");
       return;
     }
   },
   computed: {
-    isAuthenticated() {
-      // TODO - Check auth status
-      return true;
-    }
+    ...mapGetters({ isAuthenticated: "auth/isAuthenticated" })
   }
 };
 </script>

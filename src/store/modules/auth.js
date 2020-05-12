@@ -51,6 +51,6 @@ export const actions = {
 
 export const getters = {
   isAuthenticated: () => {
-    return state.userName !== null;
+    return state.username !== null;
   }
 };
