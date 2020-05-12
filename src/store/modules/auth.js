@@ -4,17 +4,19 @@ export const namespaced = true;
 
 export const state = {
   authToken: null,
-  userName: null
+  username: null
 };
 
 export const mutations = {
-  SET_AUTH(state, token, userName) {
-    state.authToken = token;
-    state.userName = userName;
+  SET_AUTH(state, authData) {
+    console.log(authData);
+    state.authToken = authData.token;
+    state.username = authData.username;
+    state.userId = authData.userId;
   },
   UNSET_AUTH(state) {
     state.authToken = null;
-    state.userName = null;
+    state.username = null;
   }
 };
 
@@ -47,4 +49,8 @@ export const actions = {
   }
 };
 
-export const getters = {};
+export const getters = {
+  isAuthenticated: () => {
+    return state.userName !== null;
+  }
+};

@@ -4,8 +4,8 @@
 
     <form @submit.prevent="submitSignUp" action="">
       <label
-        >Email
-        <input type="text" v-model="user.email" />
+        >Username
+        <input type="text" v-model="user.username" />
       </label>
       <label
         >Password
@@ -20,14 +20,14 @@
 export default {
   methods: {
     submitSignUp() {
-      // TODO - Signup Logic
+      this.$store.dispatch("auth/register", this.user);
       return;
     }
   },
   data() {
     return {
       user: {
-        email: "",
+        username: "",
         password: ""
       }
     };

@@ -12,7 +12,6 @@ export default {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -26,7 +25,6 @@ export default {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -38,7 +36,6 @@ export default {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -54,7 +51,6 @@ export default {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -65,7 +61,6 @@ export default {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -76,7 +71,6 @@ export default {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -87,11 +81,9 @@ export default {
     return axios
       .post(`${API_URL}/register`, authData)
       .then(res => {
-        console.log(res.data);
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   },
@@ -101,11 +93,9 @@ export default {
     return axios
       .post(`${API_URL}/login`, authData)
       .then(res => {
-        console.log(res.data);
         return res.data;
       })
       .catch(err => {
-        console.log(err);
         throw err;
       });
   }

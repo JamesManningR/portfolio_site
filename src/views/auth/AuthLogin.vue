@@ -1,9 +1,9 @@
 <template>
-  <form @submit.prevent="submitSignIn" action="">
+  <form @submit.prevent="submitLogin" action="">
     <h1>Sign In</h1>
     <label
-      >Email
-      <input type="text" v-model="user.email" />
+      >Username
+      <input type="text" v-model="user.username" />
     </label>
     <label
       >Password
@@ -16,15 +16,14 @@
 <script>
 export default {
   methods: {
-    submitSignIn() {
-      // TODO - Sign In Logic
-      return;
+    submitLogin() {
+      this.$store.dispatch("auth/login", this.user);
     }
   },
   data() {
     return {
       user: {
-        email: "",
+        username: "",
         password: ""
       }
     };
