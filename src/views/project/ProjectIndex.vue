@@ -4,7 +4,6 @@
     <router-link v-if="isAuthed" :to="{ name: 'project-new' }"
       >New post</router-link
     >
-
     <ul class="projects">
       <ProjectPost
         class="projects__post"
@@ -16,16 +15,18 @@
         <h2>More Projects</h2>
       </li>
     </ul>
+    <projectList :projects="projects" />
   </main>
 </template>
 
 <script>
-import ProjectPost from "@/components/ProjectPost.vue";
+import projectList from "@/components/ProjectList.vue";
+
 import { mapState } from "vuex";
 
 export default {
   components: {
-    ProjectPost
+    projectList
   },
   created() {
     this.$store.dispatch("project/fetchProjects");

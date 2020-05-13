@@ -23,6 +23,7 @@ export default {
 <style lang="scss">
 #app {
   display: grid;
+  max-width: 100vw;
   grid-template-columns: 33rem 1fr;
 }
 main {

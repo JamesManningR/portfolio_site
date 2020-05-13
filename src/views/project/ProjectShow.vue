@@ -25,4 +25,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.project {
+  padding: 0;
+}
+</style>

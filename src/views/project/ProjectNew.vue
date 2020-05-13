@@ -43,21 +43,20 @@ export default {
     createProject() {
       this.$store.dispatch("project/createProject", this.project);
     }
-  },
+  }
 };
 </script>
 
 <style lang="scss">
 .newProject {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	column-gap: 1rem;
-	&__label {
-		&--body {
-			display: flex;
-			flex-grow: 1;
-		}
-	}
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+  &__label {
+    &--body {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
 }
-
 </style>
