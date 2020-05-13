@@ -13,6 +13,9 @@ import appHeader from "@/components/AppHeader.vue";
 export default {
   components: {
     appHeader
+  },
+  created(){
+    this.$store.dispatch("auth/autoLogin")
   }
 };
 </script>

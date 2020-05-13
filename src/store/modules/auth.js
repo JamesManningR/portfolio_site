@@ -34,11 +34,16 @@ export const mutations = {
 
 // Post project to project api and commit the change in vuex
 export const actions = {
-  autoLogin() {
+  autoLogin({ commit }) {
     const authData = loadLocalAuth();
     if (!authData.token) {
       return;
     }
+    if (!authData.expiry >= Date.now()){
+      return;
+    }
+    commit("SET_AUTH", authData);
+    return;
   },
   login({ commit }, authData) {
     return db
@@ -65,12 +70,16 @@ export const actions = {
       });
   },
   logout({ commit }) {
+    localStorage.removeItem("_token");
+    localStorage.removeItem("_tokenExpiry");
+    localStorage.removeItem("_username");
+    localStorage.removeItem("_userId");
     commit("UNSET_AUTH");
   }
 };
 
 export const getters = {
   isAuthenticated: () => {
-    return state.username !== null;
+    return state.authData !== null;
   }
 };
