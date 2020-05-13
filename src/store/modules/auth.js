@@ -22,11 +22,22 @@ export const mutations = {
 
 // Post project to project api and commit the change in vuex
 export const actions = {
+  autoLogin(){
+    const idToken = localStorage.getItem('_token')
+    if (!idToken) {
+      return;
+    }
+    const username = localStorage.getItem('_username')
+    // TODO: Add expiry check
+  },
   login({ commit }, authData) {
     return db
       .login(authData)
       .then(data => {
         commit("SET_AUTH", data);
+        localStorage.setItem('_token', data.authToken)
+        localStorage.setItem('_username', data.username)
+        // TODO: Add 'token expiry' logic
       })
       .catch(err => {
         console.log(`Error: ${err}`);
@@ -38,6 +49,9 @@ export const actions = {
       .register(authData)
       .then(data => {
         commit("SET_AUTH", data);
+        localStorage.setItem('_token', data.authToken)
+        localStorage.setItem('_username', data.username)
+        // TODO: Add 'token expiry' logic
       })
       .catch(err => {
         console.log(`Error: ${err}`);
