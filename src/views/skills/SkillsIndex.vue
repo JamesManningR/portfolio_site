@@ -36,10 +36,8 @@ export default {
       const selectedSkills = this.selectedSkills;
       const projects = this.projects;
       const filtered = projects.filter(project => {
-        console.log(project);
         return selectedSkills.every(v => project.skills.includes(v));
       });
-      console.log(filtered);
       return filtered;
     }
   }
@@ -48,7 +46,8 @@ export default {
 
 <style>
 .skillsIndex {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
+
 </style>

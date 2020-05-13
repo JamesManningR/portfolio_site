@@ -26,11 +26,13 @@ export default {
 
 <style lang="scss">
 .projectSkills {
-  display: flex;
-  margin: 1em 0;
-  list-style: none;
-  &__item {
-    margin: 0 0.4em;
-  }
+	display: flex;
+	margin: 1em 0;
+	flex-wrap: wrap;
+	list-style: none;
+	&__item {
+		margin: 0 0.4em;
+	}
 }
+
 </style>

@@ -3,14 +3,13 @@
 Hi! Thank you for checking out this repo.
 I built this site to showcase my work, as well as stretch my new skills in vue.
 
-Here are some key skills used while making this site:
+## Here are some key skills used while making this site:
 * VueJS
 * VueRouter
 * VueX
 * Normalised database structure for minimised database duplication
 * Inline SVGs for more flexibility and scalability
 * No-Library CSS Animations and layouts
-* Uses reusable markdown component to format posts
 * Flexbox and CSS Grid
 * BEM CSS Class notation
 * Axios for Node backend calls
@@ -19,10 +18,24 @@ Here are some key skills used while making this site:
 * Express bespoke blog system
 * Token based Authentication
 
-[Planned features]
+## Features
+* Image upload
+* Single page application
+* Filter projects by skills
+* Markdown Blog post creation
+
+## [Planned features]
 * Hosting on ???
 
-[Changed features]
+## [Icebox (no time soon) features]
+* Per skill description in project
+* Quick blog with timestamps
+* Feedback system
+* GraphQl
+* Canonical Links
+* Nuxt.js
+
+## [Changed features]
 * Axios for firebase api calls - This was changed to the dedicated firebase library: change/firestore branch
 * Firebase firestore Integration with bespoke blog creation and editing: change/nodeBackend branch
 * Firestore rules to allow only privilaged users to write posts (This mostly on the firebase end): change/nodeBackend branch
