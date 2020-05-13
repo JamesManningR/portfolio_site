@@ -6,7 +6,7 @@
       Select Skills to see relevent Projects
     </h3>
 
-    <projectList :projects="filteredProjects"/>
+    <projectList :projects="filteredProjects" />
   </main>
 </template>
 
@@ -23,28 +23,32 @@ export default {
   },
   data() {
     return {
-      selectedSkills: [],
+      selectedSkills: []
     };
   },
   components: {
     projectSkillPicker,
-    projectList,
+    projectList
   },
   computed: {
     ...mapState("project", ["projects"]),
     filteredProjects() {
       const selectedSkills = this.selectedSkills;
       const projects = this.projects;
-      const filtered = projects.filter((project) =>{
-          console.log(project);
-          return selectedSkills.every(v => project.skills.includes(v))
-        }
-      );
+      const filtered = projects.filter(project => {
+        console.log(project);
+        return selectedSkills.every(v => project.skills.includes(v));
+      });
       console.log(filtered);
-      return filtered
-    },
-  },
+      return filtered;
+    }
+  }
 };
 </script>
 
-<style></style>
+<style>
+.skillsIndex {
+  display: flex;
+  flex-direction: column;
+}
+</style>

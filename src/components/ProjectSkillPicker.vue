@@ -128,23 +128,4 @@ export default {
     }
   }
 }
-
-.slide {
-  &-enter {
-    opacity: 0;
-    &-active {
-      transition: opacity 0.2s;
-    }
-  }
-  &-leave {
-    &-active {
-      position: absolute;
-      transition: opacity 0.2s;
-      opacity: 0;
-    }
-  }
-  &-move {
-    transition: transform 0.5s;
-  }
-}
 </style>

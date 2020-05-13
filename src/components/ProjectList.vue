@@ -2,13 +2,10 @@
   <ul class="projects">
     <ProjectPost
       class="projects__post"
-      v-for="(project, index) in projects"
-      :key="index"
+      v-for="(project, key) in projects"
+      :key="`key-${key}`"
       :project="project"
     />
-    <li class="projects__post">
-      <h2>More Projects</h2>
-    </li>
   </ul>
 </template>
 
