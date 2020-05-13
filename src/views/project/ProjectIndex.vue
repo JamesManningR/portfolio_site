@@ -4,17 +4,6 @@
     <router-link v-if="isAuthed" :to="{ name: 'project-new' }"
       >New post</router-link
     >
-    <ul class="projects">
-      <ProjectPost
-        class="projects__post"
-        v-for="(project, index) in projects"
-        :key="index"
-        :project="project"
-      />
-      <li class="projects__post">
-        <h2>More Projects</h2>
-      </li>
-    </ul>
     <projectList :projects="projects" />
   </main>
 </template>
@@ -29,7 +18,9 @@ export default {
     projectList
   },
   created() {
-    this.$store.dispatch("project/fetchProjects");
+    if (!this.$store.projects) {
+      this.$store.dispatch("project/fetchProjects");
+    }
   },
   computed: {
     isAuthed() {
