@@ -1,35 +1,54 @@
 <template>
   <div class="fileUploader">
-    <ul class="fileUploader__uploaded">
+    <label class="fileUploader__label">
+      <svg-path
+        className="fileUploader__inputIcon"
+        set="iconMoon"
+        name="upload"
+        label="Upload"
+      />
+      <span>Upload images</span>
+      <input
+        class="fileUploader__file"
+        type="file"
+        multiple
+        :disabled="disabled"
+        @change="fileSelect($event)"
+      />
+    </label>
+    <ul class="fileUploader__uploaded" v-if="images.files">
       <li v-for="file in images.files" :key="file._id">
-        <label>
-          <img class="fileUploader__img" :src="file.src" :alt="file.name" />
+        <label class="fileUploader__imgLabel">
           <input
+            class="fileUploader__featured"
             type="radio"
             v-model="images.featured"
             :value="file._id"
             name="featured"
           />
-        </label>
-        <label>
-          Alt Text
-          <input v-model="file.altText" type="text" />
+          <img class="fileUploader__img" :src="file.src" :alt="file.name" />
         </label>
       </li>
     </ul>
-    <input
-      type="file"
-      multiple
-      :disabled="disabled"
-      @change="fileSelect($event)"
-    />
   </div>
+  <!-- <label class="fileUploader__altLabel">
+          Alt Text
+          <input
+            class="fileUploader__altText"
+            v-model="file.altText"
+            type="text"
+          />
+        </label> -->
 </template>
 
 <script>
 import db from "@/services/nodeApi.service";
+import svgPath from "@/components/SVGPath";
 
 export default {
+  components: {
+    svgPath
+  },
   methods: {
     // On file drag and drop
     async fileSelect(evt) {
@@ -66,13 +85,60 @@ export default {
 
 <style lang="scss">
 .fileUploader {
-  &__uploaded {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &__img {
-    height: 4em;
-    margin: 0.5em;
-  }
+	display: flex;
+	border: 1px solid #8FB5D0;
+	border-radius: 0.3em;
+
+	&__label {
+		box-sizing: border-box;
+		display: flex;
+		padding: 0.5em;
+		padding-left: 1em;
+		align-items: center;
+		flex-basis: 30%;
+		border-right: 1px solid #8FB5D0;
+		&:active {
+			background-color: #EAEAEA;
+		}
+	}
+	&__file {
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 100px;
+		opacity: 0;
+	}
+	&__inputIcon {
+		margin-right: 1em;
+	}
+	&__uploaded {
+		display: flex;
+		overflow-x: scroll;
+		list-style: none;
+	}
+	&__featured {
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		&:checked+ img {
+			border: #FFB829 3px solid;
+			border-radius: 0.2em;
+		}
+	}
+	&__img {
+		box-sizing: border-box;
+		height: 4em;
+		margin: 0.5em;
+
+		object-fit: cover;
+	}
+	&__imgLabel {
+		display: flex;
+	}
 }
+
 </style>

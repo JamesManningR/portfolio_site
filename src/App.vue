@@ -14,8 +14,8 @@ export default {
   components: {
     appHeader
   },
-  created(){
-    this.$store.dispatch("auth/autoLogin")
+  created() {
+    this.$store.dispatch("auth/autoLogin");
   }
 };
 </script>

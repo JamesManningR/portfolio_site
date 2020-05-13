@@ -7,8 +7,7 @@
     <nav class="header__nav">
       <ul class="header__navList">
         <li class="header__listItem">
-          <router-link class="header__navLink" to="/"
-          >Home</router-link>
+          <router-link class="header__navLink" to="/">Home</router-link>
         </li>
         <li class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'projects' }"
