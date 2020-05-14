@@ -18,18 +18,17 @@ export default {
 
 <style lang="scss">
 .project {
-	&__title {
-		display: flex;
-		align-items: baseline;
+  &__title {
+    display: flex;
+    align-items: baseline;
 
-		h1 {
-			display: inline-block;
-			margin-right: 2rem;
-		}
-	}
-	&__link {
-		text-align: right;
-	}
+    h1 {
+      display: inline-block;
+      margin-right: 2rem;
+    }
+  }
+  &__link {
+    text-align: right;
+  }
 }
-
 </style>

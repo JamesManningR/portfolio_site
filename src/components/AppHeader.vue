@@ -19,11 +19,11 @@
             >Skills</router-link
           >
         </li>
-        <li class="header__listItem">
+        <!-- <li class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'blog' }"
             >Blog</router-link
           >
-        </li>
+        </li> -->
         <li class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'contact' }"
             >Contact</router-link

@@ -46,8 +46,7 @@ export default {
 
 <style>
 .skillsIndex {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 </style>
