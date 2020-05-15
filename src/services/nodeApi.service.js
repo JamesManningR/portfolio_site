@@ -81,6 +81,7 @@ export default {
     return axios
       .post(`${API_URL}/register`, authData)
       .then(res => {
+        this.setToken(res.data.token);
         return res.data;
       })
       .catch(err => {
@@ -93,10 +94,15 @@ export default {
     return axios
       .post(`${API_URL}/login`, authData)
       .then(res => {
+        this.setToken(res.data.token);
         return res.data;
       })
       .catch(err => {
         throw err;
       });
+  },
+
+  setToken(token) {
+    axios.defaults.headers.common["Authorization"] = token;
   }
 };

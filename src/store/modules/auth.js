@@ -43,6 +43,7 @@ export const actions = {
       return;
     }
     commit("SET_AUTH", authData);
+    db.setToken(authData.token);
     return;
   },
   login({ commit }, authData) {
@@ -75,6 +76,7 @@ export const actions = {
     localStorage.removeItem("_username");
     localStorage.removeItem("_userId");
     commit("UNSET_AUTH");
+    db.setToken(null);
   }
 };
 
