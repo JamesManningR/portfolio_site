@@ -1,15 +1,13 @@
 <template>
   <form class="projectForm">
-    <div class="projectForm__formGroup projectForm__formGroup--title">
+    <div class="projectForm__formGroup projectForm__formGroup--color">
       <input
-        aria-label="project title"
-        id="ProjectFormTitle"
-        placeholder="Title"
-        class="projectForm__input projectForm__input--title"
-        type="text"
-        v-model="value.title"
+        aria-label="project color"
+        id="ProjectFormColor"
+        class="projectForm__input projectForm__input--color"
+        type="color"
+        v-model="value.color"
       />
-      <input type="url" placeholder="link" />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--body">
       <textarea
@@ -20,25 +18,16 @@
         v-model="value.body"
       />
     </div>
-    <div class="projectForm__formGroup projectForm__formGroup--color">
-      <input
-        aria-label="project color"
-        id="ProjectFormColor"
-        class="projectForm__input projectForm__input--color"
-        type="color"
-        v-model="value.color"
-      />
-    </div>
-    <div class="projectForm__formGroup projectForm__formGroup--featured">
+    <project-skill-picker class="projectForm__formGroup projectForm__formGroup--skills" @skillsChanged="value.skills = $event" />
+    <div class="projectForm__formGroup projectForm__formGroup--images">
       <file-uploader
         aria-label="project image"
-        id="ProjectFormFeatured"
-        class="projectForm__input projectForm__input--featured"
+        id="ProjectFormImages"
+        class="projectForm__input projectForm__input--images"
         @fileUploaded="value.images = $event"
         @featuredSelected="featuredSelected($event)"
       />
     </div>
-    <project-skill-picker @skillsChanged="value.skills = $event" />
     <div class="projectForm__formGroup projectForm__formGroup--submit">
       <slot name="submit"></slot>
     </div>
@@ -59,11 +48,11 @@ export default {
       console.log(evt);
       this.value.featuredImage = evt.id;
       this.thumbnailSrc = evt.src;
-    }
+    },
   },
   data() {
     return {
-      thumbnailSrc: ""
+      thumbnailSrc: "",
     };
   },
   watch: {
@@ -71,8 +60,8 @@ export default {
       deep: true,
       handler() {
         this.$emit("input", this.value);
-      }
-    }
+      },
+    },
   },
   computed: {
     thumbnailStyling() {
@@ -80,20 +69,21 @@ export default {
       const backgroundColor = this.value.color ? this.value.color : "";
       return {
         backgroundColor,
-        backgroundImage
+        backgroundImage,
       };
-    }
+    },
   },
   components: {
     fileUploader,
-    projectSkillPicker
-  }
+    projectSkillPicker,
+  },
 };
 </script>
 
 <style lang="scss">
 .projectForm {
-  display: flex;
+  display: grid;
+  grid-template-areas: "title title title color" "body body body body" "link link link link" "skills skills upload upload" "submit submit submit submit";
   flex-direction: column;
   &__input {
     width: 100%;
@@ -104,27 +94,41 @@ export default {
       font-size: 1.6em;
       font-weight: 700;
     }
-    &--body {
-      flex-grow: 1;
-      font-family: inherit;
-    }
     &--color {
       height: 4rem;
       padding: 0;
       border: 0;
+    }
+    &--body {
+      flex-grow: 1;
+      font-family: inherit;
     }
   }
   &__formGroup {
     width: 100%;
     margin-bottom: 1rem;
     &--title {
+      grid-area: title;
       display: flex;
       margin-bottom: 1.5rem;
     }
+    &--color {
+      grid-area: color;
+    }
     &--body {
+      grid-area: body;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+    }
+    &--skills {
+      grid-area: skills;
+    }
+    &--images{
+      grid-area: images;
+    }
+    &--submit {
+      grid-area: submit;
     }
   }
 }
