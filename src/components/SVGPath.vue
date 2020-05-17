@@ -7,7 +7,7 @@
     :aria-label="label"
     :class="className"
   >
-    <path :fill="color" :d="path" />
+    <path v-for="(path, index) in paths" :key="index" :fill="color" :d="path" />
   </svg>
 </template>
 
@@ -22,8 +22,8 @@ export default {
     className: String
   },
   computed: {
-    path() {
-      return icons[this.set][this.name].path;
+    paths() {
+      return icons[this.set][this.name].paths;
     },
     color() {
       return icons[this.set][this.name].color;
