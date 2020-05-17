@@ -15,7 +15,6 @@ export default {
         throw err;
       });
   },
-
   // Read ------------------------------
   // Multiple
   async getAllProjects() {
@@ -39,7 +38,29 @@ export default {
         throw err;
       });
   },
-  // Delete
+  // Update ----------------------
+  async updateProject(project) {
+    const { title, body, link, images, featuredImage, color, skills } = project;
+    const updatedProject = {
+      title,
+      body,
+      link,
+      images,
+      featuredImage,
+      color,
+      skills
+    };
+    const id = project._id;
+    return axios
+      .put(`${API_URL}/projects/${id}`, updatedProject)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
+  },
+  // Delete ----------------------
   async deleteProject(id) {
     return axios
       .delete(`${API_URL}/projects/${id}`)

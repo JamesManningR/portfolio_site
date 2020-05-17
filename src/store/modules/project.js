@@ -68,7 +68,7 @@ export const actions = {
   },
   updateProject({ commit }, project) {
     return db
-      .postProject(project)
+      .updateProject(project)
       .then(project => {
         commit("UPDATE_PROJECT", project);
       })
