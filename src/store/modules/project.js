@@ -17,6 +17,12 @@ export const mutations = {
   SET_PROJECT(state, project) {
     state.project = project;
   },
+  UPDATE_PROJECT(state, project) {
+    const projectIndex = state.projects.findIndex(
+      item => item.id === project._id
+    );
+    state.projects[projectIndex] = project;
+  },
   REMOVE_PROJECTS(state, ids) {
     const updatedProjects = state.projects.filter(
       item => !ids.includes(item._id)
