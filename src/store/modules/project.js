@@ -17,8 +17,11 @@ export const mutations = {
   SET_PROJECT(state, project) {
     state.project = project;
   },
-  SET_PROJECT_MEDIA(state, images) {
-    state.project.images = images;
+  REMOVE_PROJECTS(state, ids) {
+    const updatedProjects = state.projects.filter(
+      item => !ids.includes(item._id)
+    );
+    state.projects = updatedProjects;
   }
 };
 
@@ -62,6 +65,27 @@ export const actions = {
           console.log(`Error: ${err}`);
         });
     }
+  },
+  updateProject({ commit }, project) {
+    return db
+      .postProject(project)
+      .then(project => {
+        commit("UPDATE_PROJECT", project);
+      })
+      .catch(err => {
+        console.log(`Error: ${err}`);
+        throw err;
+      });
+  },
+  deleteProject({ commit }, project) {
+    return db
+      .deleteProject(project._id)
+      .then(project => {
+        commit("REMOVE_PROJECTS", [project._id]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 

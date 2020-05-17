@@ -1,5 +1,6 @@
 <template>
   <li class="projectPost">
+    <button v-if="isAuthenticated" @click="deletePost">X</button>
     <router-link
       class="projectPost__link"
       :to="{ name: 'project-show', params: { id: this.$vnode.key } }"
@@ -12,11 +13,19 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: {
     project: Object
   },
+  methods: {
+    deletePost() {
+      this.$store.dispatch("project/deleteProject", this.project);
+    }
+  },
   computed: {
+    ...mapGetters({ isAuthenticated: "auth/isAuthenticated" }),
     blockStyling() {
       const backgroundImage = this.project.featuredImage
         ? `url(${this.project.featuredImage.src})`

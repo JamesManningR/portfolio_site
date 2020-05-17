@@ -39,6 +39,17 @@ export default {
         throw err;
       });
   },
+  // Delete
+  async deleteProject(id) {
+    return axios
+      .delete(`${API_URL}/projects/${id}`)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err;
+      });
+  },
 
   // Media ================================
   // Create ------------------------------
