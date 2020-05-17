@@ -1,6 +1,16 @@
 <template>
   <li class="projectPost">
-    <button v-if="isAuthenticated" @click="deletePost">X</button>
+    <template v-if="isAuthenticated">
+      <button class="projectPost__button projectPost__edit" @click="deletePost">
+        X
+      </button>
+      <router-link
+        class="projectPost__button projectPost__edit"
+        :to="{ name: 'project-edit', params: { id: this.$vnode.key } }"
+      >
+        Edit
+      </router-link>
+    </template>
     <router-link
       class="projectPost__link"
       :to="{ name: 'project-show', params: { id: this.$vnode.key } }"

@@ -27,12 +27,16 @@ const routes = [
     component: () => import("@/views/project/ProjectShow.vue"),
     props: true,
     beforeEnter(routeTo, routeFrom, next) {
-      store
-        .dispatch("project/fetchProject", routeTo.params.id)
-        .then(project => {
-          routeTo.params.project = project;
-          next();
-        });
+      store.dispatch("project/fetchProject", routeTo.params.id).then(next);
+    }
+  },
+  {
+    path: "/projects/:id/edit",
+    name: "project-edit",
+    component: () => import("@/views/project/ProjectEdit.vue"),
+    props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      store.dispatch("project/fetchProject", routeTo.params.id).then(next);
     }
   },
   {

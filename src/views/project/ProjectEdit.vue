@@ -1,6 +1,6 @@
 <template>
   <main class="editProject">
-    <project-edit-form @change="project = $event">
+    <project-edit-form v-model="project">
       <button
         @click.prevent="updateProject"
         class="btn btn--submit"
@@ -22,13 +22,12 @@ import ProjectEditForm from "@/components/ProjectEditForm.vue";
 import BlogText from "@/components/BlogText.vue";
 
 export default {
-  props: ["projectData"],
   components: {
     ProjectEditForm,
     BlogText
   },
   created() {
-    this.project = this.projectdata;
+    this.project = this.$store.state.project.project;
   },
   data() {
     return {

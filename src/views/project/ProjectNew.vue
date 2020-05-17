@@ -1,6 +1,9 @@
 <template>
   <main class="newProject">
-    <project-edit-form @change="project = $event">
+    <project-edit-form
+      v-model="project"
+      @featuredSelect="this.thumbnailSrc = $event"
+    >
       <button
         @click.prevent="createProject"
         class="btn btn--submit"
@@ -36,7 +39,8 @@ export default {
         featuredImage: "",
         color: "",
         skills: []
-      }
+      },
+      thumbnailSrc: ""
     };
   },
   methods: {

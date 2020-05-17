@@ -7,7 +7,7 @@
         placeholder="Title"
         class="projectForm__input projectForm__input--title"
         type="text"
-        v-model="project.title"
+        v-model="value.title"
       />
       <input type="url" placeholder="link" />
     </div>
@@ -17,7 +17,7 @@
         id="ProjectFormBody"
         placeholder="Body"
         class="projectForm__input projectForm__input--body"
-        v-model="project.body"
+        v-model="value.body"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--color">
@@ -26,7 +26,7 @@
         id="ProjectFormColor"
         class="projectForm__input projectForm__input--color"
         type="color"
-        v-model="project.color"
+        v-model="value.color"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--featured">
@@ -34,16 +34,16 @@
         aria-label="project image"
         id="ProjectFormFeatured"
         class="projectForm__input projectForm__input--featured"
-        @fileUploaded="project.images = $event"
+        @fileUploaded="value.images = $event"
         @featuredSelected="featuredSelected($event)"
       />
     </div>
-    <project-skill-picker @skillsChanged="project.skills = $event" />
+    <project-skill-picker @skillsChanged="value.skills = $event" />
     <div class="projectForm__formGroup projectForm__formGroup--submit">
       <slot name="submit"></slot>
     </div>
     <figure class="thumbnail__preview" :style="thumbnailStyling">
-      <h2 class="thumbnail__title">{{ project.title }}</h2>
+      <h2 class="thumbnail__title">{{ value.title }}</h2>
     </figure>
   </form>
 </template>
@@ -53,38 +53,31 @@ import fileUploader from "@/components/FileUploader.vue";
 import projectSkillPicker from "@/components/ProjectSkillPicker.vue";
 
 export default {
-  data() {
-    return {
-      project: {
-        title: "title",
-        body: "body",
-        images: [],
-        featuredImage: null,
-        color: "",
-        skills: []
-      },
-      thumbnailSrc: ""
-    };
-  },
+  props: { value: Object },
   methods: {
     featuredSelected(evt) {
       console.log(evt);
-      this.project.featuredImage = evt.id;
+      this.value.featuredImage = evt.id;
       this.thumbnailSrc = evt.src;
     }
   },
+  data() {
+    return {
+      thumbnailSrc: ""
+    };
+  },
   watch: {
-    project: {
+    value: {
       deep: true,
       handler() {
-        this.$emit("change", this.project);
+        this.$emit("input", this.value);
       }
     }
   },
   computed: {
     thumbnailStyling() {
       const backgroundImage = `url(${this.thumbnailSrc})`;
-      const backgroundColor = this.project.color ? this.project.color : "";
+      const backgroundColor = this.value.color ? this.value.color : "";
       return {
         backgroundColor,
         backgroundImage
