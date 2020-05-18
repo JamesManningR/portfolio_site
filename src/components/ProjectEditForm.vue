@@ -84,7 +84,7 @@ export default {
 <style lang="scss">
 .projectForm {
   display: grid;
-  grid-template-areas: "title title title color" "body body body body" "link link link link" "skills skills upload upload" "submit submit submit submit";
+  grid-template-areas: "title title title color" "body body body body" "link link link link" "skills skills images images" "submit submit submit submit";
   flex-direction: column;
   &__input {
     width: 100%;
