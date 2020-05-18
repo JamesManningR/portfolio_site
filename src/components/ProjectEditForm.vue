@@ -1,12 +1,13 @@
 <template>
   <form class="projectForm">
-    <div class="projectForm__formGroup projectForm__formGroup--color">
+    <div class="projectForm__formGroup projectForm__formGroup--title">
       <input
-        aria-label="project color"
-        id="ProjectFormColor"
-        class="projectForm__input projectForm__input--color"
-        type="color"
-        v-model="value.color"
+        aria-label="project title"
+        id="ProjectFormTitle"
+        placeholder="Title"
+        class="projectForm__input projectForm__input--title"
+        type="text"
+        v-model="value.title"
       />
     </div>
     <div class="projectForm__formGroup projectForm__formGroup--body">
