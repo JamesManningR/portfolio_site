@@ -10,6 +10,7 @@
         v-model="value.title"
       />
     </div>
+
     <div class="projectForm__formGroup projectForm__formGroup--body">
       <textarea
         aria-label="project body"
@@ -19,7 +20,14 @@
         v-model="value.body"
       />
     </div>
-    <project-skill-picker class="projectForm__formGroup projectForm__formGroup--skills" @skillsChanged="value.skills = $event" />
+
+    <project-link-input class="projectForm__formGroup projectForm__formGroup--links" v-model="value.links" />
+
+    <project-skill-picker
+      class="projectForm__formGroup projectForm__formGroup--skills"
+      @skillsChanged="value.skills = $event"
+    />
+
     <div class="projectForm__formGroup projectForm__formGroup--images">
       <file-uploader
         aria-label="project image"
@@ -29,18 +37,22 @@
         @featuredSelected="featuredSelected($event)"
       />
     </div>
+
     <div class="projectForm__formGroup projectForm__formGroup--submit">
       <slot name="submit"></slot>
     </div>
+
     <figure class="thumbnail__preview" :style="thumbnailStyling">
       <h2 class="thumbnail__title">{{ value.title }}</h2>
     </figure>
+
   </form>
 </template>
 
 <script>
 import fileUploader from "@/components/FileUploader.vue";
 import projectSkillPicker from "@/components/ProjectSkillPicker.vue";
+import ProjectLinkInput from "@/components/ProjectLinkInput";
 
 export default {
   props: { value: Object },
@@ -49,11 +61,11 @@ export default {
       console.log(evt);
       this.value.featuredImage = evt.id;
       this.thumbnailSrc = evt.src;
-    },
+    }
   },
   data() {
     return {
-      thumbnailSrc: "",
+      thumbnailSrc: ""
     };
   },
   watch: {
@@ -61,8 +73,8 @@ export default {
       deep: true,
       handler() {
         this.$emit("input", this.value);
-      },
-    },
+      }
+    }
   },
   computed: {
     thumbnailStyling() {
@@ -70,22 +82,26 @@ export default {
       const backgroundColor = this.value.color ? this.value.color : "";
       return {
         backgroundColor,
-        backgroundImage,
+        backgroundImage
       };
-    },
+    }
   },
   components: {
     fileUploader,
     projectSkillPicker,
-  },
+    ProjectLinkInput
+  }
 };
 </script>
 
 <style lang="scss">
 .projectForm {
   display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 8fr 3fr 1fr;
   grid-template-areas: "title title title color" "body body body body" "link link link link" "skills skills images images" "submit submit submit submit";
   flex-direction: column;
+
   &__input {
     width: 100%;
     min-width: 2rem;
@@ -122,10 +138,13 @@ export default {
       flex-direction: column;
       flex-grow: 1;
     }
+    &--links{
+      grid-area: link;
+    }
     &--skills {
       grid-area: skills;
     }
-    &--images{
+    &--images {
       grid-area: images;
     }
     &--submit {

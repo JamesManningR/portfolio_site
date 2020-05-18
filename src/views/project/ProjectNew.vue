@@ -1,22 +1,25 @@
 <template>
   <main class="newProject">
-    <project-edit-form
-      v-model="project"
-      @featuredSelect="this.thumbnailSrc = $event"
-    >
-      <button
-        @click.prevent="createProject"
-        class="btn btn--submit"
-        slot="submit"
-        type="submit"
+    <transition>
+      <project-edit-form
+        v-model="project"
+        @featuredSelect="this.thumbnailSrc = $event"
+        v-if="editMode"
       >
-        Submit
-      </button>
-    </project-edit-form>
+        <button
+          @click.prevent="createProject"
+          class="btn btn--submit"
+          slot="submit"
+          type="submit"
+        >
+          Submit
+        </button>
+      </project-edit-form>
 
-    <div class="newProject__preview">
-      <blog-text :project="project" />
-    </div>
+      <div v-else class="newProject__preview">
+        <blog-text :project="project" />
+      </div>
+    </transition>
   </main>
 </template>
 
@@ -38,9 +41,11 @@ export default {
         images: [],
         featuredImage: "",
         color: "",
-        skills: []
+        skills: [],
+        links: []
       },
-      thumbnailSrc: ""
+      thumbnailSrc: "",
+      editMode: true
     };
   },
   methods: {
@@ -53,9 +58,6 @@ export default {
 
 <style lang="scss">
 .newProject {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 1rem;
   &__label {
     &--body {
       display: flex;
