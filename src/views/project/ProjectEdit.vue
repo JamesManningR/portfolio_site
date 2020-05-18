@@ -1,19 +1,22 @@
 <template>
   <main class="editProject">
-    <project-edit-form v-model="project">
-      <button
-        @click.prevent="updateProject"
-        class="btn btn--submit"
-        slot="submit"
-        type="submit"
-      >
-        Submit
-      </button>
-    </project-edit-form>
+    <transition>
+      <project-edit-form v-if="editMode" v-model="project">
+        <button
+          @click.prevent="updateProject"
+          class="btn btn--submit"
+          slot="submit"
+          type="submit"
+        >
+          Submit
+        </button>
+      </project-edit-form>
 
-    <div class="editProject__preview">
-      <blog-text :project="project" />
-    </div>
+      <div v-else class="editProject__preview">
+        <blog-text :project="project" />
+      </div>
+    </transition>
+    <button @click.prevent="editMode = !edittMode">Preview / Edit</button>
   </main>
 </template>
 
@@ -38,8 +41,10 @@ export default {
         images: [],
         featuredImage: "",
         color: "",
-        skills: []
-      }
+        skills: [],
+        links: []
+      },
+      editMode: true
     };
   },
   methods: {
@@ -52,9 +57,6 @@ export default {
 
 <style lang="scss">
 .editProject {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 1rem;
   &__label {
     &--body {
       display: flex;
