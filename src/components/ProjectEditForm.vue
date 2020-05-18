@@ -11,6 +11,16 @@
       />
     </div>
 
+    <div class="projectForm__formGroup projectForm__formGroup--color">
+      <input
+        aria-label="project color"
+        id="ProjectFormcolor"
+        class="projectForm__input projectForm__input--color"
+        type="color"
+        v-model="value.color"
+      />
+    </div>
+
     <div class="projectForm__formGroup projectForm__formGroup--body">
       <textarea
         aria-label="project body"
@@ -21,7 +31,10 @@
       />
     </div>
 
-    <project-link-input class="projectForm__formGroup projectForm__formGroup--links" v-model="value.links" />
+    <project-link-input
+      class="projectForm__formGroup projectForm__formGroup--links"
+      v-model="value.links"
+    />
 
     <project-skill-picker
       class="projectForm__formGroup projectForm__formGroup--skills"
@@ -41,11 +54,6 @@
     <div class="projectForm__formGroup projectForm__formGroup--submit">
       <slot name="submit"></slot>
     </div>
-
-    <figure class="thumbnail__preview" :style="thumbnailStyling">
-      <h2 class="thumbnail__title">{{ value.title }}</h2>
-    </figure>
-
   </form>
 </template>
 
@@ -60,13 +68,7 @@ export default {
     featuredSelected(evt) {
       console.log(evt);
       this.value.featuredImage = evt.id;
-      this.thumbnailSrc = evt.src;
     }
-  },
-  data() {
-    return {
-      thumbnailSrc: ""
-    };
   },
   watch: {
     value: {
@@ -74,16 +76,6 @@ export default {
       handler() {
         this.$emit("input", this.value);
       }
-    }
-  },
-  computed: {
-    thumbnailStyling() {
-      const backgroundImage = `url(${this.thumbnailSrc})`;
-      const backgroundColor = this.value.color ? this.value.color : "";
-      return {
-        backgroundColor,
-        backgroundImage
-      };
     }
   },
   components: {
@@ -99,7 +91,7 @@ export default {
   display: grid;
   height: 100vh;
   grid-template-rows: 1fr 8fr 3fr 1fr;
-  grid-template-areas: "title title title color" "body body body body" "link link link link" "skills skills images images" "submit submit submit submit";
+  grid-template-areas: "title title title color" "body body body body" "link link images images" "skills skills skills skills" "submit submit submit submit";
   flex-direction: column;
 
   &__input {
@@ -138,7 +130,7 @@ export default {
       flex-direction: column;
       flex-grow: 1;
     }
-    &--links{
+    &--links {
       grid-area: link;
     }
     &--skills {
@@ -150,36 +142,6 @@ export default {
     &--submit {
       grid-area: submit;
     }
-  }
-}
-.thumbnail {
-  &__preview {
-    display: flex;
-    width: 280px;
-    height: 200px;
-    position: absolute;
-    right: 1em;
-    bottom: 1em;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    background-size: cover;
-
-    &:hover {
-      h2 {
-        transform: scale(1.2);
-      }
-    }
-    h2 {
-      text-decoration: none;
-      transition: transform 0.55s ease-out;
-      &:visited {
-        color: currentColor;
-      }
-    }
-  }
-  &__title {
-    text-shadow: 2px 1px 12px #000000ee;
   }
 }
 </style>
