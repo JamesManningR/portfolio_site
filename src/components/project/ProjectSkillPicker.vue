@@ -38,7 +38,7 @@
 
 <script>
 import symbols from "@/assets/symbols";
-import svgPath from "@/components/SVGPath.vue";
+import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
   data() {

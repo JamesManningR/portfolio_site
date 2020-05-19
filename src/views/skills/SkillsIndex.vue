@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import projectSkillPicker from "@/components/ProjectSkillPicker.vue";
-import projectList from "@/components/ProjectList.vue";
+import projectSkillPicker from "@/components/project/ProjectSkillPicker.vue";
+import projectList from "@/components/project/ProjectList.vue";
 import { mapState } from "vuex";
 
 export default {

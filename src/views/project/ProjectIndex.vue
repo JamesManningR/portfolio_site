@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import projectList from "@/components/ProjectList.vue";
+import projectList from "@/components/project/ProjectList.vue";
 
 import { mapState } from "vuex";
 

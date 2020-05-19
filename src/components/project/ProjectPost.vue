@@ -32,7 +32,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import svgPath from "@/components/SVGPath.vue";
+import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
   components: {

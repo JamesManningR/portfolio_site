@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import ProjectEditForm from "@/components/ProjectEditForm.vue";
-import BlogText from "@/components/BlogText.vue";
+import ProjectEditForm from "@/components/project/ProjectEditForm.vue";
+import BlogText from "@/components/general/BlogText.vue";
 
 export default {
   props: {

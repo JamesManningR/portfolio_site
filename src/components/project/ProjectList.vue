@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ProjectPost from "@/components/ProjectPost.vue";
+import ProjectPost from "@/components/project/ProjectPost.vue";
 
 export default {
   props: {

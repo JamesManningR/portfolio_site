@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import appAccount from "@/components/AppAccount.vue";
+import appAccount from "@/components/app/AppAccount.vue";
 
 export default {
   components: {

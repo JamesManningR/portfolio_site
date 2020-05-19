@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import fileUploader from "@/components/FileUploader.vue";
-import projectSkillPicker from "@/components/ProjectSkillPicker.vue";
-import ProjectLinkInput from "@/components/ProjectLinkInput";
+import fileUploader from "@/components/general/FileUploader.vue";
+import projectSkillPicker from "@/components/project/ProjectSkillPicker.vue";
+import ProjectLinkInput from "@/components/project/ProjectLinkInput";
 
 export default {
   props: { value: Object },

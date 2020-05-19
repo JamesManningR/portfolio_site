@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import ProjectImageBanner from "@/components/ProjectImageBanner.vue";
-import BlogText from "@/components/BlogText.vue";
-import SkillDisplay from "@/components/ProjectSkillsDisplay.vue";
-import ProjectLinkList from "@/components/ProjectLinkList.vue";
+import ProjectImageBanner from "@/components/project/ProjectImageBanner.vue";
+import SkillDisplay from "@/components/project/ProjectSkillsDisplay.vue";
+import ProjectLinkList from "@/components/project/ProjectLinkList.vue";
+import BlogText from "@/components/general/BlogText.vue";
 
 import { mapState } from "vuex";
 
