@@ -3,6 +3,8 @@
 Hi! Thank you for checking out this repo.
 I built this site to showcase my work, as well as stretch my new skills in vue.
 
+> Keep track of my progress on my [trello board](https://trello.com/b/lWsAhIzN/portfolio-site)! 
+
 ## Here are some key skills used while making this site:
 * VueJS
 * VueRouter
