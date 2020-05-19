@@ -25,12 +25,17 @@ import ProjectEditForm from "@/components/ProjectEditForm.vue";
 import BlogText from "@/components/BlogText.vue";
 
 export default {
+  props: {
+    newProject: Boolean
+  },
   components: {
     ProjectEditForm,
     BlogText
   },
   created() {
-    this.project = this.$store.state.project.project;
+    if (!this.newProject) {
+      this.project = this.$store.state.project.project;
+    }
   },
   data() {
     return {
@@ -49,7 +54,11 @@ export default {
   },
   methods: {
     updateProject() {
-      this.$store.dispatch("project/updateProject", this.project);
+      if (this.newProject) {
+        this.$store.dispatch("project/createProject", this.project);
+      } else {
+        this.$store.dispatch("project/updateProject", this.project);
+      }
     }
   }
 };

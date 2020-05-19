@@ -19,7 +19,8 @@ const routes = [
   {
     path: "/projects/new",
     name: "project-new",
-    component: () => import("../views/project/ProjectNew.vue")
+    props: { newProject: true },
+    component: () => import("../views/project/ProjectEdit.vue")
   },
   {
     path: "/projects/:id",
@@ -34,7 +35,7 @@ const routes = [
     path: "/projects/:id/edit",
     name: "project-edit",
     component: () => import("@/views/project/ProjectEdit.vue"),
-    props: true,
+    props: { newProject: false },
     beforeEnter(routeTo, routeFrom, next) {
       store.dispatch("project/fetchProject", routeTo.params.id).then(next);
     }
