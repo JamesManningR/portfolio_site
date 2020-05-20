@@ -14,9 +14,7 @@
 import ProjectPost from "@/components/project/ProjectPost.vue";
 
 export default {
-  props: {
-    projects: Array
-  },
+  props: ["projects"],
   components: {
     ProjectPost
   }

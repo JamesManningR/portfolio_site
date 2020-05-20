@@ -1,7 +1,7 @@
 <template>
   <main class="editProject">
     <transition>
-      <project-edit-form v-if="editMode" v-model="project">
+      <project-edit-form v-model="project">
         <button
           @click.prevent="updateProject"
           class="btn btn--submit"
@@ -11,10 +11,6 @@
           Submit
         </button>
       </project-edit-form>
-
-      <div v-else class="editProject__preview">
-        <blog-text :project="project" />
-      </div>
     </transition>
     <button @click.prevent="editMode = !edittMode">Preview / Edit</button>
   </main>
@@ -22,15 +18,13 @@
 
 <script>
 import ProjectEditForm from "@/components/project/ProjectEditForm.vue";
-import BlogText from "@/components/general/BlogText.vue";
 
 export default {
   props: {
     newProject: Boolean
   },
   components: {
-    ProjectEditForm,
-    BlogText
+    ProjectEditForm
   },
   created() {
     if (!this.newProject) {

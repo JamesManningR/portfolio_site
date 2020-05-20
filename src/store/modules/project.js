@@ -1,4 +1,5 @@
 import db from "@/services/nodeApi.service.js";
+import router from "@/router";
 
 export const namespaced = true;
 
@@ -38,6 +39,7 @@ export const actions = {
       .postProject(project)
       .then(project => {
         commit("ADD_PROJECT", project);
+        router.push({ name: "project-show", params: { id: project._id } });
       })
       .catch(err => {
         console.log(`Error: ${err}`);

@@ -92,6 +92,7 @@ export default {
   display: flex;
   border: 1px solid #8fb5d0;
   border-radius: 0.3em;
+  height: 100%;
 
   &__label {
     box-sizing: border-box;

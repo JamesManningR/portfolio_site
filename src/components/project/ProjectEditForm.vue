@@ -31,6 +31,11 @@
       />
     </div>
 
+    <vue-simple-markdown
+      class="projectForm__formGroup--preview"
+      :source="value.body"
+    />
+
     <project-link-input
       class="projectForm__formGroup projectForm__formGroup--links"
       v-model="value.links"
@@ -91,7 +96,7 @@ export default {
   display: grid;
   height: 100vh;
   grid-template-rows: 1fr 8fr 3fr 1fr;
-  grid-template-areas: "title title title color" "body body body body" "link link images images" "skills skills skills skills" "submit submit submit submit";
+  grid-template-areas: "title title title color" "body body preview preview" "link link images images" "skills skills skills skills" "submit submit submit submit";
   flex-direction: column;
 
   &__input {
@@ -129,6 +134,9 @@ export default {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+    }
+    &--preview {
+      grid-area: preview;
     }
     &--links {
       grid-area: link;
