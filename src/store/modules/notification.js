@@ -6,10 +6,10 @@ export const state = {
 
 export const mutations = {
   ADD_NOTIFICATION(state, notification) {
-    state.notification.push(notification);
+    state.notifications.push(notification);
   },
   REMOVE_NOTIFICATION(state, index) {
-    state.notification.splice(index, 1);
+    state.notifications.splice(index, 1);
   }
 };
 

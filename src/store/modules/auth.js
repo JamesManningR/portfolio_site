@@ -46,7 +46,7 @@ export const actions = {
     db.setToken(authData.token);
     return;
   },
-  login({ commit }, authData) {
+  login({ commit, dispatch }, authData) {
     return db
       .login(authData)
       .then(data => {
@@ -54,11 +54,18 @@ export const actions = {
         commit("SET_AUTH", data);
       })
       .catch(err => {
-        console.log(`Error: ${err}`);
-        throw err;
+        dispatch(
+          "notification/createNotification",
+          {
+            action: "Login",
+            message: err,
+            type: "failure"
+          },
+          { root: true }
+        );
       });
   },
-  register({ commit }, authData) {
+  register({ commit, dispatch }, authData) {
     return db
       .register(authData)
       .then(data => {
@@ -66,8 +73,15 @@ export const actions = {
         commit("SET_AUTH", data);
       })
       .catch(err => {
-        console.log(`Error: ${err}`);
-        throw err;
+        dispatch(
+          "notification/createNotification",
+          {
+            action: "register",
+            message: err,
+            type: "failure"
+          },
+          { root: true }
+        );
       });
   },
   logout({ commit }) {
