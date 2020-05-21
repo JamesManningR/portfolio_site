@@ -52,6 +52,15 @@ export const actions = {
       .then(data => {
         storeAuth(data);
         commit("SET_AUTH", data);
+        dispatch(
+          "notification/createNotification",
+          {
+            action: "Logged In",
+            message: "Welcome back!",
+            type: "success"
+          },
+          { root: true }
+        );
       })
       .catch(err => {
         dispatch(
@@ -71,6 +80,15 @@ export const actions = {
       .then(data => {
         storeAuth(data);
         commit("SET_AUTH", data);
+        dispatch(
+          "notification/createNotification",
+          {
+            action: "User Registered",
+            message: "Welcome to the blog system!",
+            type: "success"
+          },
+          { root: true }
+        );
       })
       .catch(err => {
         dispatch(
