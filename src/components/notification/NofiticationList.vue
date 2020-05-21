@@ -1,7 +1,8 @@
 <template>
-  <ul>
-    <notification-iten
-      v-for="(notification, index) in notifications"
+  <ul class="nofiticationList">
+    <notification-item
+      class="nofiticationList__item"
+      v-for="(notification, index) in notification.notifications"
       :key="index"
       :notification="notification"
     />
@@ -10,10 +11,12 @@
 
 <script>
 import { mapState } from "vuex";
-import NotificationItem from "@/components/notification/NotificationItem.vue";
+import notificationItem from "@/components/notification/NotificationItem.vue";
 
 export default {
-  components: [NotificationItem],
+  components: {
+    notificationItem
+  },
   computed: {
     ...mapState(["notification"])
   }

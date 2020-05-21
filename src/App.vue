@@ -4,15 +4,18 @@
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
+    <notification-list />
   </div>
 </template>
 
 <script>
 import appHeader from "@/components/app/AppHeader.vue";
+import notificationList from "@/components/notification/NofiticationList.vue";
 
 export default {
   components: {
-    appHeader
+    appHeader,
+    notificationList
   },
   created() {
     this.$store.dispatch("auth/autoLogin");

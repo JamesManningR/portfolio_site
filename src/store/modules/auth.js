@@ -102,13 +102,22 @@ export const actions = {
         );
       });
   },
-  logout({ commit }) {
+  logout({ commit, dispatch }) {
     localStorage.removeItem("_token");
     localStorage.removeItem("_tokenExpiry");
     localStorage.removeItem("_username");
     localStorage.removeItem("_userId");
     commit("UNSET_AUTH");
     db.setToken(null);
+    dispatch(
+      "notification/createNotification",
+      {
+        action: "User Logged out",
+        message: "See you later!",
+        type: "caution"
+      },
+      { root: true }
+    );
   }
 };
 
