@@ -9,5 +9,20 @@ $colors: (
   primary: (
     light: #FFFFFF,
     dark: #000000
+  ),
+  success: (
+    base: #00BB7E,
+    light: #CCDBAE,
+    dark: #304A60
+  ),
+  caution: (
+    base: #FFBE00,
+    light: #FFF8E0,
+    dark: #AF8403
+  ),
+  warning: (
+    base: #FF7769,
+    light: #FFDED9,
+    dark: #7E4645
   )
 );
