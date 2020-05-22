@@ -56,7 +56,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Logged In",
-            message: "Welcome back!",
+            message: `Welcome back ${data.username}!`,
             type: "success"
           },
           { root: true }

@@ -24,6 +24,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './scss/main.scss';
+
 #app {
   display: grid;
   max-width: 100vw;
