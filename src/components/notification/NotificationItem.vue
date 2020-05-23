@@ -1,5 +1,5 @@
 <template>
-  <li class="notification" role="alert">
+  <li :class="classList" role="alert">
     <h2 class="notification__action">{{ notification.action }}</h2>
     <p class="notification__message">{{ notification.message }}</p>
     <button
@@ -29,11 +29,19 @@ export default {
         this.notification.id
       );
     }
+  },
+  computed: {
+    classList() {
+      return ["notification", `notification--${this.notification.type}`];
+    }
   }
 };
 </script>
 
 <style lang="scss">
+@import "@/scss/abstracts/_variables.scss";
+@import "@/scss/abstracts/_functions.scss";
+
 .notification {
   padding: 0.5em 0.75em 0.75em;
   position: relative;
@@ -60,6 +68,21 @@ export default {
   &__cross {
     width: 1.25em;
     height: 1.25em;
+  }
+  &--success {
+    color: col(success, dark);
+    background-color: col(success, light);
+    border-left: 4px solid col(success);
+  }
+  &--caution {
+    color: col(caution, dark);
+    background-color: col(caution, light);
+    border-left: 4px solid col(caution);
+  }
+  &--failure {
+    color: col(failure, dark);
+    background-color: col(failure, light);
+    border-left: 4px solid col(failure);
   }
 }
 </style>

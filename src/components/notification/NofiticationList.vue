@@ -24,9 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_variables.scss";
-@import "@/scss/abstracts/_functions.scss";
-
 .nofiticationList {
   width: 25em;
   position: absolute;
@@ -34,9 +31,6 @@ export default {
   bottom: 0;
   &__item {
     margin: 0.5em;
-    color: col(success, dark);
-    background-color: col(success, light);
-    border-left: 4px solid col(success);
   }
 }
 </style>
