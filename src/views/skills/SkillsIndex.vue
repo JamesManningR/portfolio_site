@@ -17,7 +17,8 @@ import { mapState } from "vuex";
 
 export default {
   created() {
-    if (!this.$store.projects) {
+    // If the the are no projects loaded
+    if (Object.keys(this.$store.state.project.projects).length <= 0) {
       this.$store.dispatch("project/fetchProjects");
     }
   },
@@ -46,7 +47,8 @@ export default {
 
 <style>
 .skillsIndex {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
+
 </style>

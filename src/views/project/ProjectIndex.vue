@@ -18,7 +18,7 @@ export default {
     projectList
   },
   created() {
-    if (!this.$store.projects) {
+    if (!this.$store.state.project.projects) {
       this.$store.dispatch("project/fetchProjects");
     }
   },

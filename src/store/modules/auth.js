@@ -1,4 +1,5 @@
 import db from "@/services/nodeApi.service.js";
+import router from "@/router";
 
 export const namespaced = true;
 
@@ -39,6 +40,8 @@ export const actions = {
     if (!authData.token) {
       return;
     }
+    console.log(authData.expiry);
+    console.log(Date.now());
     if (!authData.expiry >= Date.now()) {
       return;
     }
@@ -61,6 +64,7 @@ export const actions = {
           },
           { root: true }
         );
+        router.push({ name: "projects" });
       })
       .catch(err => {
         dispatch(
@@ -89,6 +93,7 @@ export const actions = {
           },
           { root: true }
         );
+        router.push({ name: "projects" });
       })
       .catch(err => {
         dispatch(
@@ -118,6 +123,7 @@ export const actions = {
       },
       { root: true }
     );
+    router.push({ name: "index" });
   }
 };
 
