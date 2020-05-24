@@ -4,7 +4,7 @@
     viewBox="0 0 1025 1025"
     height="32"
     width="32"
-    :aria-label="label"
+    :alt="label"
     :class="className"
   >
     <path v-for="(path, index) in paths" :key="index" :fill="color" :d="path" />

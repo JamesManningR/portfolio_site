@@ -8,6 +8,7 @@ function storeAuth(data) {
   localStorage.setItem("_tokenExpiry", data.tokenExpiry);
   localStorage.setItem("_username", data.username);
   localStorage.setItem("_userId", data.userId);
+  localStorage.setItem("_userRole", data.userRole);
   return data;
 }
 
@@ -16,7 +17,8 @@ function loadLocalAuth() {
     token: localStorage.getItem("_token"),
     expiry: localStorage.getItem("_tokenExpiry"),
     username: localStorage.getItem("_username"),
-    userId: localStorage.getItem("_userId")
+    userId: localStorage.getItem("_userId"),
+    userRole: localStorage.getItem("_userRole")
   };
 }
 
@@ -65,7 +67,6 @@ export const actions = {
         router.push({ name: "projects" });
       })
       .catch(err => {
-        console.log(err);
         dispatch(
           "notification/createNotification",
           {
@@ -111,6 +112,7 @@ export const actions = {
     localStorage.removeItem("_tokenExpiry");
     localStorage.removeItem("_username");
     localStorage.removeItem("_userId");
+    localStorage.removeItem("_userRole");
     commit("UNSET_AUTH");
     db.setToken(null);
     dispatch(
@@ -129,5 +131,8 @@ export const actions = {
 export const getters = {
   isAuthenticated: () => {
     return state.authData !== null;
+  },
+  isAdmin: () => {
+    return state.authData ? state.authData.userRole == "admin" : false;
   }
 };

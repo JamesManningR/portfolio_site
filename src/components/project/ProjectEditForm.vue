@@ -1,5 +1,15 @@
 <template>
   <form class="projectForm">
+    <div class="projectForm__formGroup projectForm__formGroup--images">
+      <file-uploader
+        aria-label="project image"
+        id="ProjectFormImages"
+        class="projectForm__input projectForm__input--images"
+        @fileUploaded="value.images = $event"
+        @featuredSelected="featuredSelected($event)"
+      />
+    </div>
+
     <div class="projectForm__formGroup projectForm__formGroup--title">
       <input
         aria-label="project title"
@@ -10,6 +20,16 @@
         v-model="value.title"
       />
     </div>
+
+    <project-link-input
+      class="projectForm__formGroup projectForm__formGroup--links"
+      v-model="value.links"
+    />
+
+    <project-skill-picker
+      class="projectForm__formGroup projectForm__formGroup--skills"
+      v-model="value.skills"
+    />
 
     <div class="projectForm__formGroup projectForm__formGroup--color">
       <input
@@ -28,31 +48,6 @@
         placeholder="Body"
         class="projectForm__input projectForm__input--body"
         v-model="value.body"
-      />
-    </div>
-
-    <vue-simple-markdown
-      class="projectForm__formGroup--preview"
-      :source="value.body"
-    />
-
-    <project-link-input
-      class="projectForm__formGroup projectForm__formGroup--links"
-      v-model="value.links"
-    />
-
-    <project-skill-picker
-      class="projectForm__formGroup projectForm__formGroup--skills"
-      v-model="value.skills"
-    />
-
-    <div class="projectForm__formGroup projectForm__formGroup--images">
-      <file-uploader
-        aria-label="project image"
-        id="ProjectFormImages"
-        class="projectForm__input projectForm__input--images"
-        @fileUploaded="value.images = $event"
-        @featuredSelected="featuredSelected($event)"
       />
     </div>
 

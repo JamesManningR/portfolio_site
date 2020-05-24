@@ -12,7 +12,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
   // Read ------------------------------
@@ -24,7 +24,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
   // Single
@@ -35,7 +35,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
   // Update ----------------------
@@ -57,7 +57,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
   // Delete ----------------------
@@ -68,7 +68,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
 
@@ -83,7 +83,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
   async getAllMedia() {
@@ -93,7 +93,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
   async getMediaById(id) {
@@ -103,7 +103,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
 
@@ -117,7 +117,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
 

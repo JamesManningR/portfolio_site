@@ -34,7 +34,19 @@ export const mutations = {
 
 // Post project to project api and commit the change in vuex
 export const actions = {
-  createProject({ commit, dispatch }, project) {
+  createProject({ commit, dispatch, rootGetters }, project) {
+    console.log(rootGetters["auth/isAdmin"]);
+    if (!rootGetters["auth/isAdmin"]) {
+      return dispatch(
+        "notification/createNotification",
+        {
+          action: "Create Project",
+          message: "You don't have the permissions to do that!",
+          type: "failure"
+        },
+        { root: true }
+      );
+    }
     return db
       .postProject(project)
       .then(project => {
@@ -51,11 +63,11 @@ export const actions = {
         );
       })
       .catch(err => {
-        dispatch(
+        return dispatch(
           "notification/createNotification",
           {
             action: "Create Project",
-            message: err.message,
+            message: err.data.message,
             type: "failure"
           },
           { root: true }
@@ -75,7 +87,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Get projects",
-            message: err.message,
+            message: err.data.message,
             type: "failure"
           },
           { root: true }
@@ -98,7 +110,7 @@ export const actions = {
             "notification/createNotification",
             {
               action: "Get project",
-              message: err.message,
+              message: err.data.message,
               type: "failure"
             },
             { root: true }
@@ -106,7 +118,18 @@ export const actions = {
         });
     }
   },
-  updateProject({ commit, dispatch }, project) {
+  updateProject({ commit, dispatch, rootGetters }, project) {
+    if (!rootGetters["auth/isAdmin"]) {
+      return dispatch(
+        "notification/createNotification",
+        {
+          action: "Create Project",
+          message: "You don't have the permissions to do that!",
+          type: "failure"
+        },
+        { root: true }
+      );
+    }
     return db
       .updateProject(project)
       .then(project => {
@@ -126,14 +149,25 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Update Project",
-            message: err.message,
+            message: err.data.message,
             type: "failure"
           },
           { root: true }
         );
       });
   },
-  deleteProject({ commit, dispatch }, project) {
+  deleteProject({ commit, dispatch, rootGetters }, project) {
+    if (!rootGetters["auth/isAdmin"]) {
+      return dispatch(
+        "notification/createNotification",
+        {
+          action: "Create Project",
+          message: "You don't have the permissions to do that!",
+          type: "failure"
+        },
+        { root: true }
+      );
+    }
     return db
       .deleteProject(project._id)
       .then(project => {
@@ -149,11 +183,12 @@ export const actions = {
         );
       })
       .catch(err => {
+        console.log(err);
         dispatch(
           "notification/createNotification",
           {
             action: "Delete Project",
-            message: err.message,
+            message: err.data.message,
             type: "failure"
           },
           { root: true }

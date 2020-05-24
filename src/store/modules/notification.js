@@ -34,8 +34,4 @@ export const actions = {
   }
 };
 
-export const getters = {
-  notificationCount(state) {
-    return state.notifications.length();
-  }
-};
+export const getters = {};

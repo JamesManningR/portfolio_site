@@ -80,7 +80,17 @@ export default {
       evt.target.files.forEach(file => {
         filePromises.push(db.uploadMedia(file));
       });
-      const resolved = await Promise.all(filePromises);
+      let resolved;
+      try {
+        resolved = await Promise.all(filePromises);
+      } catch (err) {
+        this.$store.dispatch("notification/createNotification", {
+          action: "Upload Image",
+          message: err.data.message,
+          type: "failure"
+        });
+        return;
+      }
       this.images.files = resolved;
     }
   }

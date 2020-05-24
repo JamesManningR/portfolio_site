@@ -1,6 +1,6 @@
 <template>
   <ul class="projects">
-    <ProjectPost
+    <project-post-link
       class="projects__post"
       v-for="project in projects"
       :key="project._id"
@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import ProjectPost from "@/components/project/ProjectPost.vue";
+import ProjectPostLink from "@/components/project/ProjectPostLink.vue";
 
 export default {
   components: {
-    ProjectPost
+    ProjectPostLink
   },
   props: ["projects"]
 };
