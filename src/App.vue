@@ -2,7 +2,7 @@
   <div id="app">
     <app-header />
     <transition name="fade" mode="out-in">
-      <router-view />
+      <router-view :key="$route.fullPath" />
     </transition>
     <notification-list />
   </div>
