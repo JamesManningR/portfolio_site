@@ -1,6 +1,6 @@
 <template>
   <form class="projectForm">
-    <div class="projectForm__formGroup projectForm__formGroup--images">
+    <section class="projectForm__formGroup projectForm__formGroup--images">
       <file-uploader
         aria-label="project image"
         id="ProjectFormImages"
@@ -8,9 +8,9 @@
         @fileUploaded="value.images = $event"
         @featuredSelected="featuredSelected($event)"
       />
-    </div>
+    </section>
 
-    <div class="projectForm__formGroup projectForm__formGroup--title">
+    <section class="projectForm__formGroup projectForm__formGroup--title">
       <input
         aria-label="project title"
         id="ProjectFormTitle"
@@ -19,7 +19,7 @@
         type="text"
         v-model="value.title"
       />
-    </div>
+    </section>
 
     <project-link-input
       class="projectForm__formGroup projectForm__formGroup--links"
@@ -31,7 +31,7 @@
       v-model="value.skills"
     />
 
-    <div class="projectForm__formGroup projectForm__formGroup--color">
+    <section class="projectForm__formGroup projectForm__formGroup--color">
       <input
         aria-label="project color"
         id="ProjectFormcolor"
@@ -39,9 +39,9 @@
         type="color"
         v-model="value.color"
       />
-    </div>
+    </section>
 
-    <div class="projectForm__formGroup projectForm__formGroup--body">
+    <section class="projectForm__formGroup projectForm__formGroup--body">
       <textarea
         aria-label="project body"
         id="ProjectFormBody"
@@ -49,7 +49,7 @@
         class="projectForm__input projectForm__input--body"
         v-model="value.body"
       />
-    </div>
+    </section>
 
     <div class="projectForm__formGroup projectForm__formGroup--submit">
       <slot name="submit"></slot>
@@ -90,20 +90,21 @@ export default {
   display: grid;
   height: 100vh;
   flex-direction: column;
-  grid-template-areas: "title title title color" "body body preview preview" "link link images images" "skills skills skills skills" "submit submit submit submit";
-  grid-template-rows: 1fr 8fr 3fr 1fr;
+  grid-template-areas: "images images images images" "title title title color" "link link skills skills" "body body body body" "submit submit submit submit";
+  grid-template-rows: 2fr 1fr 3fr 8fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0.5em;
 
   &__input {
     width: 100%;
     min-width: 2rem;
     &--title {
-      margin-right: 1rem;
       font-family: Muli;
       font-size: 1.6em;
       font-weight: 700;
     }
     &--color {
-      height: 4rem;
+      height: 100%;
       padding: 0;
       border: 0;
     }
@@ -114,10 +115,8 @@ export default {
   }
   &__formGroup {
     width: 100%;
-    margin-bottom: 1rem;
     &--title {
       display: flex;
-      margin-bottom: 1.5rem;
       grid-area: title;
     }
     &--color {

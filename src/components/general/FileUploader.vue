@@ -118,7 +118,7 @@ export default {
     padding: 0.5em;
     padding-left: 1em;
     align-items: center;
-    flex-basis: 30%;
+    flex-basis: 12em;
     border-right: 1px solid #8fb5d0;
     &:active {
       background-color: #eaeaea;
@@ -138,7 +138,6 @@ export default {
   }
   &__uploaded {
     display: flex;
-    overflow-x: scroll;
     list-style: none;
   }
   &__featured {
