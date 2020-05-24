@@ -7,7 +7,7 @@
     </div>
     <transition-group name="slide" tag="ul" class="skills">
       <li
-        v-for="(brand, key) in filteredBrands"
+        v-for="(brand, key) in filteredSkills"
         :key="`key-${key}`"
         @click="brand.selected = true"
         class="skills__skill"
@@ -16,7 +16,7 @@
           class="skills__checkbox"
           type="checkbox"
           :id="'skills__check--' + key"
-          v-model="skills"
+          v-model="selectedSkills"
           :value="key"
         />
         <label
@@ -41,24 +41,37 @@ import symbols from "@/assets/symbols";
 import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
+  props: {
+    value: Array,
+    subset: Array
+  },
   data() {
     return {
-      brands: symbols.skills,
-      skills: [],
-      search: ""
+      skills: symbols.skills,
+      search: "",
+      selectedSkills: this.value
     };
   },
   watch: {
-    skills() {
-      this.$emit("skillsChanged", this.skills);
+    selectedSkills() {
+      this.$emit("input", this.selectedSkills);
     }
   },
   computed: {
-    filteredBrands() {
-      const filtered = Object.keys(this.brands)
+    skillSubset() {
+      const subset = Object.keys(this.skills)
+      .filter(key => this.subset.includes(key))
+      .reduce((obj, key) => {
+          obj[key] = this.skills[key];
+          return obj;
+        }, {});
+      return subset;
+    },
+    filteredSkills() {
+      const filtered = Object.keys(this.skillSubset)
         .filter(key => key.includes(this.search))
         .reduce((obj, key) => {
-          obj[key] = this.brands[key];
+          obj[key] = this.skillSubset[key];
           return obj;
         }, {});
       return filtered;
@@ -72,60 +85,61 @@ export default {
 
 <style lang="scss">
 .skillPicker {
-  &__search {
-    width: 100%;
-    position: relative;
-    input {
-      width: 100%;
-      height: 100%;
-      padding: 0.1em;
-      font-size: 1.1em;
-      text-align: left;
-    }
-    svg {
-      width: 1em;
-      height: 1em;
-      position: absolute;
-      top: 0.5em;
-      right: 0.5em;
-      pointer-events: none;
-    }
-  }
+	&__search {
+		width: 100%;
+		position: relative;
+		input {
+			width: 100%;
+			height: 100%;
+			padding: 0.1em;
+			font-size: 1.1em;
+			text-align: left;
+		}
+		svg {
+			width: 1em;
+			height: 1em;
+			position: absolute;
+			top: 0.5em;
+			right: 0.5em;
+			pointer-events: none;
+		}
+	}
 }
 
 .skills {
-  display: flex;
-  height: 200px;
-  overflow: scroll;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  list-style: none;
-  &__skill {
-    margin: 0.2em;
-  }
-  &__checkbox {
-    display: none;
-  }
-  &__label {
-    box-sizing: border-box;
-    display: flex;
-    padding: 0.4em;
-    border: 2px solid transparent;
-    border-radius: 0.2em;
-    &:hover {
-      background-color: #f6f6f6;
-      border-color: #dedede;
-    }
-  }
-  &__icon > path {
-    filter: grayscale(1) contrast(0);
-  }
-  &__checkbox:checked ~ &__label {
-    border-color: #ffb829;
-    .skills__icon > path {
-      filter: none;
-    }
-  }
+	display: flex;
+	height: 200px;
+	overflow: scroll;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	list-style: none;
+	&__skill {
+		margin: 0.2em;
+	}
+	&__checkbox {
+		display: none;
+	}
+	&__label {
+		box-sizing: border-box;
+		display: flex;
+		padding: 0.4em;
+		border: 2px solid transparent;
+		border-radius: 0.2em;
+		&:hover {
+			background-color: #F6F6F6;
+			border-color: #DEDEDE;
+		}
+	}
+	&__icon> path {
+		filter: grayscale(1) contrast(0);
+	}
+	&__checkbox:checked~ &__label {
+		border-color: #FFB829;
+		.skills__icon> path {
+			filter: none;
+		}
+	}
 }
+
 </style>
