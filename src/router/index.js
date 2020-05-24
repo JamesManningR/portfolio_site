@@ -14,7 +14,15 @@ const routes = [
   {
     path: "/projects",
     name: "projects",
-    component: () => import("../views/project/ProjectIndex.vue")
+    component: () => import("../views/project/ProjectIndex.vue"),
+    beforeEnter( routeTo, routeFrom, next ){
+      // If the the are no projects loaded
+      if (Object.keys(store.state.project.projects).length <= 0) {
+        store.dispatch("project/fetchProjects").then(next);
+      } else {
+        next()
+      }
+    }
   },
   {
     path: "/projects/new",
@@ -43,7 +51,15 @@ const routes = [
   {
     path: "/skills",
     name: "skills",
-    component: () => import("../views/skills/SkillsIndex.vue")
+    component: () => import("../views/skills/SkillsIndex.vue"),
+    beforeEnter(routeTo, routeFrom, next) {
+      // If the the are no projects loaded
+      if (Object.keys(store.state.project.projects).length <= 0) {
+        store.dispatch("project/fetchProjects").then(next);
+      } else {
+        next();
+      }
+    }
   },
   {
     path: "/blog",

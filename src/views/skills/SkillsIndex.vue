@@ -16,12 +16,6 @@ import projectList from "@/components/project/ProjectList.vue";
 import { mapState } from "vuex";
 
 export default {
-  created() {
-    // If the the are no projects loaded
-    if (Object.keys(this.$store.state.project.projects).length <= 0) {
-      this.$store.dispatch("project/fetchProjects");
-    }
-  },
   data() {
     return {
       selectedSkills: []
@@ -40,6 +34,16 @@ export default {
         return selectedSkills.every(v => project.skills.includes(v));
       });
       return filtered;
+    },
+    usedSkills() {
+      const skills = this.projects.map(project => {
+        return project.skills
+      })
+      .flat()
+      .reduce((unique, item) => {
+        return unique.includes(item) ? unique : [...unique, item]
+      }, [])
+      return skills
     }
   }
 };
