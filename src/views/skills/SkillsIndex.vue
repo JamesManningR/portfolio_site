@@ -16,14 +16,14 @@ import projectList from "@/components/project/ProjectList.vue";
 import { mapState } from "vuex";
 
 export default {
+  components: {
+    projectSkillPicker,
+    projectList
+  },
   data() {
     return {
       selectedSkills: []
     };
-  },
-  components: {
-    projectSkillPicker,
-    projectList
   },
   computed: {
     ...mapState("project", ["projects"]),

@@ -40,9 +40,7 @@ export const actions = {
     if (!authData.token) {
       return;
     }
-    console.log(authData.expiry);
-    console.log(Date.now());
-    if (!authData.expiry >= Date.now()) {
+    if (!Date.parse(authData.expiry) >= Date.now()) {
       return;
     }
     commit("SET_AUTH", authData);

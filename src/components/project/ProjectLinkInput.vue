@@ -35,6 +35,14 @@ export default {
   props: {
     value: Array
   },
+  watch: {
+    value: {
+      deep: true,
+      handler() {
+        this.$emit("input", this.value);
+      }
+    }
+  },
   methods: {
     addLink() {
       this.value.push({
@@ -42,14 +50,6 @@ export default {
         url: "",
         type: "live"
       });
-    }
-  },
-  watch: {
-    value: {
-      deep: true,
-      handler() {
-        this.$emit("input", this.value);
-      }
     }
   }
 };

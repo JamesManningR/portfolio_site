@@ -15,11 +15,11 @@
 import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
-  props: {
-    links: Array
-  },
   components: {
     svgPath
+  },
+  props: {
+    links: Array
   }
 };
 </script>

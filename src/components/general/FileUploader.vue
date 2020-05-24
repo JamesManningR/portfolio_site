@@ -49,17 +49,6 @@ export default {
   components: {
     svgPath
   },
-  methods: {
-    // On file drag and drop
-    async fileSelect(evt) {
-      let filePromises = [];
-      evt.target.files.forEach(file => {
-        filePromises.push(db.uploadMedia(file));
-      });
-      const resolved = await Promise.all(filePromises);
-      this.images.files = resolved;
-    }
-  },
   data() {
     return {
       images: {
@@ -83,6 +72,17 @@ export default {
           .src
       });
     }
+  },
+  methods: {
+    // On file drag and drop
+    async fileSelect(evt) {
+      let filePromises = [];
+      evt.target.files.forEach(file => {
+        filePromises.push(db.uploadMedia(file));
+      });
+      const resolved = await Promise.all(filePromises);
+      this.images.files = resolved;
+    }
   }
 };
 </script>
@@ -90,9 +90,9 @@ export default {
 <style lang="scss">
 .fileUploader {
   display: flex;
+  height: 100%;
   border: 1px solid #8fb5d0;
   border-radius: 0.3em;
-  height: 100%;
 
   &__label {
     box-sizing: border-box;

@@ -41,6 +41,9 @@ import symbols from "@/assets/symbols";
 import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
+  components: {
+    svgPath
+  },
   props: {
     value: Array,
     subset: Array
@@ -52,13 +55,9 @@ export default {
       selectedSkills: this.value
     };
   },
-  watch: {
-    selectedSkills() {
-      this.$emit("input", this.selectedSkills);
-    }
-  },
   computed: {
     skillSubset() {
+      // If a subset has been selected
       if (this.subset) {
         const subset = Object.keys(this.skills)
           .filter(key => this.subset.includes(key))
@@ -66,11 +65,14 @@ export default {
             obj[key] = this.skills[key];
             return obj;
           }, {});
+        // Return a filtered list with the subset
         return subset;
       }
+      // Otherwise, return the full array
       return this.skills;
     },
     filteredSkills() {
+      // Filter skills by search
       const filtered = Object.keys(this.skillSubset)
         .filter(key => key.includes(this.search))
         .reduce((obj, key) => {
@@ -80,8 +82,10 @@ export default {
       return filtered;
     }
   },
-  components: {
-    svgPath
+  watch: {
+    selectedSkills() {
+      this.$emit("input", this.selectedSkills);
+    }
   }
 };
 </script>

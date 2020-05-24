@@ -68,10 +68,14 @@ import projectSkillPicker from "@/components/project/ProjectSkillPicker.vue";
 import ProjectLinkInput from "@/components/project/ProjectLinkInput";
 
 export default {
+  components: {
+    fileUploader,
+    projectSkillPicker,
+    ProjectLinkInput
+  },
   props: { value: Object },
   methods: {
     featuredSelected(evt) {
-      console.log(evt);
       this.value.featuredImage = evt.id;
     }
   },
@@ -82,11 +86,6 @@ export default {
         this.$emit("input", this.value);
       }
     }
-  },
-  components: {
-    fileUploader,
-    projectSkillPicker,
-    ProjectLinkInput
   }
 };
 </script>

@@ -41,11 +41,6 @@ export default {
   props: {
     project: Object
   },
-  methods: {
-    deletePost() {
-      this.$store.dispatch("project/deleteProject", this.project);
-    }
-  },
   computed: {
     ...mapGetters({ isAuthenticated: "auth/isAuthenticated" }),
     blockStyling() {
@@ -57,6 +52,11 @@ export default {
         backgroundColor,
         backgroundImage
       };
+    }
+  },
+  methods: {
+    deletePost() {
+      this.$store.dispatch("project/deleteProject", this.project);
     }
   }
 };
@@ -97,14 +97,14 @@ export default {
   }
   &__button {
     display: none;
-    font-size: 1em;
-    border-radius: 0.5em;
-    color: #ffffff;
-    position: absolute;
     padding: 0.4em 1em;
-    border: none;
-    appearance: none;
+    position: absolute;
     top: 0.5em;
+    color: #ffffff;
+    font-size: 1em;
+    appearance: none;
+    border: none;
+    border-radius: 0.5em;
     &:hover {
       cursor: pointer;
     }
@@ -113,8 +113,9 @@ export default {
     right: 0.5em;
     background-color: #de5843;
     &Icon {
-      height: 1em;
       width: 1em;
+      height: 1em;
+
       fill: currentColor;
     }
   }

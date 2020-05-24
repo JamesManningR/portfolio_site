@@ -14,14 +14,14 @@
 import { mapGetters } from "vuex";
 
 export default {
+  computed: {
+    ...mapGetters({ isAuthenticated: "auth/isAuthenticated" })
+  },
   methods: {
     onLogout() {
       this.$store.dispatch("auth/logout");
       return;
     }
-  },
-  computed: {
-    ...mapGetters({ isAuthenticated: "auth/isAuthenticated" })
   }
 };
 </script>

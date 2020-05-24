@@ -20,16 +20,11 @@
 import ProjectEditForm from "@/components/project/ProjectEditForm.vue";
 
 export default {
-  props: {
-    newProject: Boolean
-  },
   components: {
     ProjectEditForm
   },
-  created() {
-    if (!this.newProject) {
-      this.project = this.$store.state.project.project;
-    }
+  props: {
+    newProject: Boolean
   },
   data() {
     return {
@@ -45,6 +40,11 @@ export default {
       },
       editMode: true
     };
+  },
+  created() {
+    if (!this.newProject) {
+      this.project = this.$store.state.project.project;
+    }
   },
   methods: {
     updateProject() {

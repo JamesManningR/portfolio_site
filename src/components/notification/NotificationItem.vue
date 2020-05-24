@@ -22,17 +22,17 @@ export default {
   props: {
     notification: Object
   },
+  computed: {
+    classList() {
+      return ["notification", `notification--${this.notification.type}`];
+    }
+  },
   methods: {
     dismissNotification() {
       this.$store.dispatch(
         "notification/removeNotification",
         this.notification.id
       );
-    }
-  },
-  computed: {
-    classList() {
-      return ["notification", `notification--${this.notification.type}`];
     }
   }
 };

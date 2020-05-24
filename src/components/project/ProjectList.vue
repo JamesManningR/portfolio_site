@@ -6,7 +6,6 @@
       :key="project._id"
       :project="project"
     />
-    <h2>More Projects</h2>
   </ul>
 </template>
 
@@ -14,10 +13,10 @@
 import ProjectPost from "@/components/project/ProjectPost.vue";
 
 export default {
-  props: ["projects"],
   components: {
     ProjectPost
-  }
+  },
+  props: ["projects"]
 };
 </script>
 
