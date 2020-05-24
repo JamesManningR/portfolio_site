@@ -36,14 +36,15 @@ export default {
       return filtered;
     },
     usedSkills() {
-      const skills = this.projects.map(project => {
-        return project.skills
-      })
-      .flat()
-      .reduce((unique, item) => {
-        return unique.includes(item) ? unique : [...unique, item]
-      }, [])
-      return skills
+      const skills = this.projects
+        .map(project => {
+          return project.skills;
+        })
+        .flat()
+        .reduce((unique, item) => {
+          return unique.includes(item) ? unique : [...unique, item];
+        }, []);
+      return skills;
     }
   }
 };
@@ -51,8 +52,7 @@ export default {
 
 <style>
 .skillsIndex {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 </style>

@@ -93,64 +93,63 @@ export default {
 
 <style lang="scss">
 .projectForm {
-	display: grid;
-	height: 100vh;
-	flex-direction: column;
-	grid-template-areas: 'title title title color' 'body body preview preview' 'link link images images' 'skills skills skills skills' 'submit submit submit submit';
-	grid-template-rows: 1fr 8fr 3fr 1fr;
+  display: grid;
+  height: 100vh;
+  flex-direction: column;
+  grid-template-areas: "title title title color" "body body preview preview" "link link images images" "skills skills skills skills" "submit submit submit submit";
+  grid-template-rows: 1fr 8fr 3fr 1fr;
 
-	&__input {
-		width: 100%;
-		min-width: 2rem;
-		&--title {
-			margin-right: 1rem;
-			font-family: Muli;
-			font-size: 1.6em;
-			font-weight: 700;
-		}
-		&--color {
-			height: 4rem;
-			padding: 0;
-			border: 0;
-		}
-		&--body {
-			flex-grow: 1;
-			font-family: inherit;
-		}
-	}
-	&__formGroup {
-		width: 100%;
-		margin-bottom: 1rem;
-		&--title {
-			display: flex;
-			margin-bottom: 1.5rem;
-			grid-area: title;
-		}
-		&--color {
-			grid-area: color;
-		}
-		&--body {
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-			grid-area: body;
-		}
-		&--preview {
-			grid-area: preview;
-		}
-		&--links {
-			grid-area: link;
-		}
-		&--skills {
-			grid-area: skills;
-		}
-		&--images {
-			grid-area: images;
-		}
-		&--submit {
-			grid-area: submit;
-		}
-	}
+  &__input {
+    width: 100%;
+    min-width: 2rem;
+    &--title {
+      margin-right: 1rem;
+      font-family: Muli;
+      font-size: 1.6em;
+      font-weight: 700;
+    }
+    &--color {
+      height: 4rem;
+      padding: 0;
+      border: 0;
+    }
+    &--body {
+      flex-grow: 1;
+      font-family: inherit;
+    }
+  }
+  &__formGroup {
+    width: 100%;
+    margin-bottom: 1rem;
+    &--title {
+      display: flex;
+      margin-bottom: 1.5rem;
+      grid-area: title;
+    }
+    &--color {
+      grid-area: color;
+    }
+    &--body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      grid-area: body;
+    }
+    &--preview {
+      grid-area: preview;
+    }
+    &--links {
+      grid-area: link;
+    }
+    &--skills {
+      grid-area: skills;
+    }
+    &--images {
+      grid-area: images;
+    }
+    &--submit {
+      grid-area: submit;
+    }
+  }
 }
-
 </style>

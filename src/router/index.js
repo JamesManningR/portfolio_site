@@ -15,12 +15,12 @@ const routes = [
     path: "/projects",
     name: "projects",
     component: () => import("../views/project/ProjectIndex.vue"),
-    beforeEnter( routeTo, routeFrom, next ){
+    beforeEnter(routeTo, routeFrom, next) {
       // If the the are no projects loaded
       if (Object.keys(store.state.project.projects).length <= 0) {
         store.dispatch("project/fetchProjects").then(next);
       } else {
-        next()
+        next();
       }
     }
   },

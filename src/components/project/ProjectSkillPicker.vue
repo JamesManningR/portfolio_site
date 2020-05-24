@@ -59,13 +59,16 @@ export default {
   },
   computed: {
     skillSubset() {
-      const subset = Object.keys(this.skills)
-      .filter(key => this.subset.includes(key))
-      .reduce((obj, key) => {
-          obj[key] = this.skills[key];
-          return obj;
-        }, {});
-      return subset;
+      if (this.subset) {
+        const subset = Object.keys(this.skills)
+          .filter(key => this.subset.includes(key))
+          .reduce((obj, key) => {
+            obj[key] = this.skills[key];
+            return obj;
+          }, {});
+        return subset;
+      }
+      return this.skills;
     },
     filteredSkills() {
       const filtered = Object.keys(this.skillSubset)
@@ -85,61 +88,60 @@ export default {
 
 <style lang="scss">
 .skillPicker {
-	&__search {
-		width: 100%;
-		position: relative;
-		input {
-			width: 100%;
-			height: 100%;
-			padding: 0.1em;
-			font-size: 1.1em;
-			text-align: left;
-		}
-		svg {
-			width: 1em;
-			height: 1em;
-			position: absolute;
-			top: 0.5em;
-			right: 0.5em;
-			pointer-events: none;
-		}
-	}
+  &__search {
+    width: 100%;
+    position: relative;
+    input {
+      width: 100%;
+      height: 100%;
+      padding: 0.1em;
+      font-size: 1.1em;
+      text-align: left;
+    }
+    svg {
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      pointer-events: none;
+    }
+  }
 }
 
 .skills {
-	display: flex;
-	height: 200px;
-	overflow: scroll;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	list-style: none;
-	&__skill {
-		margin: 0.2em;
-	}
-	&__checkbox {
-		display: none;
-	}
-	&__label {
-		box-sizing: border-box;
-		display: flex;
-		padding: 0.4em;
-		border: 2px solid transparent;
-		border-radius: 0.2em;
-		&:hover {
-			background-color: #F6F6F6;
-			border-color: #DEDEDE;
-		}
-	}
-	&__icon> path {
-		filter: grayscale(1) contrast(0);
-	}
-	&__checkbox:checked~ &__label {
-		border-color: #FFB829;
-		.skills__icon> path {
-			filter: none;
-		}
-	}
+  display: flex;
+  height: 200px;
+  overflow: scroll;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  &__skill {
+    margin: 0.2em;
+  }
+  &__checkbox {
+    display: none;
+  }
+  &__label {
+    box-sizing: border-box;
+    display: flex;
+    padding: 0.4em;
+    border: 2px solid transparent;
+    border-radius: 0.2em;
+    &:hover {
+      background-color: #f6f6f6;
+      border-color: #dedede;
+    }
+  }
+  &__icon > path {
+    filter: grayscale(1) contrast(0);
+  }
+  &__checkbox:checked ~ &__label {
+    border-color: #ffb829;
+    .skills__icon > path {
+      filter: none;
+    }
+  }
 }
-
 </style>

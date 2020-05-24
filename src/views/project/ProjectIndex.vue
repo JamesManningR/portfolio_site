@@ -28,17 +28,16 @@ export default {
 
 <style lang="scss">
 .projectsPage {
-	display: flex;
-	align-content: stretch;
-	flex-direction: column;
+  display: flex;
+  align-content: stretch;
+  flex-direction: column;
 }
 .projects {
-	display: grid;
-	flex-grow: 1;
-	grid-auto-flow: row;
-	grid-template-rows: repeat(3, 1fr);
-	grid-template-columns: repeat(4, 1fr);
-	list-style: none;
+  display: grid;
+  flex-grow: 1;
+  grid-auto-flow: row;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
 }
-
 </style>
