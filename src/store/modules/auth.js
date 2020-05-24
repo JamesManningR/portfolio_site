@@ -65,11 +65,12 @@ export const actions = {
         router.push({ name: "projects" });
       })
       .catch(err => {
+        console.log(err);
         dispatch(
           "notification/createNotification",
           {
             action: "Login",
-            message: err,
+            message: err.data.message,
             type: "failure"
           },
           { root: true }
@@ -98,7 +99,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "register",
-            message: err,
+            message: err.message,
             type: "failure"
           },
           { root: true }

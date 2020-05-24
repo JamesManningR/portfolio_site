@@ -130,7 +130,7 @@ export default {
         return res.data;
       })
       .catch(err => {
-        throw err;
+        throw err.response;
       });
   },
 

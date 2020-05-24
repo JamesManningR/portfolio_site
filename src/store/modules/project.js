@@ -55,7 +55,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Create Project",
-            message: err,
+            message: err.message,
             type: "failure"
           },
           { root: true }
@@ -75,7 +75,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Get projects",
-            message: err,
+            message: err.message,
             type: "failure"
           },
           { root: true }
@@ -98,7 +98,7 @@ export const actions = {
             "notification/createNotification",
             {
               action: "Get project",
-              message: err,
+              message: err.message,
               type: "failure"
             },
             { root: true }
@@ -126,7 +126,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Update Project",
-            message: err,
+            message: err.message,
             type: "failure"
           },
           { root: true }
@@ -153,7 +153,7 @@ export const actions = {
           "notification/createNotification",
           {
             action: "Delete Project",
-            message: err,
+            message: err.message,
             type: "failure"
           },
           { root: true }
