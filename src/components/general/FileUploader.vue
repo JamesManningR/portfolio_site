@@ -76,6 +76,14 @@ export default {
   methods: {
     // On file drag and drop
     async fileSelect(evt) {
+      if (!this.$store.getters["auth/isAdmin"]) {
+        this.$store.dispatch("notification/createNotification", {
+          action: "Upload Image",
+          message: "You don't have permission to do that!",
+          type: "failure"
+        });
+        return;
+      }
       let filePromises = [];
       evt.target.files.forEach(file => {
         filePromises.push(db.uploadMedia(file));
