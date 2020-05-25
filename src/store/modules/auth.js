@@ -124,7 +124,7 @@ export const actions = {
       },
       { root: true }
     );
-    router.push({ name: "index" });
+    router.push({ name: "login" });
   }
 };
 

@@ -20,4 +20,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.projects {
+  display: grid;
+  flex-grow: 1;
+  grid-auto-flow: row;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+
+  gap: 1em;
+}
+</style>

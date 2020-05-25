@@ -1,7 +1,12 @@
 <template>
   <div class="skillPicker">
     <div class="skillPicker__search">
-      <input class="skillPicker__searchInput" type="text" v-model="search" />
+      <input
+        class="skillPicker__searchInput"
+        type="text"
+        v-model="search"
+        placeholder="Search Skills"
+      />
       <svg-path class="skillPicker__searchIcon" set="iconMoon" name="search" />
     </div>
     <transition-group name="slide" tag="ul" class="skills">
@@ -94,9 +99,9 @@ export default {
 
 .skillPicker {
   &__search {
-    width: 100%;
+    max-width: 20em;
     position: relative;
-    &input {
+    &Input {
       width: 100%;
       height: 100%;
       padding: 0.1em;
@@ -105,7 +110,7 @@ export default {
     }
     &Icon {
       position: absolute;
-      top: 0.5em;
+      top: 0.75em;
       right: 0.5em;
       pointer-events: none;
     }
@@ -135,9 +140,13 @@ export default {
     &:hover {
       background-color: #f6f6f6;
       border-color: #dedede;
+      .skills__icon {
+        filter: none;
+      }
     }
   }
   &__icon {
+    transition: filter 0.05s ease-in;
     filter: grayscale(1) contrast(0);
 
     @include square(2em, false);
