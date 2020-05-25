@@ -1,6 +1,6 @@
 <template>
   <main class="project">
-    <project-post :project="project"></project-post>
+    <project-post :project="project.project"></project-post>
   </main>
 </template>
 

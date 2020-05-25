@@ -1,7 +1,7 @@
 <template>
-  <main class="editProject">
-    <transition>
-      <project-edit-form v-model="project">
+  <main class="editProject" :class="modeClass">
+    <transition-group>
+      <project-edit-form key="edit-form" v-show="editMode" v-model="project">
         <button
           @click.prevent="updateProject"
           class="btn btn--submit"
@@ -11,17 +11,29 @@
           Submit
         </button>
       </project-edit-form>
-    </transition>
-    <button @click.prevent="editMode = !edittMode">Preview / Edit</button>
+      <project-post
+        key="preview"
+        v-show="!editMode"
+        :project="project"
+      ></project-post>
+    </transition-group>
+    <button
+      class="editProject__modeSwitch"
+      @click.prevent="editMode = !editMode"
+    >
+      Show {{ toggleModeButtonText }}
+    </button>
   </main>
 </template>
 
 <script>
 import ProjectEditForm from "@/components/project/ProjectEditForm.vue";
+import ProjectPost from "@/components/project/ProjectPost";
 
 export default {
   components: {
-    ProjectEditForm
+    ProjectEditForm,
+    ProjectPost
   },
   props: {
     newProject: Boolean
@@ -46,6 +58,14 @@ export default {
       this.project = this.$store.state.project.project;
     }
   },
+  computed: {
+    toggleModeButtonText() {
+      return this.editMode ? "Preview" : "Edit";
+    },
+    modeClass() {
+      return this.editMode ? "editProject--edit" : "editProject--preview";
+    }
+  },
   methods: {
     updateProject() {
       if (this.newProject) {
@@ -60,11 +80,26 @@ export default {
 
 <style lang="scss">
 .editProject {
+  position: relative;
   &__label {
     &--body {
       display: flex;
       flex-grow: 1;
     }
+  }
+  &__modeSwitch {
+    position: absolute;
+    width: 30rem;
+    top: 20%;
+    left: 0;
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+  }
+  &--preview {
+    padding-right: 4rem;
+  }
+  &--edit {
+    padding-left: 4rem;
   }
 }
 </style>

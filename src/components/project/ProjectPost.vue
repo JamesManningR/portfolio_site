@@ -1,9 +1,13 @@
 <template>
   <article class="project">
-    <project-image-banner :images="project.project.images" />
-    <skill-display :skills="project.project.skills" />
-    <project-link-list :links="project.project.links" />
-    <blog-text :project="project.project" />
+    <project-image-banner
+      class="project__imageBanner"
+      :images="project.images"
+    />
+    <h1 class="project__title">{{ project.title }}</h1>
+    <project-link-list class="project__linkList" :links="project.links" />
+    <skill-display class="project__skills" :skills="project.skills" />
+    <blog-text class="project__body" :project="project" />
   </article>
 </template>
 

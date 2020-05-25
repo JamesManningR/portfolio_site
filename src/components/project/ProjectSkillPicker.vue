@@ -3,7 +3,7 @@
     <h3>Skills</h3>
     <div class="skillPicker__search">
       <input class="skillPicker__searchInput" type="text" v-model="search" />
-      <svg-path set="iconMoon" name="search" />
+      <svg-path class="skillPicker__searchIcon" set="iconMoon" name="search" />
     </div>
     <transition-group name="slide" tag="ul" class="skills">
       <li
@@ -95,14 +95,14 @@ export default {
   &__search {
     width: 100%;
     position: relative;
-    input {
+    &input {
       width: 100%;
       height: 100%;
       padding: 0.1em;
       font-size: 1.1em;
       text-align: left;
     }
-    svg {
+    &Icon {
       width: 1em;
       height: 1em;
       position: absolute;
