@@ -5,16 +5,21 @@
     <nav class="header__nav">
       <ul class="header__navList">
         <li class="header__listItem">
-          <router-link class="header__navLink" to="/">Home</router-link>
-        </li>
-        <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'projects' }"
-            >Projects</router-link
+          <router-link class="header__navLink" to="/">
+            <svg-path class="header__icon" set="iconMoon" name="home" />
+            Home</router-link
           >
         </li>
         <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'skills' }"
-            >Skills</router-link
+          <router-link class="header__navLink" :to="{ name: 'projects' }">
+            <svg-path class="header__icon" set="iconMoon" name="gear" />
+            Projects</router-link
+          >
+        </li>
+        <li class="header__listItem">
+          <router-link class="header__navLink" :to="{ name: 'skills' }">
+            <svg-path class="header__icon" set="iconMoon" name="book" />
+            Skills</router-link
           >
         </li>
         <!-- <li class="header__listItem">
@@ -23,8 +28,9 @@
           >
         </li> -->
         <li class="header__listItem">
-          <router-link class="header__navLink" :to="{ name: 'contact' }"
-            >Contact</router-link
+          <router-link class="header__navLink" :to="{ name: 'contact' }">
+            <svg-path class="header__icon" set="iconMoon" name="envelope" />
+            Contact</router-link
           >
         </li>
       </ul>
@@ -35,10 +41,12 @@
 
 <script>
 import appAccount from "@/components/app/AppAccount.vue";
+import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
   components: {
-    appAccount
+    appAccount,
+    svgPath
   }
 };
 </script>
@@ -110,10 +118,11 @@ export default {
     }
   }
   &__navLink {
-    display: block;
+    display: flex;
     padding: 1.25rem 0;
     margin: 0.4rem 0;
     position: relative;
+    align-items: center;
     color: currentColor;
     text-decoration: none;
     &::before {
@@ -130,6 +139,11 @@ export default {
       transform-origin: left;
       transition: transform 0.15s ease-in-out;
     }
+  }
+  &__icon {
+    margin-right: 0.35em;
+
+    fill: currentColor;
   }
 }
 </style>
