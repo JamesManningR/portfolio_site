@@ -1,6 +1,5 @@
 <template>
   <div class="skillPicker">
-    <h3>Skills</h3>
     <div class="skillPicker__search">
       <input class="skillPicker__searchInput" type="text" v-model="search" />
       <svg-path class="skillPicker__searchIcon" set="iconMoon" name="search" />

@@ -7,8 +7,19 @@ $fonts: (
 );
 $colors: (
   primary: (
-    light: #FFFFFF,
+    base: #E05730,
     dark: #000000
+  ),
+  secondary: (
+    base: #FC9E00
+  ),
+  dark: (
+    base: #231D23,
+    light: #212F42
+  ),
+  light: (
+    base: #E5E5E5,
+    light: #F1F1F1
   ),
   success: (
     base: #00BB7E,

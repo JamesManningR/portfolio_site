@@ -26,10 +26,17 @@ export default {
 <style lang="scss">
 @import "./scss/main.scss";
 
+body {
+  color: col(dark, light);
+  background-color: col(light, light);
+}
+
 #app {
   display: grid;
   max-width: 100vw;
-  grid-template-columns: 33rem 1fr;
+  grid-template-columns: 1fr 4fr;
+
+  gap: 1em;
 }
 main {
   padding: 1rem;
@@ -43,14 +50,14 @@ main {
 
   &-enter,
   &-leave-to {
-    transform-origin: bottom;
+    transform-origin: left;
     opacity: 0;
   }
   &-enter {
-    transform: scaleY(0.98);
+    transform: translateX(-2em);
   }
   &-leave-to {
-    transform: scaleY(0.98);
+    transform: translateX(2em);
   }
 }
 </style>

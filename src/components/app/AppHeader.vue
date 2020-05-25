@@ -1,31 +1,6 @@
 <template>
   <header class="header">
-    <svg
-      class="header__strike"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <polygon points="0,60 0,0 100,0" />
-    </svg>
-    <div class="header__ident">
-      <svg
-        class="header__logo"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 189 234"
-      >
-        <path
-          d="M35.1,0H153.9A35.1,35.1,0,0,1,189,35.1V54a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V35.1A35.1,35.1,0,0,1,35.1,0Z"
-        />
-        <path
-          d="M89.1,90H189a0,0,0,0,1,0,0v18.9A35.1,35.1,0,0,1,153.9,144H54a0,0,0,0,1,0,0V125.1A35.1,35.1,0,0,1,89.1,90Z"
-        />
-        <path
-          d="M75.95,180H108a0,0,0,0,1,0,0v32.05A21.95,21.95,0,0,1,86.05,234H54a0,0,0,0,1,0,0V201.95A21.95,21.95,0,0,1,75.95,180Z"
-        />
-      </svg>
-      <h3 class="header__identText">Curious <strong>Digital</strong></h3>
-    </div>
+    <h3 class="header__ident">Curious <strong>Digital</strong></h3>
     <p class="header__info">The online portfolio of James Manning</p>
     <nav class="header__nav">
       <ul class="header__navList">
@@ -77,36 +52,30 @@ export default {
   height: 100vh;
   padding: 7rem 3rem;
   position: relative;
+  z-index: 100;
   grid-template-rows: 1fr 1fr 4fr;
-  color: col(success, light);
-  background-color: col(success, dark);
-  border-left: 1.2rem solid col(success);
-  &__strike {
-    position: absolute;
-
-    fill: col(success);
-  }
+  color: col(dark, light);
+  background-color: col(light);
+  border-left: 1.2rem;
+  border-color: col(secondary);
+  border-style: solid;
   &__ident {
-    display: flex;
+    display: inline;
     margin-bottom: 1em;
     position: relative;
     z-index: 20;
     align-items: center;
-    font-size: 2.6em;
+    font-size: 3.5em;
     font-weight: 300;
     strong {
       font-weight: 600;
     }
   }
-  &__identText {
-    margin-left: 0.5em;
-    font-weight: inherit;
-  }
   &__logo {
     max-width: 2.4em;
     max-height: 2.4em;
 
-    fill: col(success, dark);
+    fill: col(dark, light);
   }
   &__info {
     margin-bottom: 1.5em;
@@ -121,12 +90,20 @@ export default {
   &__listItem {
     position: relative;
     z-index: 1;
-    &:hover {
-      .header__navLink::before {
-        transform: scaleX(0.6);
+    @for $i from 1 through 6 {
+      &:nth-of-type(#{$i}) {
+        &:hover {
+          .header__navLink {
+            color: col(light);
+            &::before {
+              transform: scaleX(1 - (0.1 * $i));
+            }
+          }
+        }
       }
     }
     .router-link-exact-active {
+      color: col(light);
       &::before {
         transform: scaleX(1) !important;
       }
@@ -140,14 +117,14 @@ export default {
     color: currentColor;
     text-decoration: none;
     &::before {
-      width: 127%;
+      width: calc(100% + 7rem);
       height: 109%;
       position: absolute;
       top: 0;
       left: -3rem;
       z-index: -1;
       content: "";
-      background-color: col(success);
+      background-color: col(primary);
       border-radius: 0 1rem 1rem 0;
       transform: scaleX(0);
       transform-origin: left;

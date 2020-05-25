@@ -1,10 +1,10 @@
 <template>
   <main class="skillsIndex">
-    <project-skill-picker :subset="usedSkills" v-model="selectedSkills" />
     <h1 class="skillsIndex__title">Skills</h1>
     <h3 class="skillsIndex__instructions">
       Select Skills to see relevent Projects
     </h3>
+    <project-skill-picker :subset="usedSkills" v-model="selectedSkills" />
 
     <projectList :projects="filteredProjects" />
   </main>
