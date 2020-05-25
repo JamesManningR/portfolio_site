@@ -1,21 +1,24 @@
 <template>
   <main class="projectsPage">
     <h1>Projects</h1>
-    <router-link v-if="isAuthed" :to="{ name: 'project-new' }"
-      >New post</router-link
-    >
+    <router-link v-if="isAuthed" :to="{ name: 'project-new' }">
+      <svg-path set="iconMoon" name="add" />
+      New post
+    </router-link>
     <projectList :projects="projects" />
   </main>
 </template>
 
 <script>
 import projectList from "@/components/project/ProjectList.vue";
+import svgPath from "@/components/general/SVGPath";
 
 import { mapState } from "vuex";
 
 export default {
   components: {
-    projectList
+    projectList,
+    svgPath
   },
   computed: {
     isAuthed() {

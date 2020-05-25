@@ -5,7 +5,7 @@
     <nav class="header__nav">
       <ul class="header__navList">
         <li class="header__listItem">
-          <router-link class="header__navLink" to="/">
+          <router-link class="header__navLink" to="/" exact>
             <svg-path class="header__icon" set="iconMoon" name="home" />
             Home</router-link
           >
@@ -54,6 +54,7 @@ export default {
 <style lang="scss">
 @import "@/scss/abstracts/_variables.scss";
 @import "@/scss/abstracts/_functions.scss";
+@import "@/scss/abstracts/_mixins.scss";
 
 .header {
   display: grid;
@@ -110,7 +111,7 @@ export default {
         }
       }
     }
-    .router-link-exact-active {
+    .router-link-active {
       color: col(light);
       &::before {
         transform: scaleX(1) !important;
@@ -144,6 +145,7 @@ export default {
     margin-right: 0.35em;
 
     fill: currentColor;
+    @include square(1.5em, false);
   }
 }
 </style>

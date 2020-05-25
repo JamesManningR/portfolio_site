@@ -43,7 +43,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+svg {
+	fill: currentColor;
+	@include square(1em, false);
+}
 a, a:hover {
 	color: currentColor;
 	text-decoration: none;

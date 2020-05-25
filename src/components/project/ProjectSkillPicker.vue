@@ -90,6 +90,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/scss/abstracts/_mixins.scss";
+
 .skillPicker {
   &__search {
     width: 100%;
@@ -102,8 +104,6 @@ export default {
       text-align: left;
     }
     &Icon {
-      width: 1em;
-      height: 1em;
       position: absolute;
       top: 0.5em;
       right: 0.5em;
@@ -114,8 +114,8 @@ export default {
 
 .skills {
   display: flex;
-  height: 200px;
-  overflow: scroll;
+  max-height: 10em;
+  overflow-y: scroll;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -137,12 +137,14 @@ export default {
       border-color: #dedede;
     }
   }
-  &__icon > path {
+  &__icon {
     filter: grayscale(1) contrast(0);
+
+    @include square(2em, false);
   }
   &__checkbox:checked ~ &__label {
     border-color: #ffb829;
-    .skills__icon > path {
+    .skills__icon {
       filter: none;
     }
   }
