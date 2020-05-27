@@ -12,12 +12,7 @@
 </template>
 
 <script>
-import svgPath from "@/components/general/SVGPath.vue";
-
 export default {
-  components: {
-    svgPath
-  },
   props: {
     links: Array
   }

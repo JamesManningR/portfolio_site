@@ -43,12 +43,8 @@
 
 <script>
 import symbols from "@/assets/symbols";
-import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
-  components: {
-    svgPath
-  },
   props: {
     value: Array,
     subset: Array
@@ -123,6 +119,7 @@ export default {
 .skills {
   display: flex;
   max-height: 10em;
+  padding-bottom: 1em;
   overflow-x: hidden;
   overflow-y: scroll;
   align-items: flex-start;

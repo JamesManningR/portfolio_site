@@ -17,8 +17,8 @@ export default {
     images: Array
   },
   methods: {
-    enlargeImage(image){
-      this.$emit('imageSelected', image);
+    enlargeImage(image) {
+      this.$emit("imageSelected", image);
     }
   }
 };
@@ -26,14 +26,14 @@ export default {
 
 <style lang="scss">
 .imageBanner {
-	display: flex;
-	overflow-x: scroll;
-	flex-direction: row;
-	&__image {
-		display: inline-block;
-		height: 20em;
-		max-width: 100%;
-	}
+  display: flex;
+  overflow-x: scroll;
+  flex-direction: row;
+  &__image {
+    display: inline-block;
+    height: 20em;
+    max-width: 100%;
+    cursor: pointer;
+  }
 }
-
 </style>

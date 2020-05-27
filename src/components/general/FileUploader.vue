@@ -43,12 +43,8 @@
 
 <script>
 import db from "@/services/nodeApi.service";
-import svgPath from "@/components/general/SVGPath";
 
 export default {
-  components: {
-    svgPath
-  },
   data() {
     return {
       images: {

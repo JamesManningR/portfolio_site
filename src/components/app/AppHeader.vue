@@ -41,12 +41,10 @@
 
 <script>
 import appAccount from "@/components/app/AppAccount.vue";
-import svgPath from "@/components/general/SVGPath.vue";
 
 export default {
   components: {
-    appAccount,
-    svgPath
+    appAccount
   }
 };
 </script>

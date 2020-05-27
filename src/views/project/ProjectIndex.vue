@@ -24,15 +24,13 @@
 <script>
 import projectSkillPicker from "@/components/project/ProjectSkillPicker.vue";
 import projectList from "@/components/project/ProjectList.vue";
-import svgPath from "@/components/general/SVGPath";
 
 import { mapState } from "vuex";
 
 export default {
   components: {
     projectSkillPicker,
-    projectList,
-    svgPath
+    projectList
   },
   data() {
     return {
