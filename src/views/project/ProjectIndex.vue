@@ -93,6 +93,10 @@ export default {
     color: col(success, light);
     background-color: col(success);
     border-radius: 0.5em;
+    &:hover {
+      color: lighten(col(success, light), 5%);
+      background-color: darken(col(success), 5%);
+    }
     &Icon {
       width: 1.2em;
       padding-right: 0.5em;

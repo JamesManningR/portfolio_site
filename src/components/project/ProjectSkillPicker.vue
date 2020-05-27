@@ -12,6 +12,7 @@
     <transition-group name="slide" tag="ul" class="skills">
       <li
         v-for="(brand, key) in filteredSkills"
+        :data-skillname="key"
         :key="`key-${key}`"
         @click="brand.selected = true"
         class="skills__skill"
@@ -96,6 +97,8 @@ export default {
 
 <style lang="scss">
 @import "@/scss/abstracts/_mixins.scss";
+@import "@/scss/abstracts/_functions.scss";
+@import "@/scss/abstracts/_variables";
 
 .skillPicker {
   &__search {
@@ -120,6 +123,7 @@ export default {
 .skills {
   display: flex;
   max-height: 10em;
+  overflow-x: hidden;
   overflow-y: scroll;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -127,6 +131,23 @@ export default {
   list-style: none;
   &__skill {
     margin: 0.2em;
+    position: relative;
+    &:hover {
+      &::after {
+        width: max-content;
+        padding: 0.15em;
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+        left: 0;
+        z-index: 10;
+        color: col(light);
+        content: attr(data-skillname);
+        text-transform: capitalize;
+        background-color: col(dark);
+        pointer-events: none;
+      }
+    }
   }
   &__checkbox {
     display: none;
