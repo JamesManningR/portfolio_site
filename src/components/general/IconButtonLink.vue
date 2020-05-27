@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: pathName }" :class="classList">
+  <router-link :to="{ name: routeName }" :class="classList">
     <svg-path class="iconButton__icon" :set="iconSet" :name="icon" />
     <slot></slot>
   </router-link>
@@ -8,7 +8,7 @@
 <script>
 export default {
   props: {
-    pathName: String,
+    routeName: String,
     icon: String,
     iconSet: String,
     variation: { type: String, default: "" }

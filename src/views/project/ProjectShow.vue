@@ -1,7 +1,7 @@
 <template>
   <main class="project">
     <icon-button-link
-      pathName="projects"
+      routeName="projects"
       icon="left-arrow"
       iconSet="iconMoon"
       variation="primary"
