@@ -109,8 +109,8 @@ export default {
     }
     &Icon {
       position: absolute;
-      top: 0.75em;
       right: 0.5em;
+      bottom: 0.4em;
       pointer-events: none;
     }
   }

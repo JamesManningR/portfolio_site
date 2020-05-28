@@ -90,9 +90,10 @@ export default {
   display: grid;
   height: 100vh;
   flex-direction: column;
+  grid-auto-columns: 1fr;
   grid-template-areas: "images images images images" "title title title color" "link link skills skills" "body body body body" "submit submit submit submit";
   grid-template-rows: 2fr 1fr 3fr 8fr 1fr;
-  grid-auto-columns: 1fr;
+
   gap: 0.5em;
 
   &__input {

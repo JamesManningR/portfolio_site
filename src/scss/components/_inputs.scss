@@ -1,6 +1,24 @@
-input[type=text] {
+input {
 	padding: 0.5em 0.5em;
+	position: relative;
 	color: col(dark, light);
-	background: none;
-	border-bottom: 2px solid #00002060;
+	background-color: #FAFAFA;
+	border-bottom: 2px solid #000000;
+	border-radius: 0.1em;
+	&:focus {
+		border-bottom: 2px solid col(success);
+	}
+}
+select {
+	padding: 0.5em;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	border: 0;
+	border-right: 2em solid col(primary);
+	border-radius: 0.5em;
+
+	appearence: none;
+	&::after {
+		content: 'AAA';
+	}
 }
