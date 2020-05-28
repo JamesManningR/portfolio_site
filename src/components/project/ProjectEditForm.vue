@@ -52,7 +52,10 @@
     </section>
 
     <div class="projectForm__formGroup projectForm__formGroup--submit">
-      <slot name="submit"></slot>
+      <slot
+        class="projectForm__input projectForm__input--submit"
+        name="submit"
+      ></slot>
     </div>
   </form>
 </template>
@@ -86,15 +89,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/scss/abstracts/_mixins.scss";
+@import "@/scss/abstracts/_functions.scss";
+@import "@/scss/abstracts/_variables";
+
 .projectForm {
   display: grid;
-  height: 100vh;
+  height: 100%;
   flex-direction: column;
   grid-auto-columns: 1fr;
   grid-template-areas: "images images images images" "title title title color" "link link skills skills" "body body body body" "submit submit submit submit";
-  grid-template-rows: 2fr 1fr 3fr 8fr 1fr;
+  grid-template-rows: 1fr 1fr 3fr 4fr 1fr;
 
-  gap: 0.5em;
+  gap: 0.75em;
 
   &__input {
     width: 100%;
@@ -143,6 +150,18 @@ export default {
     }
     &--submit {
       grid-area: submit;
+      button {
+        width: 100%;
+        padding: 1em;
+        padding: 0.5em;
+        color: col(success, light);
+        background-color: col(success);
+        border: none;
+        border-radius: 0.5em;
+        &:hover {
+          background-color: darken(col(success), 5%);
+        }
+      }
     }
   }
 }
