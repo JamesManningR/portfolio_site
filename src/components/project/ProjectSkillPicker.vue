@@ -9,12 +9,12 @@
       />
       <svg-path class="skillPicker__searchIcon" set="iconMoon" name="search" />
     </div>
-    <transition-group name="slide" tag="ul" class="skills">
+    <transition-group name="slide" tag="ul" class="skills" mode="out-in">
       <li
-        v-for="(brand, key) in filteredSkills"
+        v-for="(iconData, key) in filteredSkills"
         :data-skillname="key"
         :key="`key-${key}`"
-        @click="brand.selected = true"
+        @click="iconData.selected = true"
         class="skills__skill"
       >
         <input
@@ -120,7 +120,6 @@ export default {
   display: flex;
   max-height: 10em;
   padding-bottom: 1em;
-  overflow-x: hidden;
   overflow-y: scroll;
   align-items: flex-start;
   flex-wrap: wrap;
