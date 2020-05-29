@@ -18,15 +18,15 @@
       "title": "Instagram",
       "link": "https://instagram.com/username",
       "text": "@username",
-      "iconSet": "iconMoon",
-      "icon": "phone"
+      "iconSet": "brands",
+      "icon": "instagram"
     },
     {
       "title": "Twitter",
       "link": "https://twitter.com/username",
       "text": "@username",
-      "iconSet": "iconMoon",
-      "icon": "phone"
+      "iconSet": "brands",
+      "icon": "twitter"
     }
   ]
 }
