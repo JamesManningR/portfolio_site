@@ -4,7 +4,7 @@
     <ul class="skillsDisplay__list">
       <li class="skillsDisplay__item" v-for="skill in skills" :key="skill">
         <svg-path
-          class="skillsDisplay__item"
+          class="skillsDisplay__icon"
           set="skills"
           :name="skill"
           :label="skill"
@@ -26,12 +26,17 @@ export default {
 .skillsDisplay {
   &__list {
     display: flex;
-    margin: 1em 0;
+    margin: 0.5em 0;
     flex-wrap: wrap;
     list-style: none;
   }
   &__item {
-    margin: 0 0.4em;
+    margin: 0 0.5em;
+
+    @include square(1.75em);
+  }
+  &__icon {
+    @include square(100%);
   }
 }
 </style>

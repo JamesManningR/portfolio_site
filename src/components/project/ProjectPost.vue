@@ -10,10 +10,12 @@
       :image="enlargedImage"
       @close="enlargedImage = false"
     />
-    <h1 class="project__title">{{ project.title }}</h1>
-    <project-link-list class="project__linkList" :links="project.links" />
-    <skill-display class="project__skills" :skills="project.skills" />
-    <blog-text class="project__body" :project="project" />
+    <div class="project__content">
+      <h1 class="project__title">{{ project.title }}</h1>
+      <project-link-list class="project__links" :links="project.links" />
+      <skill-display class="project__skills" :skills="project.skills" />
+      <blog-text class="project__body" :project="project" />
+    </div>
   </article>
 </template>
 
@@ -43,8 +45,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .project {
+  height: 100%;
   padding: 0;
+  &__imageBanner {
+    margin-bottom: 0.5em;
+  }
+  &__content {
+    margin-left: 1.5em;
+  }
+  &__links {
+    margin-bottom: 1em;
+  }
 }
 </style>

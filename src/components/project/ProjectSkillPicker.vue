@@ -92,10 +92,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_mixins.scss";
-@import "@/scss/abstracts/_functions.scss";
-@import "@/scss/abstracts/_variables";
-
 .skillPicker {
   &__search {
     max-width: 20em;

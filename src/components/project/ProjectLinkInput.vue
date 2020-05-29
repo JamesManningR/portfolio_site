@@ -70,10 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_mixins.scss";
-@import "@/scss/abstracts/_functions.scss";
-@import "@/scss/abstracts/_variables";
-
 .linkInput {
   overflow-x: scroll;
   &__list {

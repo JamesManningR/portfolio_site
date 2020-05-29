@@ -5,6 +5,7 @@
       icon="left-arrow"
       iconSet="iconMoon"
       variation="primary"
+      class="project__back"
     >
       Back to Projects
     </icon-button-link>
@@ -28,4 +29,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.project {
+  position: relative;
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+</style>

@@ -35,8 +35,6 @@ body {
   display: grid;
   max-width: 100vw;
   grid-template-columns: 1fr 4fr;
-
-  gap: 1em;
 }
 main {
   padding: 1rem;

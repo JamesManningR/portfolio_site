@@ -20,10 +20,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_mixins.scss";
-@import "@/scss/abstracts/_functions.scss";
-@import "@/scss/abstracts/_variables";
-
 .projectLinks {
   display: flex;
 }

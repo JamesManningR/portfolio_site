@@ -1,4 +1,4 @@
-@mixin square($size, $isMax) {
+@mixin square($size, $isMax: false) {
 	@if $isMax {
 		max-width: $size;
 		max-height: $size;
