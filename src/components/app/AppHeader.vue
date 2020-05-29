@@ -57,6 +57,7 @@ export default {
 .header {
   display: grid;
   height: 100vh;
+  max-height: 100%;
   padding: 7rem 3rem;
   position: relative;
   z-index: 100;
