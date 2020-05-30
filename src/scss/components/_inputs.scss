@@ -18,7 +18,17 @@ select {
 	border-radius: 0.5em;
 
 	appearence: none;
-	&::after {
-		content: 'AAA';
+}
+
+.btn {
+	display: inline-block;
+	padding: 0.5em 1em;
+	color: col(primary, light);
+	background-color: col(primary);
+	border-radius: 0.5em;
+	cursor: pointer;
+	&:hover {
+		color: col(primary, light);
+		background-color: darken(col(primary), 10%);
 	}
 }

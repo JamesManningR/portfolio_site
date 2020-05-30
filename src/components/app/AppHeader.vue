@@ -16,12 +16,12 @@
             Projects</router-link
           >
         </li>
-        <li class="header__listItem">
+        <!-- <li class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'skills' }">
             <svg-path class="header__icon" set="iconMoon" name="book" />
             Skills</router-link
           >
-        </li>
+        </li> -->
         <!-- <li class="header__listItem">
           <router-link class="header__navLink" :to="{ name: 'blog' }"
             >Blog</router-link

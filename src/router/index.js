@@ -49,9 +49,9 @@ const routes = [
     }
   },
   {
-    path: "/skills",
-    name: "skills",
-    component: () => import("../views/skills/SkillsIndex.vue"),
+    path: "/knowledge",
+    name: "knowledge",
+    component: () => import("../views/knowledge/KnowledgeIndex.vue"),
     beforeEnter(routeTo, routeFrom, next) {
       // If the the are no projects loaded
       if (Object.keys(store.state.project.projects).length <= 0) {

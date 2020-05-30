@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import settings from "@/settings.json";
+import settings from "@/content.json";
 
 export default {
   data() {

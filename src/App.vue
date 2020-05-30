@@ -19,6 +19,7 @@ export default {
   },
   created() {
     this.$store.dispatch("auth/autoLogin");
+    this.$store.dispatch("settings/fetchOptions");
   }
 };
 </script>

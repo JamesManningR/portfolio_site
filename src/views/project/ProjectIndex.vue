@@ -79,6 +79,7 @@ export default {
     margin-bottom: 0.6em;
   }
   &__instructions {
+    margin-bottom: 0.4em;
     font-weight: normal;
   }
   &__skillPicker {

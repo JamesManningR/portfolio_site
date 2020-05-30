@@ -1,0 +1,44 @@
+{
+  "home" : {
+    "author" :"James",
+    "bio" : "Hi! I'm a web developer, if there's a technology out there, I want to learn it!",
+    "currentJob" : "Web Developer - Small Giants ltd",
+    "currentlyLearning" : [
+      {
+        "name": "Vue",
+        "icon": "vue",
+        "description": "I've been using vue for a few months now, and I absolutely adore it. This site is packed full of vue functionality!"
+      }
+    ]
+  },
+  "contact": [
+    {
+      "title": "Phone Number",
+      "link": "tel:01234567890",
+      "text": "01234567890",
+      "iconSet": "iconMoon",
+      "icon": "phone"
+    },
+    {
+      "title": "Email",
+      "link": "mailto:tester@example.com",
+      "text": "tester@example.com",
+      "iconSet": "iconMoon",
+      "icon": "email"
+    },
+    {
+      "title": "Instagram",
+      "link": "https://instagram.com/username",
+      "text": "@username",
+      "iconSet": "brands",
+      "icon": "instagram"
+    },
+    {
+      "title": "Twitter",
+      "link": "https://twitter.com/username",
+      "text": "@username",
+      "iconSet": "brands",
+      "icon": "twitter"
+    }
+  ]
+}
