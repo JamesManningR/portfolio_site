@@ -20,7 +20,7 @@
         v-model="value.title"
       />
     </section>
-
+    
     <project-link-input
       class="projectForm__formGroup projectForm__formGroup--links"
       v-model="value.links"
@@ -90,75 +90,12 @@ export default {
 
 <style lang="scss">
 .projectForm {
-  display: grid;
-  height: 100%;
-  flex-direction: column;
-  grid-auto-columns: 1fr;
-  grid-template-areas: "images images images images" "title title title color" "link link skills skills" "body body body body" "submit submit submit submit";
-  grid-template-rows: 1fr 1fr 3fr 4fr 1fr;
+	display: grid;
+	height: 100%;
+	flex-direction: column;
+	grid-auto-columns: 1fr;
 
-  gap: 0.75em;
-
-  &__input {
-    width: 100%;
-    min-width: 2rem;
-    &--title {
-      font-family: Muli;
-      font-size: 1.6em;
-      font-weight: 700;
-    }
-    &--color {
-      height: 100%;
-      padding: 0;
-      border: 0;
-    }
-    &--body {
-      flex-grow: 1;
-      font-family: inherit;
-    }
-  }
-  &__formGroup {
-    width: 100%;
-    &--title {
-      display: flex;
-      grid-area: title;
-    }
-    &--color {
-      grid-area: color;
-    }
-    &--body {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      grid-area: body;
-    }
-    &--preview {
-      grid-area: preview;
-    }
-    &--links {
-      grid-area: link;
-    }
-    &--skills {
-      grid-area: skills;
-    }
-    &--images {
-      grid-area: images;
-    }
-    &--submit {
-      grid-area: submit;
-      button {
-        width: 100%;
-        padding: 1em;
-        padding: 0.5em;
-        color: col(success, light);
-        background-color: col(success);
-        border: none;
-        border-radius: 0.5em;
-        &:hover {
-          background-color: darken(col(success), 5%);
-        }
-      }
-    }
-  }
+	gap: 0.75em;
 }
+
 </style>

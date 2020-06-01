@@ -1,6 +1,7 @@
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 @import 'abstracts/functions';
+@import 'abstracts/init';
 @import 'abstracts/fonts';
 @import 'abstracts/globals';
 
@@ -10,5 +11,6 @@
 @import 'base/browserFix';
 
 @import 'components/inputs'
+
 
 

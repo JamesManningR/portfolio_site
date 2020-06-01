@@ -40,23 +40,4 @@ body {
 main {
   padding: 1rem;
 }
-
-.fade {
-  &-enter-active,
-  &-leave-active {
-    transition: all 0.15s ease;
-  }
-
-  &-enter,
-  &-leave-to {
-    transform-origin: left;
-    opacity: 0;
-  }
-  &-enter {
-    transform: translateX(-2em);
-  }
-  &-leave-to {
-    transform: translateX(2em);
-  }
-}
 </style>

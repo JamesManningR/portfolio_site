@@ -1,0 +1,7 @@
+:root{
+  @each $colName, $color in $colors {
+    @each $variantName, $variant in $color {
+      --col-#{$colName}-#{$variantName}: #{$variant};
+    }
+  }
+}
