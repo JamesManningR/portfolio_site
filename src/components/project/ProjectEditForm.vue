@@ -20,7 +20,7 @@
         v-model="value.title"
       />
     </section>
-    
+
     <project-link-input
       class="projectForm__formGroup projectForm__formGroup--links"
       v-model="value.links"
@@ -90,12 +90,11 @@ export default {
 
 <style lang="scss">
 .projectForm {
-	display: grid;
-	height: 100%;
-	flex-direction: column;
-	grid-auto-columns: 1fr;
+  display: grid;
+  height: 100%;
+  flex-direction: column;
+  grid-auto-columns: 1fr;
 
-	gap: 0.75em;
+  gap: 0.75em;
 }
-
 </style>

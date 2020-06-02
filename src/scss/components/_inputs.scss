@@ -29,6 +29,5 @@ select {
 	cursor: pointer;
 	&:hover {
 		color: col(primary, light);
-		background-color: darken(col(primary), 10%);
 	}
 }

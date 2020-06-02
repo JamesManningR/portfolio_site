@@ -1,5 +1,5 @@
 @function col($colname, $variation: 'base') {
-	@return map-get(map-get($colors, $colname), $variation);
+	@return var(--col-#{$colname}-#{$variation});
 }
 
 @function fnt($font_id, $type: 'body') {

@@ -124,7 +124,6 @@ export default {
     border: none;
     border-radius: 0.5em;
     &:hover {
-      background-color: darken(col(success), 5%);
     }
   }
 }

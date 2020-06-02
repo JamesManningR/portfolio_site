@@ -38,8 +38,6 @@ export default {
   background-color: col(primary);
   border-radius: 0.5em;
   &:hover {
-    color: lighten(col(primary, light), 5%);
-    background-color: darken(col(primary), 5%);
   }
   &__icon {
     width: 1.2em;
@@ -51,8 +49,6 @@ export default {
     color: col(success, light);
     background-color: col(success);
     &:hover {
-      color: lighten(col(success, light), 5%);
-      background-color: darken(col(success), 5%);
     }
     &__icon {
       border-right: 1px solid col(success, light);
