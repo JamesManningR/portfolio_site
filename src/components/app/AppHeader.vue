@@ -46,26 +46,38 @@ export default {
 @import "@/scss/abstracts/_mixins.scss";
 
 .header {
+  display: flex;
   max-height: 100%;
+  align-items: center;
+
+  @include bp(tablet) {
+    min-height: 100vh;
+  }
   &__content {
     display: flex;
+    width: 100%;
     padding: 0.1em 0.5em;
     justify-content: space-between;
 
     @include bp(tablet) {
+      width: initial;
       flex-direction: column;
     }
   }
   &__ident {
     width: 5em;
     margin-right: 1em;
+
+    @include bp(tablet) {
+      width: initial;
+    }
   }
   &__info {
     display: none;
   }
   &__nav {
     width: 100%;
-    max-width: 15em;
+    max-width: 12.5em;
 
     @include bp(32rem) {
       max-width: 23em;
@@ -79,8 +91,21 @@ export default {
     font-size: 2em;
 
     @include bp(tablet) {
-      align-items: flex-start;
+      align-items: stretch;
       flex-direction: column;
+    }
+  }
+  &__listItem {
+    @for $i from 1 through 6 {
+      &:nth-of-type(#{$i}) {
+        &:hover {
+          .header__navLink {
+            &::before {
+              transform: scaleX(1 - (0.05 * $i));
+            }
+          }
+        }
+      }
     }
   }
   &__navLink {
@@ -91,11 +116,26 @@ export default {
     align-items: center;
     justify-content: center;
     line-height: 0;
+    text-align: left;
     border-radius: 1em;
 
     @include bp(tablet) {
-      padding: 0.5em;
+      width: 100%;
+      padding: 0.25em 0;
       align-items: center;
+      justify-content: start;
+      line-height: 1em;
+      &:before {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: -1rem;
+        z-index: -1;
+        content: "";
+        background-color: col(primary);
+        transform: scale(0);
+        transform-origin: left;
+      }
     }
     &.router-link-active {
       background-color: col(primary);
@@ -103,12 +143,7 @@ export default {
       @include bp(tablet) {
         background: none;
         &:before {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          z-index: -1;
-          content: "";
-          background-color: col(primary);
+          transform: scale(1);
         }
       }
     }

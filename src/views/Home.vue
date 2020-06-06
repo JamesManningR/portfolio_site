@@ -12,9 +12,12 @@
       </ul>
     </section>
 
-    <section class="home__special">
-      <h2 class="home__sectionTitle">Specialities:</h2>
-      <skills-display :skills="this.$content.home.specialities" />
+    <section class="home__special specialities">
+      <h2 class="home__sectionTitle specialities__title">Specialities:</h2>
+      <skills-display
+        class="specialities__skills"
+        :skills="this.$content.home.specialities"
+      />
     </section>
 
     <section class="home__projects">
@@ -49,6 +52,7 @@ export default {
 <style lang="scss">
 .home {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   &__bio {
@@ -85,13 +89,20 @@ export default {
   }
   &__subtitle {
     grid-area: subtitle;
+    font-size: 1.3em;
   }
   &__socials {
-    margin-right: 0.3em;
+    margin-right: 0.2em;
     grid-area: socials;
     color: col(bg, light);
-    font-size: 2em;
+    font-size: 1.6em;
     text-align: right;
+  }
+}
+
+.specialities {
+  &__skills {
+    font-size: 2em;
   }
 }
 
