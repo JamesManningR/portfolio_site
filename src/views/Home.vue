@@ -1,36 +1,43 @@
 <template>
   <main class="home">
-    <section>
-      <h1>James Manning</h1>
-      <p>I make websites</p>
+    <section class="home__jumbo">
+      <h1 class="home__author">{{ this.$content.home.author }}</h1>
+      <p class="homme__subtitle">I build experiences</p>
       <ul class="home__socials">
-        <li></li>
+        <li v-for="(profile, key) in this.$content.home.profiles" :key="key">
+          <a :href="profile.link">
+            <svg-path :name="profile.icon" :set="profile.iconSet" />
+          </a>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Specialities:</h2>
-      <project-skills-display :skills="['vue', 'node', 'wordpress']" />
+    <section class="home__specialities">
+      <h2 class="home__sectionTitle">Specialities:</h2>
+      <skills-display :skills="this.$content.home.specialities" />
     </section>
 
-    <section>
-      <h2>Projects</h2>
+    <section class="home__projects">
+      <h2 class="home__sectionTitle">Projects</h2>
       <ul>
-        <li v-for="(project, index) in featuredProjects" :key="index">
+        <!-- <li v-for="(project, index) in featuredProjects" :key="index">
           <project-post />
-        </li>
+        </li> -->
       </ul>
     </section>
   </main>
 </template>
 
 <script>
-import ProjectSkillsDisplay from "@/components/project/ProjectSkillsDisplay";
-import ProjectPost from "@/components/project/ProjectPost";
+import SkillsDisplay from "@/components/general/SkillsDisplay";
+// import ProjectPost from "@/components/project/ProjectPost";
 
 export default {
   name: "Home",
-  components: [ProjectSkillsDisplay, ProjectPost],
+  components: {
+    SkillsDisplay
+    // ProjectPost
+  },
   data() {
     return {
       projects: ""

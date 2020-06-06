@@ -1,6 +1,6 @@
 <template>
   <section class="skillsDisplay">
-    <h2>Skills Used</h2>
+    <h2 v-if="title">{{ title }}</h2>
     <ul class="skillsDisplay__list">
       <li class="skillsDisplay__item" v-for="skill in skills" :key="skill">
         <svg-path
@@ -17,7 +17,8 @@
 <script>
 export default {
   props: {
-    skills: Array
+    skills: Array,
+    title: String
   }
 };
 </script>

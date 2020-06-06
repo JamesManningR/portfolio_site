@@ -1,32 +1,46 @@
 {
-  "contact": [
-    {
+  "home" : {
+    "author" :"James Manning",
+    "bio" : "I build experiences",
+    "profiles" : {
+      "linkedin" : {
+        "link": "http://linkedin.com",
+        "icon": "linkedin",
+        "iconSet": "brands"
+      }
+    },
+    "specialities" : [
+      "vue", "node", "wordpress", "gutenberg"
+    ]
+  },
+  "contact": {
+    "phone": {
       "title": "Phone Number",
       "link": "tel:01234567890",
       "text": "01234567890",
       "iconSet": "iconMoon",
       "icon": "phone"
     },
-    {
+    "email" : {
       "title": "Email",
       "link": "mailto:tester@example.com",
       "text": "tester@example.com",
       "iconSet": "iconMoon",
       "icon": "email"
     },
-    {
+    "instagram" : {
       "title": "Instagram",
       "link": "https://instagram.com/username",
       "text": "@username",
       "iconSet": "brands",
       "icon": "instagram"
     },
-    {
+    "twitter": {
       "title": "Twitter",
       "link": "https://twitter.com/username",
       "text": "@username",
       "iconSet": "brands",
       "icon": "twitter"
     }
-  ]
+  }
 }

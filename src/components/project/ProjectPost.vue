@@ -13,7 +13,7 @@
     <div class="project__content">
       <h1 class="project__title">{{ project.title }}</h1>
       <project-link-list class="project__links" :links="project.links" />
-      <skill-display class="project__skills" :skills="project.skills" />
+      <skills-display class="project__skills" :skills="project.skills" />
       <blog-text class="project__body" :project="project" />
     </div>
   </article>
@@ -21,7 +21,7 @@
 
 <script>
 import ProjectImageBanner from "@/components/project/ProjectImageBanner.vue";
-import SkillDisplay from "@/components/project/ProjectSkillsDisplay.vue";
+import SkillsDisplay from "@/components/general/SkillsDisplay.vue";
 import ProjectLinkList from "@/components/project/ProjectLinkList.vue";
 import BlogText from "@/components/general/BlogText.vue";
 import ProjectEnlargedImage from "@/components/project/ProjectEnlargedImage";
@@ -30,7 +30,7 @@ export default {
   components: {
     ProjectImageBanner,
     BlogText,
-    SkillDisplay,
+    SkillsDisplay,
     ProjectLinkList,
     ProjectEnlargedImage
   },

@@ -5,10 +5,13 @@ import store from "./store";
 import VueSimpleMarkdown from "vue-simple-markdown";
 import SVGPath from "@/components/general/SVGPath";
 import AnimatedInput from "@/components/general/AnimatedInput";
+import contentFile from "@/content.json";
 
 Vue.config.productionTip = false;
 
 Vue.use(VueSimpleMarkdown);
+
+Vue.prototype.$content = contentFile;
 
 Vue.component("svg-path", SVGPath);
 Vue.component("animated-input", AnimatedInput);
