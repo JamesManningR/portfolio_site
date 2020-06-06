@@ -1,9 +1,9 @@
 <template>
   <main class="home">
-    <section class="home__jumbo">
-      <h1 class="home__author">{{ this.$content.home.author }}</h1>
-      <p class="homme__subtitle">I build experiences</p>
-      <ul class="home__socials">
+    <section class="home__bio bio">
+      <h1 class="bio__author">{{ this.$content.home.author }}</h1>
+      <p class="bio__subtitle">I build experiences</p>
+      <ul class="bio__socials">
         <li v-for="(profile, key) in this.$content.home.profiles" :key="key">
           <a :href="profile.link">
             <svg-path :name="profile.icon" :set="profile.iconSet" />
@@ -12,7 +12,7 @@
       </ul>
     </section>
 
-    <section class="home__specialities">
+    <section class="home__special">
       <h2 class="home__sectionTitle">Specialities:</h2>
       <skills-display :skills="this.$content.home.specialities" />
     </section>
@@ -48,5 +48,59 @@ export default {
 
 <style lang="scss">
 .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__bio {
+    margin-bottom: 2em;
+  }
+  &__special {
+    margin-bottom: 1em;
+  }
+}
+
+.bio {
+  display: grid;
+  max-width: max-content;
+  grid-template-areas: "author author" "subtitle socials";
+  &__author {
+    display: inline-block;
+    padding-bottom: 0.2em;
+    margin-bottom: 0.3em;
+    position: relative;
+    z-index: 2;
+    grid-area: author;
+    &:before {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      content: "";
+      background-color: col(primary);
+      transform-origin: left;
+      animation: grow-in 0.5s ease-in-out;
+    }
+  }
+  &__subtitle {
+    grid-area: subtitle;
+  }
+  &__socials {
+    margin-right: 0.3em;
+    grid-area: socials;
+    color: col(bg, light);
+    font-size: 2em;
+    text-align: right;
+  }
+}
+
+@keyframes grow-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 </style>

@@ -33,11 +33,6 @@ export default {
   }
   &__item {
     margin: 0 0.5em;
-
-    @include square(1.75em);
-  }
-  &__icon {
-    @include square(100%);
   }
 }
 </style>

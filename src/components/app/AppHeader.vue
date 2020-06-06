@@ -8,30 +8,19 @@
           <li class="header__listItem">
             <router-link class="header__navLink" to="/" exact>
               <svg-path class="header__icon" set="iconMoon" name="home" />
-              Home</router-link
+              <span class="header__navText">Home</span></router-link
             >
           </li>
           <li class="header__listItem">
             <router-link class="header__navLink" :to="{ name: 'projects' }">
               <svg-path class="header__icon" set="iconMoon" name="gear" />
-              Projects</router-link
+              <span class="header__navText">Projects</span></router-link
             >
           </li>
-          <!-- <li class="header__listItem">
-            <router-link class="header__navLink" :to="{ name: 'skills' }">
-              <svg-path class="header__icon" set="iconMoon" name="book" />
-              Skills</router-link
-            >
-          </li> -->
-          <!-- <li class="header__listItem">
-            <router-link class="header__navLink" :to="{ name: 'blog' }"
-              >Blog</router-link
-            >
-          </li> -->
           <li class="header__listItem">
             <router-link class="header__navLink" :to="{ name: 'contact' }">
               <svg-path class="header__icon" set="iconMoon" name="envelope" />
-              Contact</router-link
+              <span class="header__navText">Contact</span></router-link
             >
           </li>
         </ul>
@@ -57,99 +46,81 @@ export default {
 @import "@/scss/abstracts/_mixins.scss";
 
 .header {
-  height: 100%;
-  background-color: col(light);
-  border-left: 1.2rem;
-  border-color: col(secondary);
-  border-style: solid;
+  max-height: 100%;
   &__content {
-    display: grid;
-    max-height: 100vh;
-    padding: 7rem 3rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    grid-template-rows: 1fr 1fr 4fr;
-    color: col(dark, light);
+    display: flex;
+    padding: 0.1em 0.5em;
+    justify-content: space-between;
+
+    @include bp(tablet) {
+      flex-direction: column;
+    }
   }
   &__ident {
-    display: inline;
-    margin-bottom: 1em;
-    position: relative;
-    z-index: 20;
-    align-items: center;
-    font-size: 3.5em;
-    font-weight: 300;
-    strong {
-      font-weight: 600;
-    }
-  }
-  &__logo {
-    max-width: 2.4em;
-    max-height: 2.4em;
-
-    fill: col(dark, light);
+    width: 5em;
+    margin-right: 1em;
   }
   &__info {
-    margin-bottom: 1.5em;
-    position: relative;
-    z-index: 20;
-    font-size: 1.4em;
+    display: none;
+  }
+  &__nav {
+    width: 100%;
+    max-width: 15em;
+
+    @include bp(32rem) {
+      max-width: 23em;
+    }
   }
   &__navList {
-    font-size: 1.4em;
-    list-style: none;
-  }
-  &__listItem {
-    position: relative;
-    z-index: 1;
-    @for $i from 1 through 6 {
-      &:nth-of-type(#{$i}) {
-        &:hover {
-          .header__navLink {
-            color: col(light);
-            &::before {
-              transform: scaleX(1 - (0.1 * $i));
-            }
-          }
-        }
-      }
-    }
-    .router-link-active {
-      color: col(light);
-      &::before {
-        transform: scaleX(1) !important;
-      }
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2em;
+
+    @include bp(tablet) {
+      align-items: flex-start;
+      flex-direction: column;
     }
   }
   &__navLink {
     display: flex;
-    padding: 1.25rem 0;
-    margin: 0.4rem 0;
+    padding: 0.25em;
     position: relative;
+    z-index: 10;
     align-items: center;
-    color: currentColor;
-    text-decoration: none;
-    &::before {
-      width: calc(100% + 7rem);
-      height: 109%;
-      position: absolute;
-      top: 0;
-      left: -3rem;
-      z-index: -1;
-      content: "";
+    justify-content: center;
+    line-height: 0;
+    border-radius: 1em;
+
+    @include bp(tablet) {
+      padding: 0.5em;
+      align-items: center;
+    }
+    &.router-link-active {
       background-color: col(primary);
-      border-radius: 0 1rem 1rem 0;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.15s ease-in-out;
+
+      @include bp(tablet) {
+        background: none;
+        &:before {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: -1;
+          content: "";
+          background-color: col(primary);
+        }
+      }
     }
   }
-  &__icon {
-    margin-right: 0.35em;
+  &__navText {
+    display: none;
+    margin-left: 0.5em;
+    font-size: 0.55em;
 
-    fill: currentColor;
-    @include square(1.5em, false);
+    @include bp(32rem) {
+      display: inline;
+    }
   }
 }
 </style>

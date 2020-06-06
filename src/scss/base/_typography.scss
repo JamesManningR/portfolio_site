@@ -4,7 +4,10 @@ body {
 
 h1 {
 	margin-bottom: 0.4em;
-	font-size: 3em;
+	font-family: fnt(primary, title);
+	font-size: 2.5em;
+	font-weight: 500;
+	letter-spacing: 0.05em;
 }
 h3 {
 	margin-bottom: 0.2em;

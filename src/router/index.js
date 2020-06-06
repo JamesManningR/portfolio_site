@@ -18,6 +18,7 @@ const routes = [
     beforeEnter(routeTo, routeFrom, next) {
       // If the the are no projects loaded
       if (Object.keys(store.state.project.projects).length <= 0) {
+        // Get the projects, then trigger next
         store.dispatch("project/fetchProjects").then(next);
       } else {
         next();

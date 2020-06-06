@@ -7,35 +7,22 @@ $fonts: (
 );
 $colors: (
   primary: (
-    light: #FFF9E9,
-    base: #212F42,
-    dark: #200710
+    base: #00A359
   ),
-  secondary: (
-    base: #FC9E00,
-    dark: #341000
-  ),
-  dark: (
+  bg: (
     dark: #231D23,
-    base: #212F42
+    base: #212F42,
   ),
-  light: (
-    base: #E5E5E5,
-    light: #F1F1F1
+  fg: (
+    base: #EEEFFF
   ),
   success: (
-    base: #00BB7E,
-    light: #EAFBEE,
-    dark: #304A60
+    base: #00BB7E
   ),
   caution: (
-    base: #FFBE00,
-    light: #FFF8E0,
-    dark: #AF8403
+    base: #FFBE00
   ),
   failure: (
-    base: #FF7769,
-    light: #FFDED9,
-    dark: #7E4645
+    base: #FF7769
   )
 );

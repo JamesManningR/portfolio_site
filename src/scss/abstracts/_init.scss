@@ -4,4 +4,13 @@
       --col-#{$colName}-#{$variantName}: #{$variant};
     }
   }
+  @each $font-id, $font in $fonts {
+    @each $type-name, $type in $font {
+      --fnt-#{$font-id}-#{$type-name}: #{$type};
+    }
+  }
+}
+
+html {
+  font-size: 62.5%; // Set 1 rem to 10px (Make life a lot easier)
 }

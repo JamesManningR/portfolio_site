@@ -1,3 +1,4 @@
+// SQUARE - creates a square with width / max width
 @mixin square($size, $isMax: false) {
 	@if $isMax {
 		max-width: $size;
@@ -5,5 +6,53 @@
 	} @else {
 		width: $size;
 		height: $size;
+	}
+}
+
+// MEDIA QUERY MANAGER
+/*
+- 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+
+usage:
+------  @include bp(phone){
+------      *CSS RULES*
+------  }
+*/
+@mixin bp($breakpoint) {
+	@if $breakpoint == phone-lg {
+		@media only screen and (min-width: 33.75rem) {
+			@content;
+		}
+	}
+	@if $breakpoint == tablet {
+		@media only screen and (min-width: 48rem) {
+			@content;
+		}
+	}
+	@if $breakpoint == tablet-lg {
+		@media only screen and (min-width: 64rem) {
+			@content;
+		}
+	}
+	@if $breakpoint == desktop {
+		@media only screen and (min-width: 80rem) {
+			@content;
+		}
+	}
+	@else {
+		@media only screen and (min-width: $breakpoint) {
+			@content;
+		}
 	}
 }

@@ -1,9 +1,8 @@
 <template>
   <svg
+    class="svgPath"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1025 1025"
-    height="32"
-    width="32"
     :alt="label"
     :class="className"
   >
@@ -31,3 +30,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.svgPath {
+  @include square(1em);
+}
+</style>

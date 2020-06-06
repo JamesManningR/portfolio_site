@@ -3,5 +3,5 @@
 }
 
 @function fnt($font_id, $type: 'body') {
-	@return map-get(map-get($fonts, $font_id), $type);
+	@return var(--fnt-#{$font_id}-#{$type});
 }

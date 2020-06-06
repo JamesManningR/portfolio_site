@@ -27,14 +27,19 @@ export default {
 @import "./scss/main.scss";
 
 body {
-  color: col(dark, light);
-  background-color: col(light, light);
+  min-height: 100vh;
+  color: col(fg);
+  background-color: col(bg, dark);
 }
 
 #app {
-  display: grid;
+  display: flex;
   max-width: 100vw;
-  grid-template-columns: 1fr 4fr;
+  flex-direction: column;
+
+  @include bp(tablet) {
+    flex-direction: row;
+  }
 }
 main {
   padding: 1rem;
