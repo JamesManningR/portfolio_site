@@ -102,6 +102,7 @@ export default {
           .header__navLink {
             &::before {
               transform: scaleX(1 - (0.05 * $i));
+              filter: brightness(1.2);
             }
           }
         }
@@ -133,8 +134,10 @@ export default {
         z-index: -1;
         content: "";
         background-color: col(primary);
-        transform: scale(0);
+        transform: scaleX(0);
         transform-origin: left;
+        border-radius: 0 .25em .25em 0;
+        transition: transform .15s ease-in-out, filter .15s ease-in-out;
       }
     }
     &.router-link-active {
@@ -143,7 +146,7 @@ export default {
       @include bp(tablet) {
         background: none;
         &:before {
-          transform: scale(1);
+          transform: scale(1) !important;
         }
       }
     }
