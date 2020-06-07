@@ -38,7 +38,7 @@
       </li>
     </ul>
     <button class="linkInput__add" @click.prevent="addLink()">
-      <svg-path name="add" set="iconMoon" /> Add Link
+      <svg-path name="add" set="icoMoon" /> Add Link
     </button>
   </section>
 </template>

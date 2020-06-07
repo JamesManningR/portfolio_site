@@ -1,5 +1,6 @@
 <template>
   <main class="home">
+    <div class="wrapper">
     <section class="home__bio bio">
       <h1 class="bio__author">{{ this.$content.home.author }}</h1>
       <p class="bio__subtitle">I build experiences</p>
@@ -28,6 +29,7 @@
         </li> -->
       </ul>
     </section>
+    </div>
   </main>
 </template>
 
@@ -52,9 +54,19 @@ export default {
 <style lang="scss">
 .home {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  .wrapper {
+    flex-grow: 1;
+    max-width: 28em;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    @include bp(tablet){
+      max-width: 60em;
+    }
+  }
   &__bio {
     margin-bottom: 2em;
   }

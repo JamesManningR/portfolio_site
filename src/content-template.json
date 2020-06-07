@@ -11,14 +11,14 @@
       "title": "Phone Number",
       "link": "tel:01234567890",
       "text": "01234567890",
-      "iconSet": "iconMoon",
+      "iconSet": "icoMoon",
       "icon": "phone"
     },
     "email" : {
       "title": "Email",
       "link": "mailto:tester@example.com",
       "text": "tester@example.com",
-      "iconSet": "iconMoon",
+      "iconSet": "icoMoon",
       "icon": "email"
     },
     "instagram" : {

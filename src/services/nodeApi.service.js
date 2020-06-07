@@ -40,7 +40,7 @@ export default {
   },
   // Update ----------------------
   async updateProject(project) {
-    const { title, body, link, images, featuredImage, color, skills } = project;
+    const { title, body, link, images, featuredImage, color, skills, featured } = project;
     const updatedProject = {
       title,
       body,
@@ -48,7 +48,8 @@ export default {
       images,
       featuredImage,
       color,
-      skills
+      skills,
+      featured
     };
     const id = project._id;
     return axios

@@ -7,7 +7,7 @@
       aria-label="dismiss notification"
       @click="dismissNotification"
     >
-      <svg-path class="notification__cross" set="iconMoon" name="cross" />
+      <svg-path class="notification__cross" set="icoMoon" name="cross" />
     </button>
   </li>
 </template>

@@ -48,7 +48,8 @@ export default {
         featuredImage: "",
         color: "",
         skills: [],
-        links: []
+        links: [],
+        featured: false
       },
       editMode: true
     };

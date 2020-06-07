@@ -1,12 +1,15 @@
-input {
+input, textarea {
+	width: 100%;
 	padding: 0.5em 0.5em;
 	position: relative;
 	color: col(dark, light);
-	background-color: #FAFAFA;
-	border-bottom: 2px solid #000000;
+	font-family: fnt(primary);
+	background-color: col(bg);
+	border: none;
+	border-bottom: 2px solid col(fg);
 	border-radius: 0.1em;
 	&:focus {
-		border-bottom: 2px solid col(success);
+		border-bottom: 2px solid col(primary);
 	}
 }
 select {
@@ -25,6 +28,7 @@ select {
 	padding: 0.5em 1em;
 	color: col(primary, light);
 	background-color: col(primary);
+	border: none;
 	border-radius: 0.5em;
 	cursor: pointer;
 	&:hover {

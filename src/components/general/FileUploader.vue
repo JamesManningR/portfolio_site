@@ -3,7 +3,7 @@
     <label class="fileUploader__label">
       <svg-path
         className="fileUploader__inputIcon"
-        set="iconMoon"
+        set="icoMoon"
         name="upload"
         label="Upload"
       />

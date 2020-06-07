@@ -2,22 +2,24 @@
   <li class="projectPost">
     <template v-if="isAuthenticated">
       <router-link
-        class="projectPost__button projectPost__edit"
+        class="btn projectPost__action projectPost__action--edit projectPost__button projectPost__button--edit"
         :to="{ name: 'project-edit', params: { id: this.$vnode.key } }"
       >
         Edit
       </router-link>
-      <button
-        class="projectPost__button projectPost__delete"
-        @click="deletePost"
+
+      <confirm-button
+        @confirm="deletePost"
+				class="projectPost__action projectPost__action--delete"
+				buttonClass="projectPost__button projectPost__button--delete"
       >
         <svg-path
           className="projectPost__deleteIcon"
-          set="iconMoon"
+          set="icoMoon"
           name="bin"
           label="bin"
         />
-      </button>
+      </confirm-button>
     </template>
     <router-link
       class="projectPost__link"
@@ -63,7 +65,7 @@ export default {
   position: relative;
   &:hover,
   &:active {
-    .projectPost__button {
+    .projectPost__action {
       display: block;
     }
   }
@@ -90,34 +92,32 @@ export default {
   }
   &__title {
     text-shadow: 2px 1px 12px #000000ee;
-  }
-  &__button {
-    display: none;
-    padding: 0.4em 1em;
-    position: absolute;
-    top: 0.5em;
-    color: #ffffff;
-    font-size: 1em;
-    appearance: none;
-    border: none;
-    border-radius: 0.5em;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  &__delete {
-    right: 0.5em;
-    background-color: #de5843;
-    &Icon {
-      width: 1em;
-      height: 1em;
-
-      fill: currentColor;
-    }
-  }
-  &__edit {
-    left: 0.5em;
-    background-color: #edaf42;
-  }
+	}
+	&__action {
+		display: none;
+		position: absolute;
+		top: .5em;
+		&--edit {
+			left: .5em;
+		}
+		&--delete {
+			right: .5em;
+		}
+	}
+	&__button {
+		font-size: 1em;
+		background-color: col(primary);
+		color: col(fg);
+		padding: .75em 1em;
+		&--edit {
+			background-color: col(caution);
+		}
+		&--delete {
+			background-color: col(failure);
+			line-height: 0;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+		}
+	}
 }
 </style>

@@ -7,7 +7,7 @@
         v-model="search"
         placeholder="Search Skills"
       />
-      <svg-path class="skillPicker__searchIcon" set="iconMoon" name="search" />
+      <svg-path class="skillPicker__searchIcon" set="icoMoon" name="search" />
     </div>
     <transition-group name="slide" tag="ul" class="skills" mode="out-in">
       <li
@@ -136,7 +136,7 @@ export default {
         color: col(light);
         content: attr(data-skillname);
         text-transform: capitalize;
-        background-color: col(dark);
+        background-color: col(bg);
         pointer-events: none;
       }
     }
@@ -151,7 +151,6 @@ export default {
     border: 2px solid transparent;
     border-radius: 0.2em;
     &:hover {
-      background-color: #f6f6f6;
       border-color: #dedede;
       .skills__icon {
         filter: none;

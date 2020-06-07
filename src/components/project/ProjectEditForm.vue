@@ -1,5 +1,7 @@
 <template>
   <form class="projectForm">
+    <input type="checkbox" v-model="value.featured" id="">
+
     <section class="projectForm__formGroup projectForm__formGroup--images">
       <file-uploader
         aria-label="project image"

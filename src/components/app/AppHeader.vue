@@ -7,19 +7,19 @@
         <ul class="header__navList">
           <li class="header__listItem">
             <router-link class="header__navLink" to="/" exact>
-              <svg-path class="header__icon" set="iconMoon" name="home" />
+              <svg-path class="header__icon" set="icoMoon" name="home" />
               <span class="header__navText">Home</span></router-link
             >
           </li>
           <li class="header__listItem">
             <router-link class="header__navLink" :to="{ name: 'projects' }">
-              <svg-path class="header__icon" set="iconMoon" name="gear" />
+              <svg-path class="header__icon" set="icoMoon" name="gear" />
               <span class="header__navText">Projects</span></router-link
             >
           </li>
           <li class="header__listItem">
             <router-link class="header__navLink" :to="{ name: 'contact' }">
-              <svg-path class="header__icon" set="iconMoon" name="envelope" />
+              <svg-path class="header__icon" set="icoMoon" name="phone" />
               <span class="header__navText">Contact</span></router-link
             >
           </li>

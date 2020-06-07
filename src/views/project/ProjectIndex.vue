@@ -10,7 +10,7 @@
       v-model="selectedSkills"
     />
     <icon-button-link
-      iconSet="iconMoon"
+      iconSet="icoMoon"
       icon="add"
       routeName="project-new"
       variation="success"

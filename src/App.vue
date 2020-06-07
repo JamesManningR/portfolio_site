@@ -24,27 +24,27 @@ export default {
 </script>
 
 <style lang="scss">
-@import './scss/main.scss';
+@import "./scss/main.scss";
 
 body {
-	min-height: 100vh;
-	color: col(fg);
-	background-color: col(bg, dark);
+  min-height: 100vh;
+  color: col(fg);
+  background-color: col(bg, dark);
 }
 
 #app {
-	display: flex;
-	max-width: 100vw;
-	min-height: 100vh;
-	flex-direction: column;
+  display: flex;
+  max-width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
 
-	@include bp(tablet) {
-		flex-direction: row;
-	}
+  @include bp(tablet) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+  }
 }
 main {
-	padding: 1rem;
-	flex-grow: 1;
+  padding: 1rem;
+  flex-grow: 1;
 }
-
 </style>

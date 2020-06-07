@@ -13,13 +13,14 @@ function storeAuth(data) {
 }
 
 function loadLocalAuth() {
-  return {
+  const authData = {
     token: localStorage.getItem("_token"),
     expiry: localStorage.getItem("_tokenExpiry"),
     username: localStorage.getItem("_username"),
     userId: localStorage.getItem("_userId"),
     userRole: localStorage.getItem("_userRole")
   };
+  return authData;
 }
 
 export const state = {

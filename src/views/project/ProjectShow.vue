@@ -3,7 +3,7 @@
     <icon-button-link
       routeName="projects"
       icon="left-arrow"
-      iconSet="iconMoon"
+      iconSet="icoMoon"
       variation="primary"
       class="project__back"
     >
