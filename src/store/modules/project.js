@@ -94,6 +94,25 @@ export const actions = {
         );
       });
   },
+  fetchFeaturedProjects({ commit, dispatch }) {
+    return db
+      .getFeaturedProjects()
+      .then(projects => {
+        commit("SET_PROJECTS", projects);
+        return projects;
+      })
+      .catch(err => {
+        dispatch(
+          "notification/createNotification",
+          {
+            action: "Get Featured Projects",
+            message: err.data.message,
+            type: "failure"
+          },
+          { root: true }
+        );
+      });
+  },
   fetchProject({ commit, getters, dispatch }, id) {
     let project = getters.getProjectById(id);
     if (project) {

@@ -1,52 +1,54 @@
 <template>
   <main class="home">
     <div class="wrapper">
-    <section class="home__bio bio">
-      <h1 class="bio__author">{{ this.$content.home.author }}</h1>
-      <p class="bio__subtitle">I build experiences</p>
-      <ul class="bio__socials">
-        <li v-for="(profile, key) in this.$content.home.profiles" :key="key">
-          <a :href="profile.link">
-            <svg-path :name="profile.icon" :set="profile.iconSet" />
-          </a>
-        </li>
-      </ul>
-    </section>
+      <section class="home__bio bio">
+        <h1 class="bio__author">{{ this.$content.home.author }}</h1>
+        <p class="bio__subtitle">I build experiences</p>
+        <ul class="bio__socials">
+          <li v-for="(profile, key) in this.$content.home.profiles" :key="key">
+            <a :href="profile.link">
+              <svg-path :name="profile.icon" :set="profile.iconSet" />
+            </a>
+          </li>
+        </ul>
+      </section>
 
-    <section class="home__special specialities">
-      <h2 class="home__sectionTitle specialities__title">Specialities:</h2>
-      <skills-display
-        class="specialities__skills"
-        :skills="this.$content.home.specialities"
-      />
-    </section>
+      <section class="home__special specialities">
+        <h2 class="home__sectionTitle specialities__title">Specialities:</h2>
+        <skills-display
+          class="specialities__skills"
+          :skills="this.$content.home.specialities"
+        />
+      </section>
 
-    <section class="home__projects">
-      <h2 class="home__sectionTitle">Projects</h2>
-      <ul>
-        <!-- <li v-for="(project, index) in featuredProjects" :key="index">
-          <project-post />
-        </li> -->
-      </ul>
-    </section>
+      <section class="home__projects">
+        <h2 class="home__sectionTitle">Projects</h2>
+        <ul>
+          <li v-for="(project, index) in projects" :key="index">
+            <project-post-link :project="project" />
+          </li>
+        </ul>
+      </section>
     </div>
   </main>
 </template>
 
 <script>
 import SkillsDisplay from "@/components/general/SkillsDisplay";
-// import ProjectPost from "@/components/project/ProjectPost";
+import ProjectPostLink from "@/components/project/ProjectPostLink";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
   components: {
-    SkillsDisplay
-    // ProjectPost
+    SkillsDisplay,
+    ProjectPostLink
   },
-  data() {
-    return {
-      projects: ""
-    };
+  computed: {
+    ...mapState("project", ["projects"])
+  },
+  created() {
+    this.$store.dispatch("project/fetchFeaturedProjects");
   }
 };
 </script>
@@ -63,7 +65,7 @@ export default {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    @include bp(tablet){
+    @include bp(tablet) {
       max-width: 60em;
     }
   }

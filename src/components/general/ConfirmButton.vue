@@ -2,7 +2,7 @@
   <div class="confirmButton">
     <button
       class="confirmButton__action"
-      :class="[{ 'confirmButton__action--hidden': check}, buttonClass]"
+      :class="[{ 'confirmButton__action--hidden': check }, buttonClass]"
       @click="checkConfirm"
     >
       <slot>
@@ -11,7 +11,7 @@
     </button>
     <button
       class="confirmButton__tick"
-      v-if="check"
+      :class="{ 'confirmButton--active': check }"
       @click="$emit('confirm')"
     >
       <svg-path
@@ -20,7 +20,11 @@
         set="icoMoon"
       ></svg-path>
     </button>
-    <button class="confirmButton__cross" v-if="check" @click="cancel">
+    <button
+      class="confirmButton__cross"
+      :class="{ 'confirmButton--active': check }"
+      @click="cancel"
+    >
       <svg-path
         class="confirmButton__icon"
         name="cross"
@@ -53,39 +57,49 @@ export default {
 </script>
 
 <style lang="scss">
+$transition-length: 0.1s;
+
 .confirmButton {
   display: flex;
   position: relative;
   button {
+    cursor: pointer;
     border: none;
     appearance: none;
   }
   &__action {
     border-radius: 0.5em;
+    transform: scale(1);
+    transition: transform $transition-length ease-out;
     &--hidden {
-      opacity: 0;
+      transform: scale(0);
       pointer-events: none;
     }
   }
   &__cross,
   &__tick {
     position: absolute;
+    transform: scale(0);
     width: 50%;
     height: 100%;
 
     color: col(fg);
+    transition: transform $transition-length ease-in;
   }
   &__tick {
+    transform-origin: right;
     left: 0;
     background-color: col(primary);
     border-radius: 0.5em 0 0 0.5em;
   }
   &__cross {
+    transform-origin: left;
     right: 0;
     background-color: col(failure);
     border-radius: 0 0.5em 0.5em 0;
   }
-  &__icon {
+  &--active {
+    transform: scale(1);
   }
 }
 </style>

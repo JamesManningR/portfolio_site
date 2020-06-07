@@ -27,6 +27,16 @@ export default {
         throw err.response;
       });
   },
+  async getFeaturedProjects() {
+    return axios
+      .get(`${API_URL}/projects?featured=true`)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err.response;
+      });
+  },
   // Single
   async getProject(id) {
     return axios
@@ -40,7 +50,16 @@ export default {
   },
   // Update ----------------------
   async updateProject(project) {
-    const { title, body, link, images, featuredImage, color, skills, featured } = project;
+    const {
+      title,
+      body,
+      link,
+      images,
+      featuredImage,
+      color,
+      skills,
+      featured
+    } = project;
     const updatedProject = {
       title,
       body,

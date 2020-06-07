@@ -1,26 +1,28 @@
 <template>
   <li class="projectPost">
     <template v-if="isAuthenticated">
-      <router-link
-        class="btn projectPost__action projectPost__action--edit projectPost__button projectPost__button--edit"
-        :to="{ name: 'project-edit', params: { id: this.$vnode.key } }"
-      >
-        Edit
-      </router-link>
+      <div class="projectPostActions">
+        <router-link
+          class="btn projectPostActions__edit"
+          :to="{ name: 'project-edit', params: { id: this.$vnode.key } }"
+        >
+          Edit
+        </router-link>
 
-      <confirm-button
-        @confirm="deletePost"
-				class="projectPost__action projectPost__action--delete"
-				buttonClass="projectPost__button projectPost__button--delete"
-      >
-        <svg-path
-          className="projectPost__deleteIcon"
-          set="icoMoon"
-          name="bin"
-          label="bin"
-        />
-      </confirm-button>
+        <confirm-button
+          @confirm="deletePost"
+          buttonClass="projectPostActions__delete"
+        >
+          <svg-path
+            className="projectPost__deleteIcon"
+            set="icoMoon"
+            name="bin"
+            label="bin"
+          />
+        </confirm-button>
+      </div>
     </template>
+
     <router-link
       class="projectPost__link"
       :to="{ name: 'project-show', params: { id: this.$vnode.key } }"
@@ -65,8 +67,8 @@ export default {
   position: relative;
   &:hover,
   &:active {
-    .projectPost__action {
-      display: block;
+    .projectPostActions {
+      display: flex;
     }
   }
   &__post {
@@ -92,32 +94,21 @@ export default {
   }
   &__title {
     text-shadow: 2px 1px 12px #000000ee;
-	}
-	&__action {
-		display: none;
-		position: absolute;
-		top: .5em;
-		&--edit {
-			left: .5em;
-		}
-		&--delete {
-			right: .5em;
-		}
-	}
-	&__button {
-		font-size: 1em;
-		background-color: col(primary);
-		color: col(fg);
-		padding: .75em 1em;
-		&--edit {
-			background-color: col(caution);
-		}
-		&--delete {
-			background-color: col(failure);
-			line-height: 0;
-			padding-left: 1.5em;
-			padding-right: 1.5em;
-		}
-	}
+  }
+}
+
+.projectPostActions {
+  display: none;
+  width: 100%;
+  position: absolute;
+  padding: 0.5em 0.5em;
+  justify-content: space-between;
+  &__delete {
+    font-size: 1em;
+    color: col(fg);
+    background-color: col(failure);
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
 }
 </style>
