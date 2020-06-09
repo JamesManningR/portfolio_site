@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import ProjectPost from "@/components/project/ProjectPost";
-import { mapState } from "vuex";
+import ProjectPost from "@/components/project/frontend/ProjectPost";
 import IconButtonLink from "@/components/general/IconButtonLink";
+import { mapState } from "vuex";
 
 export default {
   components: {

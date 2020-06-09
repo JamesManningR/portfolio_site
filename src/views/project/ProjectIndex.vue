@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import projectSkillPicker from "@/components/project/ProjectSkillPicker.vue";
-import projectList from "@/components/project/ProjectList.vue";
+import projectSkillPicker from "@/components/project/backend/ProjectSkillPicker";
+import projectList from "@/components/project/ProjectList";
 import IconButtonLink from "@/components/general/IconButtonLink";
 
 import { mapState } from "vuex";
@@ -63,6 +63,10 @@ export default {
       return skills;
     },
     ...mapState("project", ["projects"])
+  },
+  created() {
+    // If the the are no projects loaded
+    this.$store.dispatch("project/fetchProjects");
   }
 };
 </script>

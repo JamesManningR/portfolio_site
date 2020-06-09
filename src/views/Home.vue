@@ -14,7 +14,7 @@
       </section>
 
       <section class="home__special specialities">
-        <h2 class="home__sectionTitle specialities__title">Specialities:</h2>
+        <h2 class="home__sectionTitle specialities__title">Specialities</h2>
         <skills-display
           class="specialities__skills"
           :skills="this.$content.home.specialities"
@@ -22,33 +22,32 @@
       </section>
 
       <section class="home__projects">
-        <h2 class="home__sectionTitle">Projects</h2>
-        <ul>
-          <li v-for="(project, index) in projects" :key="index">
-            <project-post-link :project="project" />
-          </li>
-        </ul>
+        <h2 class="home__sectionTitle">Featured Projects</h2>
+        <projectList class="featuredProjects" :projects="featuredProjects" />
       </section>
     </div>
   </main>
 </template>
 
 <script>
+import ProjectList from "@/components/project/ProjectList";
 import SkillsDisplay from "@/components/general/SkillsDisplay";
-import ProjectPostLink from "@/components/project/ProjectPostLink";
 import { mapState } from "vuex";
 
 export default {
   name: "Home",
   components: {
     SkillsDisplay,
-    ProjectPostLink
+    ProjectList
   },
   computed: {
-    ...mapState("project", ["projects"])
-  },
-  created() {
-    this.$store.dispatch("project/fetchFeaturedProjects");
+    ...mapState("project", ["projects"]),
+    featuredProjects() {
+      const filterProjects = this.projects.filter(
+        project => project.featured === true
+      );
+      return filterProjects;
+    }
   }
 };
 </script>
@@ -58,9 +57,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 2em;
   .wrapper {
     flex-grow: 1;
-    max-width: 28em;
+    max-width: 35em;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -69,11 +69,22 @@ export default {
       max-width: 60em;
     }
   }
+  &__sectionTitle {
+    margin-bottom: 1em;
+    font-size: 1.4em;
+  }
   &__bio {
     margin-bottom: 2em;
   }
   &__special {
     margin-bottom: 1em;
+  }
+
+  &__projects {
+    width: 100%;
+    .featuredProjects {
+      padding: 0 1em;
+    }
   }
 }
 

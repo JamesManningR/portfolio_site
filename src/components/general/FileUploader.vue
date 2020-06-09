@@ -17,28 +17,20 @@
       />
     </label>
     <ul class="fileUploader__uploaded" v-if="images.files">
-      <li v-for="file in images.files" :key="file._id">
-        <label class="fileUploader__imgLabel">
+      <li class="uploaderImage" v-for="file in images.files" :key="file._id">
+        <label class="uploaderImage__Label">
           <input
-            class="fileUploader__featured"
+            class="uploaderImage__featured"
             type="radio"
             v-model="images.featured"
             :value="file._id"
             name="featured"
           />
-          <img class="fileUploader__img" :src="file.src" :alt="file.name" />
+          <img class="uploaderImage__img" :src="file.src" :alt="file.name" />
         </label>
       </li>
     </ul>
   </div>
-  <!-- <label class="fileUploader__altLabel">
-          Alt Text
-          <input
-            class="fileUploader__altText"
-            v-model="file.altText"
-            type="text"
-          />
-        </label> -->
 </template>
 
 <script>
@@ -136,26 +128,29 @@ export default {
     display: flex;
     list-style: none;
   }
-  &__featured {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    &:checked + img {
-      border: #ffb829 3px solid;
-      border-radius: 0.2em;
-    }
-  }
-  &__img {
-    box-sizing: border-box;
-    height: 4em;
-    margin: 0.5em;
 
-    object-fit: cover;
-  }
-  &__imgLabel {
-    display: flex;
+  .uploaderImage {
+    &__featured {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      &:checked + img {
+        border: #ffb829 3px solid;
+        border-radius: 0.2em;
+      }
+    }
+    &__img {
+      box-sizing: border-box;
+      height: 4em;
+      margin: 0.5em;
+
+      object-fit: cover;
+    }
+    &__imgLabel {
+      display: flex;
+    }
   }
 }
 </style>

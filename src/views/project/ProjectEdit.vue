@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import ProjectEditForm from "@/components/project/ProjectEditForm.vue";
-import ProjectPost from "@/components/project/ProjectPost";
+import ProjectEditForm from "@/components/project/backend/ProjectEditForm";
+import ProjectPost from "@/components/project/frontend/ProjectPost";
 
 export default {
   components: {
@@ -89,25 +89,13 @@ export default {
     }
   }
   &__modeSwitch {
-    width: 30rem;
     padding: 0.25em;
-    position: absolute;
-    top: 20%;
-    left: 0;
     color: col(secondary, dark);
     font-size: 1em;
     background-color: col(secondary);
     border: none;
     border-radius: 0.5em 0.5em 0 0;
-    transform: rotate(90deg);
-    transform-origin: bottom left;
     cursor: pointer;
-  }
-  &--preview {
-    padding-right: 4rem;
-  }
-  &--edit {
-    padding-left: 4rem;
   }
 }
 </style>

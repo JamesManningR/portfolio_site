@@ -26,7 +26,7 @@ export default {
 <style lang="scss">
 .nofiticationList {
   width: 25em;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   &__item {

@@ -1,13 +1,13 @@
 <template>
   <div class="skillPicker">
-    <div class="skillPicker__search">
+    <div class="skillSearch">
       <input
-        class="skillPicker__searchInput"
+        class="skillSearch__input"
         type="text"
         v-model="search"
         placeholder="Search Skills"
       />
-      <svg-path class="skillPicker__searchIcon" set="icoMoon" name="search" />
+      <svg-path class="skillSearch__icon" set="icoMoon" name="search" />
     </div>
     <transition-group name="slide" tag="ul" class="skills" mode="out-in">
       <li
@@ -92,34 +92,33 @@ export default {
 </script>
 
 <style lang="scss">
-.skillPicker {
-  &__search {
-    max-width: 20em;
-    position: relative;
-    &Input {
-      width: 100%;
-      height: 100%;
-      padding: 0.1em;
-      font-size: 1.1em;
-      text-align: left;
-    }
-    &Icon {
-      position: absolute;
-      right: 0.5em;
-      bottom: 0.4em;
-      pointer-events: none;
-    }
+.skillSearch {
+  max-width: 20em;
+  position: relative;
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0.1em;
+    font-size: 1.1em;
+    text-align: left;
+  }
+  &__icon {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.4em;
+    pointer-events: none;
   }
 }
 
 .skills {
   display: flex;
-  max-height: 10em;
+  max-height: 6em;
   padding-bottom: 1em;
   overflow-y: scroll;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
+  font-size: 1.75em;
   list-style: none;
   &__skill {
     margin: 0.2em;
@@ -135,6 +134,7 @@ export default {
         z-index: 10;
         color: col(light);
         content: attr(data-skillname);
+        font-size: 0.65em;
         text-transform: capitalize;
         background-color: col(bg);
         pointer-events: none;

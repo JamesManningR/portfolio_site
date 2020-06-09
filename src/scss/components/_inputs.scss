@@ -12,6 +12,9 @@ input, textarea {
 		border-bottom: 2px solid col(primary);
 	}
 }
+input[type=file] {
+	padding: 0;
+}
 select {
 	padding: 0.5em;
 	-webkit-appearance: none;
@@ -26,8 +29,8 @@ select {
 .btn {
 	display: inline-block;
 	padding: 0.5em 1em;
-	line-height: 1em;
 	color: col(primary, light);
+	line-height: 1em;
 	background-color: col(primary);
 	border: none;
 	border-radius: 0.5em;

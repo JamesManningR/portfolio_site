@@ -77,10 +77,10 @@ export default {
   }
   &__nav {
     width: 100%;
-    max-width: 12.5em;
+    max-width: 14em;
 
     @include bp(32rem) {
-      max-width: 23em;
+      max-width: 22em;
     }
   }
   &__navList {
@@ -136,8 +136,8 @@ export default {
         background-color: col(primary);
         transform: scaleX(0);
         transform-origin: left;
-        border-radius: 0 .25em .25em 0;
-        transition: transform .15s ease-in-out, filter .15s ease-in-out;
+        border-radius: 0 0.25em 0.25em 0;
+        transition: transform 0.15s ease-in-out, filter 0.15s ease-in-out;
       }
     }
     &.router-link-active {

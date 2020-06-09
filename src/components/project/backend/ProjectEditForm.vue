@@ -1,71 +1,71 @@
 <template>
   <form class="projectForm">
-    <input type="checkbox" v-model="value.featured" id="" />
+    <section class="featured">
+      <input
+        id="project_featured_input"
+        type="checkbox"
+        class="featured__input"
+        v-model="value.featured"
+      />
+      <label for="project_featured_input">
+        <svg-path class="featured__icon" set="icoMoon" name="star" />
+      </label>
+    </section>
 
-    <section class="projectForm__formGroup projectForm__formGroup--images">
+    <section class="images">
       <file-uploader
         aria-label="project image"
         id="ProjectFormImages"
-        class="projectForm__input projectForm__input--images"
         @fileUploaded="value.images = $event"
         @featuredSelected="featuredSelected($event)"
       />
     </section>
 
-    <section class="projectForm__formGroup projectForm__formGroup--title">
+    <section class="title">
       <input
+        class="title__input"
         aria-label="project title"
         id="ProjectFormTitle"
         placeholder="Title"
-        class="projectForm__input projectForm__input--title"
         type="text"
         v-model="value.title"
       />
     </section>
 
-    <project-link-input
-      class="projectForm__formGroup projectForm__formGroup--links"
-      v-model="value.links"
-    />
+    <project-link-input class="links" v-model="value.links" />
 
-    <project-skill-picker
-      class="projectForm__formGroup projectForm__formGroup--skills"
-      v-model="value.skills"
-    />
+    <project-skill-picker class="skills" v-model="value.skills" />
 
-    <section class="projectForm__formGroup projectForm__formGroup--color">
+    <section class="color">
       <input
+        class="color__input"
         aria-label="project color"
         id="ProjectFormcolor"
-        class="projectForm__input projectForm__input--color"
         type="color"
         v-model="value.color"
       />
     </section>
 
-    <section class="projectForm__formGroup projectForm__formGroup--body">
+    <section class="body">
       <textarea
+        class="body__input"
         aria-label="project body"
         id="ProjectFormBody"
         placeholder="Body"
-        class="projectForm__input projectForm__input--body"
         v-model="value.body"
       />
     </section>
 
-    <div class="projectForm__formGroup projectForm__formGroup--submit">
-      <slot
-        class="projectForm__input projectForm__input--submit"
-        name="submit"
-      ></slot>
+    <div class="submit">
+      <slot name="submit"></slot>
     </div>
   </form>
 </template>
 
 <script>
 import fileUploader from "@/components/general/FileUploader.vue";
-import projectSkillPicker from "@/components/project/ProjectSkillPicker.vue";
-import ProjectLinkInput from "@/components/project/ProjectLinkInput";
+import projectSkillPicker from "@/components/project/backend/ProjectSkillPicker.vue";
+import ProjectLinkInput from "@/components/project/backend/ProjectLinkInput";
 
 export default {
   components: {
@@ -98,5 +98,17 @@ export default {
   grid-auto-columns: 1fr;
 
   gap: 0.75em;
+
+  .featured {
+    &__input {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      &:checked ~ .featured__label {
+        background-color: red;
+      }
+    }
+  }
 }
 </style>

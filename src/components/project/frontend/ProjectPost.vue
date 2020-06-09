@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import ProjectImageBanner from "@/components/project/ProjectImageBanner.vue";
+import ProjectImageBanner from "@/components/project/frontend/ProjectImageBanner.vue";
 import SkillsDisplay from "@/components/general/SkillsDisplay.vue";
-import ProjectLinkList from "@/components/project/ProjectLinkList.vue";
+import ProjectLinkList from "@/components/project/frontend/ProjectLinkList.vue";
 import BlogText from "@/components/general/BlogText.vue";
-import ProjectEnlargedImage from "@/components/project/ProjectEnlargedImage";
+import ProjectEnlargedImage from "@/components/project/frontend/ProjectEnlargedImage";
 
 export default {
   components: {

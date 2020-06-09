@@ -9,7 +9,14 @@ const routes = [
   {
     path: "/",
     name: "index",
-    component: Home
+    component: Home,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (Object.keys(store.state.project.projects).length <= 0) {
+        store.dispatch("project/fetchProjects").then(next);
+      } else {
+        next();
+      }
+    }
   },
   {
     path: "/projects",

@@ -27,6 +27,7 @@ export default {
 @import "./scss/main.scss";
 
 body {
+  width: 100vw;
   min-height: 100vh;
   color: col(fg);
   background-color: col(bg, dark);
@@ -34,7 +35,6 @@ body {
 
 #app {
   display: flex;
-  max-width: 100vw;
   min-height: 100vh;
   flex-direction: column;
 
