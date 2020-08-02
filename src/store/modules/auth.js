@@ -131,7 +131,7 @@ export const actions = {
 
 export const getters = {
   isAuthenticated: () => {
-    return state.authData !== null;
+    return state.authData !== null && state.authData.tokenExpiry > Date.now();
   },
   isAdmin: () => {
     return state.authData ? state.authData.userRole == "admin" : false;

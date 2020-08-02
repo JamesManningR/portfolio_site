@@ -1,42 +1,31 @@
 <template>
   <form class="projectForm">
-    <section class="featured">
-      <input
-        id="project_featured_input"
-        type="checkbox"
-        class="featured__input"
-        v-model="value.featured"
-      />
-      <label for="project_featured_input">
-        <svg-path class="featured__icon" set="icoMoon" name="star" />
-      </label>
-    </section>
+    <section class="meta">
+      <h2>Meta</h2>
+      <section class="images">
+        <file-uploader
+          aria-label="project image"
+          id="ProjectFormImages"
+          @fileUploaded="value.images = $event"
+          @featuredSelected="featuredSelected($event)"
+        />
+      </section>
 
-    <section class="images">
-      <file-uploader
-        aria-label="project image"
-        id="ProjectFormImages"
-        @fileUploaded="value.images = $event"
-        @featuredSelected="featuredSelected($event)"
-      />
-    </section>
-
-    <section class="title">
-      <input
-        class="title__input"
-        aria-label="project title"
-        id="ProjectFormTitle"
-        placeholder="Title"
-        type="text"
-        v-model="value.title"
-      />
-    </section>
-
-    <project-link-input class="links" v-model="value.links" />
-
-    <project-skill-picker class="skills" v-model="value.skills" />
+      <section class="featured">
+        <input
+          id="project_featured_input"
+          type="checkbox"
+          class="featured__input"
+          v-model="value.featured"
+        />
+        <label class="featured__label" for="project_featured_input">
+          <svg-path class="featured__icon" set="icoMoon" name="star" />
+          Featured
+        </label>
+      </section>
 
     <section class="color">
+      <label for="ProjectFormcolor">Fallback Color: </label>
       <input
         class="color__input"
         aria-label="project color"
@@ -44,9 +33,31 @@
         type="color"
         v-model="value.color"
       />
+      {{value.color}}
+    </section>
+
+      <section class="title">
+        <input
+          class="title__input"
+          aria-label="project title"
+          id="ProjectFormTitle"
+          placeholder="Title"
+          type="text"
+          v-model="value.title"
+        />
+      </section>
+    </section>
+
+
+    <project-link-input class="links" v-model="value.links" />
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <project-skill-picker  v-model="value.skills" />
     </section>
 
     <section class="body">
+      <h2>Body</h2>
       <textarea
         class="body__input"
         aria-label="project body"
@@ -92,23 +103,63 @@ export default {
 
 <style lang="scss">
 .projectForm {
-  display: grid;
-  height: 100%;
-  flex-direction: column;
-  grid-auto-columns: 1fr;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	grid-auto-columns: 1fr;
 
-  gap: 0.75em;
+	gap: 0.75em;
 
-  .featured {
-    &__input {
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      &:checked ~ .featured__label {
-        background-color: red;
-      }
-    }
-  }
+	> section {
+		padding: 1em;
+		border: 1px solid col(fg);
+	}
+
+	.meta {
+		display: grid;
+		grid-template-areas: 'images images' 'featured color' 'title title';
+
+		gap: 0.75em;
+
+		.images {
+			grid-area: images;
+		}
+
+		.featured {
+			display: flex;
+			grid-area: featured;
+			&__input {
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				opacity: 0;
+				&:checked~ .featured__label {
+					svg {
+						color: col(success);
+					}
+				}
+			}
+			&__label {
+				display: flex;
+				align-items: center;
+				flex-basis: 100%;
+				justify-content: center;
+				border: 1px solid col(fg);
+			}
+		}
+
+		.color {
+			display: flex;
+			grid-area: color;
+			&__input {
+				@include square(1.2em);
+			}
+		}
+
+		.title {
+			grid-area: title;
+		}
+	}
 }
+
 </style>

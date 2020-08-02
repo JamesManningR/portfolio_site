@@ -15,6 +15,12 @@ input, textarea {
 input[type=file] {
 	padding: 0;
 }
+input[type=color] {
+	padding: 0;
+	appearance: none;
+	border: none;
+	border-radius: 50%;
+}
 select {
 	padding: 0.5em;
 	-webkit-appearance: none;

@@ -9,28 +9,28 @@
       />
       <svg-path class="skillSearch__icon" set="icoMoon" name="search" />
     </div>
-    <transition-group name="slide" tag="ul" class="skills" mode="out-in">
+    <transition-group name="slide" tag="ul" class="skillsList" mode="out-in">
       <li
         v-for="(iconData, key) in filteredSkills"
         :data-skillname="key"
         :key="`key-${key}`"
         @click="iconData.selected = true"
-        class="skills__skill"
+        class="skillsList__skill"
       >
         <input
-          class="skills__checkbox"
+          class="skillsList__checkbox"
           type="checkbox"
-          :id="'skills__check--' + key"
+          :id="'skillsList__check--' + key"
           v-model="selectedSkills"
           :value="key"
         />
         <label
           :aria-label="key"
-          :for="'skills__check--' + key"
-          class="skills__label"
+          :for="'skillsList__check--' + key"
+          class="skillsList__label"
         >
           <svg-path
-            className="skills__icon"
+            className="skillsList__icon"
             set="skills"
             :name="key"
             :label="key"
@@ -93,81 +93,82 @@ export default {
 
 <style lang="scss">
 .skillSearch {
-  max-width: 20em;
-  position: relative;
-  &__input {
-    width: 100%;
-    height: 100%;
-    padding: 0.1em;
-    font-size: 1.1em;
-    text-align: left;
-  }
-  &__icon {
-    position: absolute;
-    right: 0.5em;
-    bottom: 0.4em;
-    pointer-events: none;
-  }
+	max-width: 20em;
+	position: relative;
+	&__input {
+		width: 100%;
+		height: 100%;
+		padding: 0.1em;
+		font-size: 1.1em;
+		text-align: left;
+	}
+	&__icon {
+		position: absolute;
+		right: 0.5em;
+		bottom: 0.4em;
+		pointer-events: none;
+	}
 }
 
-.skills {
-  display: flex;
-  max-height: 6em;
-  padding-bottom: 1em;
-  overflow-y: scroll;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  font-size: 1.75em;
-  list-style: none;
-  &__skill {
-    margin: 0.2em;
-    position: relative;
-    &:hover {
-      &::after {
-        width: max-content;
-        padding: 0.15em;
-        position: absolute;
-        right: 0;
-        bottom: -10px;
-        left: 0;
-        z-index: 10;
-        color: col(light);
-        content: attr(data-skillname);
-        font-size: 0.65em;
-        text-transform: capitalize;
-        background-color: col(bg);
-        pointer-events: none;
-      }
-    }
-  }
-  &__checkbox {
-    display: none;
-  }
-  &__label {
-    box-sizing: border-box;
-    display: flex;
-    padding: 0.4em;
-    border: 2px solid transparent;
-    border-radius: 0.2em;
-    &:hover {
-      border-color: #dedede;
-      .skills__icon {
-        filter: none;
-      }
-    }
-  }
-  &__icon {
-    transition: filter 0.05s ease-in;
-    filter: grayscale(1) contrast(0);
+.skillsList {
+	display: flex;
+	max-height: 6em;
+	padding-bottom: 1em;
+	overflow-y: scroll;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	font-size: 1.75em;
+	list-style: none;
+	&__skill {
+		margin: 0.2em;
+		position: relative;
+		&:hover {
+			&::after {
+				width: max-content;
+				padding: 0.15em;
+				position: absolute;
+				right: 0;
+				bottom: -10px;
+				left: 0;
+				z-index: 10;
+				color: col(light);
+				content: attr(data-skillname);
+				font-size: 0.65em;
+				text-transform: capitalize;
+				background-color: col(bg);
+				pointer-events: none;
+			}
+		}
+	}
+	&__checkbox {
+		display: none;
+	}
+	&__label {
+		box-sizing: border-box;
+		display: flex;
+		padding: 0.4em;
+		border: 2px solid transparent;
+		border-radius: 0.2em;
+		&:hover {
+			border-color: #DEDEDE;
+			.skills__icon {
+				filter: none;
+			}
+		}
+	}
+	&__icon {
+		transition: filter 0.05s ease-in;
+		filter: grayscale(1) contrast(0);
 
-    @include square(2em, false);
-  }
-  &__checkbox:checked ~ &__label {
-    border-color: #ffb829;
-    .skills__icon {
-      filter: none;
-    }
-  }
+		@include square(2em, false);
+	}
+	&__checkbox:checked~ &__label {
+		border-color: #FFB829;
+		.skills__icon {
+			filter: none;
+		}
+	}
 }
+
 </style>

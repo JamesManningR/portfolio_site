@@ -1,17 +1,25 @@
 <template>
-  <div class="signup">
-    <h1>Sign Up</h1>
+  <div class="signup auth">
+    <h1 class="auth__title">Sign Up</h1>
 
-    <form @submit.prevent="submitSignUp" action="">
-      <label
+    <form class="auth__form" @submit.prevent="submitSignUp" action="">
+      <label class="auth__label"
         >Username
-        <input type="text" v-model="user.username" />
+        <input
+          class="auth__username auth__input"
+          type="text"
+          v-model="user.username"
+        />
       </label>
-      <label
+      <label class="auth__label"
         >Password
-        <input type="password" v-model="user.password" />
+        <input
+          class="auth__password auth__input"
+          type="password"
+          v-model="user.password"
+        />
       </label>
-      <button type="submit">Post</button>
+      <button class="auth__submit" type="submit">Post</button>
     </form>
   </div>
 </template>
@@ -22,17 +30,24 @@ export default {
     submitSignUp() {
       this.$store.dispatch("auth/register", this.user);
       return;
-    }
+    },
   },
   data() {
     return {
       user: {
         username: "",
-        password: ""
-      }
+        password: "",
+      },
     };
-  }
+  },
 };
 </script>
 
-<style></style>
+<style>
+.authPage {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+</style>

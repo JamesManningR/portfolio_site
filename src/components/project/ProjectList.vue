@@ -28,7 +28,7 @@ export default {
 
   gap: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   grid-auto-rows: auto;
   width: 100%;
 }

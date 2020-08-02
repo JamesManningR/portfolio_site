@@ -1,5 +1,6 @@
 <template>
   <section class="linkInput">
+    <h2>Links</h2>
     <ul class="linkInput__list">
       <li class="linkInput__item" v-for="(link, index) in value" :key="index">
         <span class="linkInput__type">
@@ -71,60 +72,60 @@ export default {
 
 <style lang="scss">
 .linkInput {
-  overflow-x: scroll;
-  &__list {
-    display: flex;
-    flex-direction: column;
-  }
-  &__item {
-    display: flex;
-    margin-bottom: 0.5em;
-    align-items: center;
-    flex-direction: row;
-    input {
-      max-width: 100%;
-    }
-  }
-  &__remove {
-    height: 50%;
-    padding: 0.4em 0.8em;
-    color: #ffffff;
-    background-color: col(failure);
-    border: none;
-    border-radius: 0 0.75em 0.75em 0;
-    &:hover {
-      color: col(failure);
-      background-color: #ffffff;
-      cursor: pointer;
-    }
-  }
-  &__url,
-  &__handle {
-    min-width: 1em;
-    flex-grow: 1;
-    border: 1px solid #aaaaaa;
-    border-radius: 0.5em;
-  }
-  &__type {
-    position: relative;
-    &::after {
-      position: absolute;
-      top: 0.25em;
-      right: 0.35em;
-      color: col(primary, light);
-      content: "▿";
-      pointer-events: none;
-    }
-  }
-  &__add {
-    width: 100%;
-    padding: 0.5em;
-    color: col(success, light);
-    background-color: col(success);
-    border: none;
-    border-radius: 0.5em;
-    &:hover {
-    }
-  }
+	overflow-x: scroll;
+	&__list {
+		display: flex;
+		flex-direction: column;
+	}
+	&__item {
+		display: flex;
+		margin-bottom: 0.5em;
+		align-items: center;
+		flex-direction: row;
+		input {
+			max-width: 100%;
+		}
+	}
+	&__remove {
+		height: 50%;
+		padding: 0.4em 0.8em;
+		color: #FFFFFF;
+		background-color: col(failure);
+		border: none;
+		border-radius: 0 0.75em 0.75em 0;
+		&:hover {
+			color: col(failure);
+			background-color: #FFFFFF;
+			cursor: pointer;
+		}
+	}
+	&__url, &__handle {
+		min-width: 1em;
+		flex-grow: 1;
+		border: 1px solid #AAAAAA;
+		border-radius: 0.5em;
+	}
+	&__type {
+		position: relative;
+		&::after {
+			position: absolute;
+			top: 0.25em;
+			right: 0.35em;
+			color: col(primary, light);
+			content: '▿';
+			pointer-events: none;
+		}
+	}
+	&__add {
+		width: 100%;
+		padding: 0.5em;
+		color: col(success, light);
+		background-color: col(success);
+		border: none;
+		border-radius: 0.5em;
+		&:hover {
+		}
+	}
 }
+
 </style>
