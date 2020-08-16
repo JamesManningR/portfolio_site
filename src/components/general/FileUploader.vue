@@ -102,63 +102,62 @@ export default {
 
 <style lang="scss">
 .fileUploader {
-	display: flex;
-	height: 100%;
-	border: 1px solid #8FB5D0;
-	border-radius: 0.3em;
+  display: flex;
+  height: 100%;
+  border: 1px solid #8fb5d0;
+  border-radius: 0.3em;
 
-	&__label {
-		box-sizing: border-box;
-		display: flex;
-		padding: 0.5em;
-		padding-left: 1em;
-		align-items: center;
-		flex-basis: 12em;
-		border-right: 1px solid #8FB5D0;
-		&:active {
-			background-color: #EAEAEA;
-		}
-	}
-	&__file {
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		font-size: 100px;
-		opacity: 0;
-	}
-	&__inputIcon {
-		margin-right: 1em;
-	}
-	&__uploaded {
-		display: flex;
-		list-style: none;
-	}
+  &__label {
+    box-sizing: border-box;
+    display: flex;
+    padding: 0.5em;
+    padding-left: 1em;
+    align-items: center;
+    flex-basis: 12em;
+    border-right: 1px solid #8fb5d0;
+    &:active {
+      background-color: #eaeaea;
+    }
+  }
+  &__file {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 100px;
+    opacity: 0;
+  }
+  &__inputIcon {
+    margin-right: 1em;
+  }
+  &__uploaded {
+    display: flex;
+    list-style: none;
+  }
 
-	.uploaderImage {
-		&__featured {
-			width: 0;
-			height: 0;
-			position: absolute;
-			top: 0;
-			left: 0;
-			&:checked+ img {
-				border: #FFB829 3px solid;
-				border-radius: 0.2em;
-			}
-		}
-		&__img {
-			box-sizing: border-box;
-			height: 4em;
-			margin: 0.5em;
+  .uploaderImage {
+    &__featured {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      &:checked + img {
+        border: #ffb829 3px solid;
+        border-radius: 0.2em;
+      }
+    }
+    &__img {
+      box-sizing: border-box;
+      height: 4em;
+      margin: 0.5em;
 
-			object-fit: cover;
-		}
-		&__imgLabel {
-			display: flex;
-		}
-	}
+      object-fit: cover;
+    }
+    &__imgLabel {
+      display: flex;
+    }
+  }
 }
-
 </style>

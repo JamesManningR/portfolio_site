@@ -22,7 +22,6 @@
       <button class="auth__submit" type="submit">Post</button>
     </form>
   </div>
-
 </template>
 
 <script>

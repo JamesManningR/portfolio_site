@@ -9,6 +9,27 @@
 	}
 }
 
+@mixin padding-x($amount) {
+	padding-right: $amount;
+	padding-left: $amount;
+}
+
+@mixin padding-y($amount) {
+	padding-top: $amount;
+	padding-bottom: $amount;
+}
+
+@mixin margin-x($amount) {
+	margin-right: $amount;
+	margin-left: $amount;
+}
+
+@mixin margin-y($amount) {
+	margin-top: $amount;
+	margin-bottom: $amount;
+}
+
+
 // MEDIA QUERY MANAGER
 /*
 - 600px:      Phone

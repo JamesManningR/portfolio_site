@@ -1,8 +1,7 @@
 <template>
   <header class="header">
-    <div class="header__content">
-      <h3 class="header__ident">Curious <strong>Digital</strong></h3>
-      <p class="header__info">The online portfolio of James Manning</p>
+    <h3 class="header__title">Curious<strong>Digital</strong></h3>
+    <div class="header__sidebar">
       <nav class="header__nav">
         <ul class="header__navList">
           <li class="header__listItem">
@@ -25,7 +24,9 @@
           </li>
         </ul>
       </nav>
-      <app-account />
+      <div class="header__auth">
+        <app-account class="header__account" />
+      </div>
     </div>
   </header>
 </template>
@@ -46,119 +47,41 @@ export default {
 @import "@/scss/abstracts/_mixins.scss";
 
 .header {
-  display: flex;
-  max-height: 100%;
-  align-items: center;
-
-  @include bp(tablet) {
-    min-height: 100vh;
+  justify-content: space-between;
+  font-weight: 900;
+  &__title {
+    strong {
+      display: block;
+    }
   }
-  &__content {
-    display: flex;
-    width: 100%;
-    padding: 0.1em 0.5em;
+  &__sidebar {
+    padding: 1rem 1.2rem;
     justify-content: space-between;
-
-    @include bp(tablet) {
-      width: initial;
-      flex-direction: column;
-    }
-  }
-  &__ident {
-    width: 5em;
-    margin-right: 1em;
-
-    @include bp(tablet) {
-      width: initial;
-    }
-  }
-  &__info {
-    display: none;
+    font-size: 2.5em;
+    border: 2px solid col(fg, dark);
+    border-radius: 1rem;
   }
   &__nav {
-    width: 100%;
-    max-width: 14em;
-
-    @include bp(32rem) {
-      max-width: 22em;
-    }
+    padding: 0.5rem;
+    flex-grow: 1;
+    border: solid col(fg, dark);
+    border-width: 4px 0;
   }
   &__navList {
     display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 2em;
-
-    @include bp(tablet) {
-      align-items: stretch;
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
   &__listItem {
-    @for $i from 1 through 6 {
-      &:nth-of-type(#{$i}) {
-        &:hover {
-          .header__navLink {
-            &::before {
-              transform: scaleX(1 - (0.05 * $i));
-              filter: brightness(1.2);
-            }
-          }
-        }
-      }
-    }
+    text-transform: uppercase;
+
+    @include margin-y(1rem);
   }
-  &__navLink {
+  &__auth {
     display: flex;
-    padding: 0.25em;
-    position: relative;
-    z-index: 10;
-    align-items: center;
-    justify-content: center;
-    line-height: 0;
-    text-align: left;
-    border-radius: 1em;
-
-    @include bp(tablet) {
-      width: 100%;
-      padding: 0.25em 0;
-      align-items: center;
-      justify-content: start;
-      line-height: 1em;
-      &:before {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: -1rem;
-        z-index: -1;
-        content: "";
-        background-color: col(primary);
-        transform: scaleX(0);
-        transform-origin: left;
-        border-radius: 0 0.25em 0.25em 0;
-        transition: transform 0.15s ease-in-out, filter 0.15s ease-in-out;
-      }
-    }
-    &.router-link-active {
-      background-color: col(primary);
-
-      @include bp(tablet) {
-        background: none;
-        &:before {
-          transform: scale(1) !important;
-        }
-      }
-    }
   }
-  &__navText {
-    display: none;
-    margin-left: 0.5em;
-    font-size: 0.55em;
-
-    @include bp(32rem) {
-      display: inline;
-    }
+  &__account {
+    padding: 0.5rem;
+    color: col(fg);
   }
 }
 </style>

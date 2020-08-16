@@ -24,17 +24,17 @@
         </label>
       </section>
 
-    <section class="color">
-      <label for="ProjectFormcolor">Fallback Color: </label>
-      <input
-        class="color__input"
-        aria-label="project color"
-        id="ProjectFormcolor"
-        type="color"
-        v-model="value.color"
-      />
-      {{value.color}}
-    </section>
+      <section class="color">
+        <label for="ProjectFormcolor">Fallback Color: </label>
+        <input
+          class="color__input"
+          aria-label="project color"
+          id="ProjectFormcolor"
+          type="color"
+          v-model="value.color"
+        />
+        {{ value.color }}
+      </section>
 
       <section class="title">
         <input
@@ -48,12 +48,11 @@
       </section>
     </section>
 
-
     <project-link-input class="links" v-model="value.links" />
 
     <section class="skills">
       <h2>Skills</h2>
-      <project-skill-picker  v-model="value.skills" />
+      <project-skill-picker v-model="value.skills" />
     </section>
 
     <section class="body">
@@ -103,63 +102,62 @@ export default {
 
 <style lang="scss">
 .projectForm {
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-	grid-auto-columns: 1fr;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  grid-auto-columns: 1fr;
 
-	gap: 0.75em;
+  gap: 0.75em;
 
-	> section {
-		padding: 1em;
-		border: 1px solid col(fg);
-	}
+  > section {
+    padding: 1em;
+    border: 1px solid col(fg);
+  }
 
-	.meta {
-		display: grid;
-		grid-template-areas: 'images images' 'featured color' 'title title';
+  .meta {
+    display: grid;
+    grid-template-areas: "images images" "featured color" "title title";
 
-		gap: 0.75em;
+    gap: 0.75em;
 
-		.images {
-			grid-area: images;
-		}
+    .images {
+      grid-area: images;
+    }
 
-		.featured {
-			display: flex;
-			grid-area: featured;
-			&__input {
-				width: 0;
-				height: 0;
-				overflow: hidden;
-				opacity: 0;
-				&:checked~ .featured__label {
-					svg {
-						color: col(success);
-					}
-				}
-			}
-			&__label {
-				display: flex;
-				align-items: center;
-				flex-basis: 100%;
-				justify-content: center;
-				border: 1px solid col(fg);
-			}
-		}
+    .featured {
+      display: flex;
+      grid-area: featured;
+      &__input {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        &:checked ~ .featured__label {
+          svg {
+            color: col(success);
+          }
+        }
+      }
+      &__label {
+        display: flex;
+        align-items: center;
+        flex-basis: 100%;
+        justify-content: center;
+        border: 1px solid col(fg);
+      }
+    }
 
-		.color {
-			display: flex;
-			grid-area: color;
-			&__input {
-				@include square(1.2em);
-			}
-		}
+    .color {
+      display: flex;
+      grid-area: color;
+      &__input {
+        @include square(1.2em);
+      }
+    }
 
-		.title {
-			grid-area: title;
-		}
-	}
+    .title {
+      grid-area: title;
+    }
+  }
 }
-
 </style>

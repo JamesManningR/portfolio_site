@@ -30,24 +30,23 @@ export default {
     submitSignUp() {
       this.$store.dispatch("auth/register", this.user);
       return;
-    },
+    }
   },
   data() {
     return {
       user: {
         username: "",
-        password: "",
-      },
+        password: ""
+      }
     };
-  },
+  }
 };
 </script>
 
 <style>
 .authPage {
-	display: flex;
-	align-content: center;
-	justify-content: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
-
 </style>

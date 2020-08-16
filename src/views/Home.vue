@@ -2,8 +2,8 @@
   <main class="home">
     <div class="wrapper">
       <section class="home__bio bio">
-        <h1 class="bio__author">{{ this.$content.home.author }}</h1>
-        <p class="bio__subtitle">I build experiences</p>
+        <h1 class="bio__title">{{ this.$content.home.title }}</h1>
+        <p class="bio__subtitle">{{ this.$content.home.subtitle }}</p>
         <ul class="bio__socials">
           <li v-for="(profile, key) in this.$content.home.profiles" :key="key">
             <a :href="profile.link">
@@ -55,16 +55,17 @@ export default {
 <style lang="scss">
 .home {
   display: flex;
+  padding-top: 2em;
   align-items: center;
   justify-content: center;
-  padding-top: 2em;
   .wrapper {
-    flex-grow: 1;
-    max-width: 35em;
     display: flex;
+    max-width: 35em;
     align-items: flex-start;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
+
     @include bp(tablet) {
       max-width: 60em;
     }
@@ -92,13 +93,14 @@ export default {
   display: grid;
   max-width: max-content;
   grid-template-areas: "author author" "subtitle socials";
-  &__author {
+  &__title {
     display: inline-block;
     padding-bottom: 0.2em;
     margin-bottom: 0.3em;
     position: relative;
     z-index: 2;
     grid-area: author;
+    font-size: 4em;
     &:before {
       width: 100%;
       height: 100%;
@@ -113,6 +115,7 @@ export default {
     }
   }
   &__subtitle {
+    display: block;
     grid-area: subtitle;
     font-size: 1.3em;
   }

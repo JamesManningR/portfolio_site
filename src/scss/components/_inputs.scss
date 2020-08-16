@@ -1,15 +1,13 @@
 input, textarea {
 	width: 100%;
-	padding: 0.5em 0.5em;
-	position: relative;
-	color: col(dark, light);
+	padding: 0.4em 0.4em;
+	color: col(fg, light);
 	font-family: fnt(primary);
 	background-color: col(bg);
-	border: none;
-	border-bottom: 2px solid col(fg);
-	border-radius: 0.1em;
-	&:focus {
-		border-bottom: 2px solid col(primary);
+	border: 2px solid col(fg, dark);
+	border-radius: 0.35em;
+	&::placeholder {
+		opacity: 0.3;
 	}
 }
 input[type=file] {
@@ -25,8 +23,7 @@ select {
 	padding: 0.5em;
 	-webkit-appearance: none;
 	   -moz-appearance: none;
-	border: 0;
-	border-right: 2em solid col(primary);
+	border: 2px solid col(fg, dark);
 	border-radius: 0.5em;
 
 	appearence: none;
@@ -35,12 +32,15 @@ select {
 .btn {
 	display: inline-block;
 	padding: 0.5em 1em;
-	color: col(primary, light);
+	color: col(fg, light);
+	font-size: 1em;
+	font-weight: bold;
 	line-height: 1em;
-	background-color: col(primary);
-	border: none;
+	text-transform: uppercase;
+	background-color: col(bg, light);
+	border: 2px solid col(fg, dark);
 	border-radius: 0.5em;
-	cursor: pointer;
+	cursor: pointer;;
 	&:hover {
 		color: col(primary, light);
 	}

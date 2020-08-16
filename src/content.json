@@ -1,7 +1,7 @@
 {
   "home" : {
-    "author" :"James Manning",
-    "bio" : "I build experiences",
+    "title" :"Curious Digital",
+    "subtitle" : "The online portfolio of James Manning",
     "profiles" : {
       "linkedin" : {
         "link": "http://linkedin.com",

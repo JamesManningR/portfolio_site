@@ -93,82 +93,81 @@ export default {
 
 <style lang="scss">
 .skillSearch {
-	max-width: 20em;
-	position: relative;
-	&__input {
-		width: 100%;
-		height: 100%;
-		padding: 0.1em;
-		font-size: 1.1em;
-		text-align: left;
-	}
-	&__icon {
-		position: absolute;
-		right: 0.5em;
-		bottom: 0.4em;
-		pointer-events: none;
-	}
+  max-width: 20em;
+  position: relative;
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0.1em;
+    font-size: 1.1em;
+    text-align: left;
+  }
+  &__icon {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.4em;
+    pointer-events: none;
+  }
 }
 
 .skillsList {
-	display: flex;
-	max-height: 6em;
-	padding-bottom: 1em;
-	overflow-y: scroll;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	font-size: 1.75em;
-	list-style: none;
-	&__skill {
-		margin: 0.2em;
-		position: relative;
-		&:hover {
-			&::after {
-				width: max-content;
-				padding: 0.15em;
-				position: absolute;
-				right: 0;
-				bottom: -10px;
-				left: 0;
-				z-index: 10;
-				color: col(light);
-				content: attr(data-skillname);
-				font-size: 0.65em;
-				text-transform: capitalize;
-				background-color: col(bg);
-				pointer-events: none;
-			}
-		}
-	}
-	&__checkbox {
-		display: none;
-	}
-	&__label {
-		box-sizing: border-box;
-		display: flex;
-		padding: 0.4em;
-		border: 2px solid transparent;
-		border-radius: 0.2em;
-		&:hover {
-			border-color: #DEDEDE;
-			.skills__icon {
-				filter: none;
-			}
-		}
-	}
-	&__icon {
-		transition: filter 0.05s ease-in;
-		filter: grayscale(1) contrast(0);
+  display: flex;
+  max-height: 6em;
+  padding-bottom: 1em;
+  overflow-y: scroll;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-size: 1.75em;
+  list-style: none;
+  &__skill {
+    margin: 0.2em;
+    position: relative;
+    &:hover {
+      &::after {
+        width: max-content;
+        padding: 0.15em;
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+        left: 0;
+        z-index: 10;
+        color: col(light);
+        content: attr(data-skillname);
+        font-size: 0.65em;
+        text-transform: capitalize;
+        background-color: col(bg);
+        pointer-events: none;
+      }
+    }
+  }
+  &__checkbox {
+    display: none;
+  }
+  &__label {
+    box-sizing: border-box;
+    display: flex;
+    padding: 0.4em;
+    border: 2px solid transparent;
+    border-radius: 0.2em;
+    &:hover {
+      border-color: #dedede;
+      .skills__icon {
+        filter: none;
+      }
+    }
+  }
+  &__icon {
+    transition: filter 0.05s ease-in;
+    filter: grayscale(1) contrast(0);
 
-		@include square(2em, false);
-	}
-	&__checkbox:checked~ &__label {
-		border-color: #FFB829;
-		.skills__icon {
-			filter: none;
-		}
-	}
+    @include square(2em, false);
+  }
+  &__checkbox:checked ~ &__label {
+    border-color: #ffb829;
+    .skills__icon {
+      filter: none;
+    }
+  }
 }
-
 </style>
