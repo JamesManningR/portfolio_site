@@ -17,6 +17,26 @@
 	}
 }
 
+.slide-right {
+	&-enter {
+		transform: translateX(100%);
+		&-active {
+			transform: translateX(0);
+			transition: transform 0.2s;
+		}
+	}
+	&-leave {
+		&-active {
+			position: absolute;
+			transition: opacity 0.2s;
+			opacity: 0;
+		}
+	}
+	&-move {
+		transition: transform 0.5s;
+	}
+}
+
 .fade {
 	&-enter-active, &-leave-active {
 		transition: all 0.15s ease;
@@ -31,5 +51,25 @@
 	}
 	&-leave-to {
 		transform: translateX(2em);
+	}
+}
+
+.drop-down {
+	max-height: 100%;
+	overflow: hidden;
+	&-enter {
+		max-height: 0%;
+		&-active {
+			transition: max-height 0.5s;
+		}
+	}
+	&-leave {
+		max-height: 100%;
+		&-to {
+			max-height: 0%;
+			&-active {
+				transition: max-height 0.5s;
+			}
+		}
 	}
 }

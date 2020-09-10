@@ -14,7 +14,7 @@
       type="password"
       v-model="user.password"
     />
-    <button class="login__submit btn btn--dark" type="submit">Post</button>
+    <button class="login__submit btn btn--dark" type="submit">log in</button>
   </form>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 <style lang="scss">
 .login {
   display: flex;
-  margin: 1rem 2rem;
+  margin: 1rem 1rem;
   flex-direction: column;
   font-size: 0.4em;
   &__input {

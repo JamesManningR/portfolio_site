@@ -11,7 +11,7 @@
       class="projectThumb__link"
       :to="{ name: 'project-show', params: { id: project._id } }"
     >
-      <figure class="projectThumb__post" :style="blockStyling">
+      <figure class="projectThumb__post">
         <img
           class="projectThumb__img"
           :src="project.featuredImage.src"
@@ -40,13 +40,7 @@ export default {
     project: Object
   },
   computed: {
-    ...mapGetters({ isAuthenticated: "auth/isAuthenticated" }),
-    blockStyling() {
-      const backgroundColor = this.project.color ? this.project.color : "";
-      return {
-        backgroundColor
-      };
-    }
+    ...mapGetters({ isAuthenticated: "auth/isAuthenticated" })
   },
   methods: {
     deletePost() {

@@ -1,13 +1,15 @@
 <template>
   <div class="account">
-    <svg-path class="header__icon" set="icoMoon" name="user" />
-    <button class="account__button" v-if="isAuthenticated" @click="onLogout">
+    <svg-path class="sidebar__icon" set="icoMoon" name="user" />
+    <button class="sidebar__navText account__button account__logout" v-if="isAuthenticated" @click="onLogout">
       Log out
     </button>
-    <button @click="toggled = !toggled" v-else class="account__toggle">
+    <button @click="toggled = !toggled" v-else class="sidebar__navText account__toggle">
       Log In
     </button>
-    <app-login class="account__button" v-if="toggled" />
+    <transition name="drop-down">
+      <app-login class="account__button" v-if="toggled && !isAuthenticated" />
+    </transition>
   </div>
 </template>
 
@@ -39,14 +41,19 @@ export default {
 
 <style lang="scss">
 .account {
-  &__toggle {
-    padding: 0;
-    color: col(fg);
-    font: inherit;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
+	&__toggle {
+		padding: 0;
+		color: col(fg);
+		font: inherit;
+		text-transform: uppercase;
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+	&__logout {
+		font-size: 1em;
+		text-transform: uppercase;
+	}
 }
+
 </style>

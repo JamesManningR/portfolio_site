@@ -24,18 +24,6 @@
         </label>
       </section>
 
-      <section class="color">
-        <label for="ProjectFormcolor">Fallback Color: </label>
-        <input
-          class="color__input"
-          aria-label="project color"
-          id="ProjectFormcolor"
-          type="color"
-          v-model="value.color"
-        />
-        {{ value.color }}
-      </section>
-
       <section class="title">
         <input
           class="title__input"
@@ -116,7 +104,7 @@ export default {
 
   .meta {
     display: grid;
-    grid-template-areas: "images images" "featured color" "title title";
+    grid-template-areas: "images images" "featured title";
 
     gap: 0.75em;
 
@@ -144,14 +132,6 @@ export default {
         flex-basis: 100%;
         justify-content: center;
         border: 1px solid col(fg);
-      }
-    }
-
-    .color {
-      display: flex;
-      grid-area: color;
-      &__input {
-        @include square(1.2em);
       }
     }
 

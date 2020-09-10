@@ -43,6 +43,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button {
+	padding: 0;
+	color: currentColor;
+	appearance: none;
+	background: none;
+	border: none;
+}
 svg {
 	fill: currentColor;
 	@include square(1em, false);

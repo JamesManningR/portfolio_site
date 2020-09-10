@@ -1,0 +1,20 @@
+.option-toggle-borders {
+	li {
+		border: 2px solid orange !important;
+		:hover {
+			border: 2px solid cadetblue;
+		}
+		:active {
+			border: 2px solid blue;
+		}
+	}
+	button {
+		border: 2px solid orange !important;
+		:hover {
+			border: 2px solid cadetblue;
+		}
+		:active {
+			border: 2px solid blue;
+		}
+	}
+}

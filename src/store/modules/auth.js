@@ -125,7 +125,7 @@ export const actions = {
       },
       { root: true }
     );
-    router.push({ name: "login" });
+    router.push("/");
   }
 };
 

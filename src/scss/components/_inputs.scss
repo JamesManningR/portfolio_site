@@ -32,16 +32,18 @@ select {
 .btn {
 	display: inline-block;
 	padding: 0.5em 1em;
-	color: col(fg, light);
 	font-size: 1em;
 	font-weight: bold;
 	line-height: 1em;
 	text-transform: uppercase;
-	background-color: col(bg, light);
-	border: 2px solid col(fg, dark);
 	border-radius: 0.5em;
-	cursor: pointer;;
-	&:hover {
-		color: col(primary, light);
+	cursor: pointer;
+	&--dark {
+		color: col(fg, light);
+		background-color: col(bg, light);
+		border: 2px solid col(fg, dark);
+		&:hover {
+			color: col(primary, light);
+		}
 	}
 }
