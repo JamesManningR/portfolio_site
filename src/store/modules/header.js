@@ -13,5 +13,5 @@ export const mutations = {
 export const actions = {
   toggleMenu({ commit }) {
     commit("TOGGLE_MENU");
-  },
+  }
 };

@@ -42,8 +42,29 @@ export default {
   margin: 1rem 1rem;
   flex-direction: column;
   font-size: 0.4em;
+  @include bp(desktop) {
+    background-color: col(bg);
+    padding: 1rem;
+    position: absolute;
+    top: 5rem;
+    right: 0;
+    font-size: 2rem;
+    width: max-content;
+    border: 1px solid col(fg, dark);
+    align-items: flex-end;
+  }
   &__input {
     max-width: 16em;
+    @include bp(desktop) {
+      max-width: unset;
+      margin-bottom: 1rem;
+    }
+  }
+  &__submit {
+    min-width: max-content;
+    @include bp(desktop) {
+      width: max-content;
+    }
   }
 }
 </style>
