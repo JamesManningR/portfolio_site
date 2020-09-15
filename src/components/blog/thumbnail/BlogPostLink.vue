@@ -1,27 +1,25 @@
 <template>
-  <li class="projectThumb">
+  <li class="blogLink">
     <post-link-actions
-      class="projectThumb__actions"
+      class="blogLink__actions"
       @delete="deletePost"
-      :postId="project._id"
+      :postId="blogPost._id"
       v-if="isAuthenticated"
     />
 
     <router-link
-      class="projectThumb__link"
-      :to="{ name: 'project-show', params: { id: project._id } }"
+      class="blogLink__link"
+      :to="{ name: 'blogPost-show', params: { id: blogPost._id } }"
     >
-      <figure class="projectThumb__post">
+      <figure class="blogLink__post">
         <img
-          class="projectThumb__img"
-          :src="project.featuredImage.src"
+          class="blogLink__img"
+          :src="blogPost.featuredImage.src"
           alt=""
         />
-        <div class="projectThumb__body">
-          <span class="projectThumb__subtitle"
-            ><span v-if="project.featured">Featured </span>Project</span
-          >
-          <h2 class="projectThumb__title">{{ project.title }}</h2>
+        <div class="blogLink__body">
+          <h2 class="blogLink__title">{{ blogPost.title }}</h2>
+          <p class="blogLink__excerpt">{{ firstNWords(blogPost.body, 10) }}</p>
         </div>
       </figure>
     </router-link>
@@ -37,28 +35,35 @@ export default {
     PostLinkActions
   },
   props: {
-    project: Object
+    blogPost: Object
   },
   computed: {
     ...mapGetters({ isAuthenticated: "auth/isAuthenticated" })
   },
   methods: {
     deletePost() {
-      this.$store.dispatch("project/deleteProject", this.project);
+      this.$store.dispatch("blog/deleteProject", this.blogPost);
+    },
+    firstNWords(string, n) {
+      const newString = string
+        .split(" ")
+        .slice(0, n)
+        .splice(" ");
+      return newString;
     }
   }
 };
 </script>
 
 <style lang="scss">
-.projectThumb {
+.blogLink {
   position: relative;
   &:hover,
   &:active {
-    .projectThumb__actions {
+    .blogLink__actions {
       display: flex;
     }
-    .projectPost {
+    .blogPostPost {
       &__title {
         opacity: 1;
       }

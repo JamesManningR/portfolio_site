@@ -101,6 +101,8 @@ export default {
     z-index: 2;
     grid-area: author;
     font-size: 4em;
+    text-shadow: 2px 2px 1px #0008;
+
     &:before {
       width: 100%;
       height: 100%;

@@ -20,7 +20,7 @@
 
 <script>
 import appAccount from "@/components/app/AppAccount.vue";
-import sidebarNavItem from "@/components/sidebar/SidebarNavItem.vue";
+import sidebarNavItem from "@/components/app/sidebar/SidebarNavItem.vue";
 
 export default {
   components: {
@@ -43,17 +43,23 @@ export default {
           label: "Projects"
         },
         {
-          linkTo: { name: "contact" },
+          linkTo: { name: "about" },
           iconSet: "icoMoon",
-          iconName: "phone",
-          label: "Contact"
+          iconName: "info",
+          label: "About Me"
         },
         {
-          linkTo: { name: "settings" },
+          linkTo: { name: "blog" },
           iconSet: "icoMoon",
-          iconName: "gear",
-          label: "Settings"
+          iconName: "book",
+          label: "Blog"
         }
+        // {
+        //   linkTo: { name: "settings" },
+        //   iconSet: "icoMoon",
+        //   iconName: "gear",
+        //   label: "Settings"
+        // }
       ]
     };
   }
@@ -70,7 +76,7 @@ export default {
   }
   &__nav {
     width: max-content;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     flex-grow: 1;
     border: solid col(fg, dark);
     border-width: 2px 0;
@@ -90,11 +96,9 @@ export default {
     font-weight: 900;
   }
   &__listItem {
-    display: flex;
-    align-items: center;
     text-transform: uppercase;
 
-    @include margin-y(1rem);
+    @include padding-y(1rem);
 
     @include bp(desktop) {
       margin: 0 1rem;
@@ -108,6 +112,7 @@ export default {
   }
   &__account {
     padding: 0.5rem;
+    width: 100%;
     color: col(fg);
   }
 }

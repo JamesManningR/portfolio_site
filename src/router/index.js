@@ -9,6 +9,7 @@ const routes = [
   {
     path: "/",
     name: "index",
+    title: "Home",
     component: Home,
     beforeEnter(routeTo, routeFrom, next) {
       if (Object.keys(store.state.project.projects).length <= 0) {
@@ -21,6 +22,7 @@ const routes = [
   {
     path: "/projects",
     name: "projects",
+    title: "Projects",
     component: () => import("../views/project/ProjectIndex.vue"),
     beforeEnter(routeTo, routeFrom, next) {
       // If the the are no projects loaded
@@ -75,9 +77,9 @@ const routes = [
     component: () => import("../views/blog/BlogIndex.vue")
   },
   {
-    path: "/contact",
-    name: "contact",
-    component: () => import("../views/Contact.vue")
+    path: "/about",
+    name: "about",
+    component: () => import("../views/About.vue")
   },
   {
     path: "/register",

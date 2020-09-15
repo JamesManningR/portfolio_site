@@ -13,34 +13,22 @@
       "vue", "node", "wordpress", "gutenberg"
     ]
   },
-  "contact": {
-    "phone": {
-      "title": "Phone Number",
-      "link": "tel:01234567890",
-      "text": "01234567890",
-      "iconSet": "icoMoon",
-      "icon": "phone"
-    },
-    "email" : {
-      "title": "Email",
-      "link": "mailto:tester@example.com",
-      "text": "tester@example.com",
-      "iconSet": "icoMoon",
-      "icon": "email"
-    },
-    "instagram" : {
-      "title": "Instagram",
-      "link": "https://instagram.com/username",
-      "text": "@username",
-      "iconSet": "brands",
-      "icon": "instagram"
-    },
-    "twitter": {
-      "title": "Twitter",
-      "link": "https://twitter.com/username",
-      "text": "@username",
-      "iconSet": "brands",
-      "icon": "twitter"
+  "about": {
+    "contact": {
+      "email" : {
+        "title": "Email",
+        "link": "mailto:jamesmanningr98@gmail.com",
+        "text": "jamesmanningr98@gmail.com",
+        "iconSet": "icoMoon",
+        "icon": "email"
+      },
+      "linkedIn" : {
+        "title": "LinkedIn",
+        "link": "https://www.linkedin.com/in/manning-web/",
+        "text": "manning-web",
+        "iconSet": "brands",
+        "icon": "linkedin"
+      }
     }
   }
 }

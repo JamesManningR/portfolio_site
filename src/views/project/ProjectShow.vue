@@ -33,13 +33,10 @@ export default {
 .project {
   position: relative;
   &__back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
+    @include bp(desktop) {
     border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    }
   }
 }
 </style>

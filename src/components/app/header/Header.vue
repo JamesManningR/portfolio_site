@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import headerToggle from "@/components/header/HeaderToggle.vue";
+import headerToggle from "@/components/app/header/HeaderToggle.vue";
 
 export default {
   components: {
@@ -20,10 +20,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_variables.scss";
-@import "@/scss/abstracts/_functions.scss";
-@import "@/scss/abstracts/_mixins.scss";
-
 .header {
   display: flex;
   height: max-content;

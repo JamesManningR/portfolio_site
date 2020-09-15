@@ -12,6 +12,7 @@
       @click="toggled = !toggled"
       v-else
       class="sidebar__navText account__toggle"
+      :aria-active="toggled"
     >
       Log In
     </button>
@@ -49,6 +50,7 @@ export default {
 .account {
   @include bp(desktop) {
     display: flex;
+    align-items: center;
   }
   &__toggle {
     padding: 0;
@@ -58,6 +60,10 @@ export default {
     background: none;
     border: none;
     cursor: pointer;
+    &[aria-active="true"]{
+      opacity: .5;
+      filter: drop-shadow(0px 0px 3px #ffffff55);
+    }
   }
   &__logout {
     font-size: 1em;

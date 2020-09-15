@@ -10,6 +10,7 @@ $colors: (
     base: #00A359
   ),
   bg: (
+    light: #393636,
     dark: #151314,
     base: #161414
   ),
@@ -28,3 +29,5 @@ $colors: (
     base: #FF7769
   )
 );
+
+$shadow: 4px 4px 2px #00000055;

@@ -11,7 +11,7 @@
 
 <script>
 import { mapState } from "vuex";
-import notificationItem from "@/components/notification/NotificationItem.vue";
+import notificationItem from "@/components/app/notification/NotificationItem.vue";
 
 export default {
   components: {

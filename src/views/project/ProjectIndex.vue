@@ -72,9 +72,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_variables.scss";
-@import "@/scss/abstracts/_functions.scss";
-
 .projectsPage {
   display: flex;
   align-content: stretch;

@@ -34,9 +34,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/abstracts/_variables.scss";
-@import "@/scss/abstracts/_functions.scss";
-
 .notification {
   padding: 0.5em 0.75em 0.75em;
   position: relative;

@@ -43,15 +43,15 @@ export default {
   flex-direction: column;
   font-size: 0.4em;
   @include bp(desktop) {
-    background-color: col(bg);
-    padding: 1rem;
+    background-color: col(bg, light);
+    padding: 1.2rem;
     position: absolute;
-    top: 5rem;
+    top: 6rem;
     right: 0;
-    font-size: 2rem;
+    font-size: .6em;
     width: max-content;
-    border: 1px solid col(fg, dark);
     align-items: flex-end;
+    border-radius: 1rem;
   }
   &__input {
     max-width: 16em;

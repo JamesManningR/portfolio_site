@@ -57,7 +57,6 @@ export default {
       link,
       images,
       featuredImage,
-      color,
       skills,
       featured
     } = project;
@@ -67,7 +66,6 @@ export default {
       link,
       images,
       featuredImage,
-      color,
       skills,
       featured
     };
@@ -85,6 +83,92 @@ export default {
   async deleteProject(id) {
     return axios
       .delete(`${API_URL}/projects/${id}`)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err.response;
+      });
+  },
+
+  // Blog Posts ============================
+  // Create ------------------------------
+  async postBlogPost(project) {
+    return axios
+      .post(`${API_URL}/blog-posts`, project)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err.response;
+      });
+  },
+  // Read ------------------------------
+  // Multiple
+  async getAllBlogPosts() {
+    return axios
+      .get(`${API_URL}/blog-posts`)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        console.log(err);
+        throw err.response;
+      });
+  },
+  async getFeaturedBlogPosts() {
+    return axios
+      .get(`${API_URL}/blog-posts?featured=true`)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err.response;
+      });
+  },
+  // Single
+  async getBlogPost(id) {
+    return axios
+      .get(`${API_URL}/blog-posts/${id}`)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err.response;
+      });
+  },
+  // Update ----------------------
+  async updateBlogPost(project) {
+    const {
+      title,
+      body,
+      images,
+      featuredImage,
+      createdAt,
+      updatedAt
+    } = project;
+    const updatedBlogPost = {
+      title,
+      body,
+      images,
+      featuredImage,
+      createdAt,
+      updatedAt
+    };
+    const id = project._id;
+    return axios
+      .put(`${API_URL}/blog-posts/${id}`, updatedBlogPost)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        throw err.response;
+      });
+  },
+  // Delete ----------------------
+  async deleteBlogPost(id) {
+    return axios
+      .delete(`${API_URL}/blog-posts/${id}`)
       .then(res => {
         return res.data;
       })

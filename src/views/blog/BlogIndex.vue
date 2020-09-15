@@ -6,7 +6,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isAuthed() {
+      return this.$store.getters["auth/isAuthenticated"];
+    }
+  },
+  created() {
+    // If the the are no projects loaded
+    this.$store.dispatch("blog/fetchBlogPosts");
+  }
+};
 </script>
 
-<style></style>
+<style lang="scss">
+</style>
+

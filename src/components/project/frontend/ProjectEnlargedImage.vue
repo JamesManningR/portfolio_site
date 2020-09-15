@@ -19,14 +19,15 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
+  z-index: 50;
   top: 0;
   align-items: center;
   justify-content: center;
   background-color: #000d;
   cursor: pointer;
   &__img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 85%;
+    max-height: 85%;
   }
 }
 </style>

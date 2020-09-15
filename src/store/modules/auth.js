@@ -65,7 +65,6 @@ export const actions = {
           },
           { root: true }
         );
-        router.push({ name: "projects" });
       })
       .catch(err => {
         dispatch(
@@ -94,7 +93,6 @@ export const actions = {
           },
           { root: true }
         );
-        router.push({ name: "projects" });
       })
       .catch(err => {
         dispatch(

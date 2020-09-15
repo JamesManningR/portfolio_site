@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import * as project from "@/store/modules/project";
+import * as blog from "@/store/modules/blog";
 import * as auth from "@/store/modules/auth";
 import * as notification from "@/store/modules/notification";
 import * as header from "@/store/modules/header";
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     project,
     auth,
     notification,
-    header
+    header,
+    blog
   }
 });

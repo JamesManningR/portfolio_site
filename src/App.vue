@@ -2,17 +2,19 @@
   <div id="app" :class="{ '--expandedSidebar': header.headerToggled }">
     <app-header class="app__header" />
     <app-sidebar class="app__sidebar" />
-    <transition name="fade" mode="out-in">
-      <router-view class="section app__main" :key="$route.fullPath" />
-    </transition>
+    <div class="section app__main">
+      <transition name="fade" mode="out-in">
+        <router-view class="app__page" :key="$route.fullPath" />
+      </transition>
+    </div>
     <notification-list />
   </div>
 </template>
 
 <script>
-import appHeader from "@/components/header/Header.vue";
-import appSidebar from "@/components/sidebar/Sidebar.vue";
-import notificationList from "@/components/notification/NofiticationList.vue";
+import appHeader from "@/components/app/header/Header.vue";
+import appSidebar from "@/components/app/sidebar/Sidebar.vue";
+import notificationList from "@/components/app/notification/NofiticationList.vue";
 
 import { mapState } from "vuex";
 
