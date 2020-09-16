@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import fileUploader from "@/components/general/FileUploader.vue";
+import fileUploader from "@/components/general/ImageUploader.vue";
 import projectSkillPicker from "@/components/project/backend/ProjectSkillPicker.vue";
 import ProjectLinkInput from "@/components/project/backend/ProjectLinkInput";
 

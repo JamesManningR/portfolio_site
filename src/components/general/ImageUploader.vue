@@ -1,22 +1,22 @@
 <template>
-  <div class="fileUploader">
-    <label class="fileUploader__label">
+  <div class="imageUploader">
+    <label class="imageUploader__label">
       <svg-path
-        className="fileUploader__inputIcon"
+        className="imageUploader__inputIcon"
         set="icoMoon"
         name="upload"
         label="Upload"
       />
       <span>Upload images</span>
       <input
-        class="fileUploader__file"
+        class="imageUploader__file"
         type="file"
         multiple
         :disabled="disabled"
         @change="fileSelect($event)"
       />
     </label>
-    <ul class="fileUploader__uploaded" v-if="images.files">
+    <ul class="imageUploader__uploaded" v-if="images.files">
       <li class="uploaderImage" v-for="file in images.files" :key="file._id">
         <label class="uploaderImage__Label">
           <input
@@ -101,7 +101,7 @@ export default {
 </script>
 
 <style lang="scss">
-.fileUploader {
+.imageUploader {
   display: flex;
   height: 100%;
   border: 1px solid #8fb5d0;

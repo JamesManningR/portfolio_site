@@ -77,6 +77,9 @@ body {
     grid-area: main;
     overflow: hidden;
   }
+  &__page {
+    height: 100%;
+  }
 }
 
 #app.--expandedSidebar {

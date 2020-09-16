@@ -216,7 +216,7 @@ export default {
   // Register -----------------------
   async register(authData) {
     return axios
-      .post(`${API_URL}/register`, authData)
+      .post(`${API_URL}/auth/register`, authData)
       .then(res => {
         this.setToken(res.data.token);
         return res.data;
@@ -229,7 +229,7 @@ export default {
   // Login -----------------------
   async login(authData) {
     return axios
-      .post(`${API_URL}/login`, authData)
+      .post(`${API_URL}/auth/login`, authData)
       .then(res => {
         this.setToken(res.data.token);
         return res.data;
