@@ -60,8 +60,8 @@ export default {
     background: none;
     border: none;
     cursor: pointer;
-    &[aria-active="true"]{
-      opacity: .5;
+    &[aria-active="true"] {
+      opacity: 0.5;
       filter: drop-shadow(0px 0px 3px #ffffff55);
     }
   }

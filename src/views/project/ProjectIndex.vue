@@ -14,6 +14,7 @@
       icon="add"
       routeName="project-new"
       variation="success"
+      v-if="isAuthed"
     >
       New Post
     </icon-button-link>

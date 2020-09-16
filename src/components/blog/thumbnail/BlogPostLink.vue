@@ -12,11 +12,7 @@
       :to="{ name: 'blogPost-show', params: { id: blogPost._id } }"
     >
       <figure class="blogLink__post">
-        <img
-          class="blogLink__img"
-          :src="blogPost.featuredImage.src"
-          alt=""
-        />
+        <img class="blogLink__img" :src="blogPost.featuredImage.src" alt="" />
         <div class="blogLink__body">
           <h2 class="blogLink__title">{{ blogPost.title }}</h2>
           <p class="blogLink__excerpt">{{ firstNWords(blogPost.body, 10) }}</p>

@@ -143,7 +143,7 @@ export const actions = {
         "notification/createNotification",
         {
           action: "Create Project",
-          message: "You don't have the permissions to do that!",
+          message: "You aren't logged in.",
           type: "failure"
         },
         { root: true }

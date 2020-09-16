@@ -48,7 +48,7 @@ export default {
     position: absolute;
     top: 6rem;
     right: 0;
-    font-size: .6em;
+    font-size: 0.6em;
     width: max-content;
     align-items: flex-end;
     border-radius: 1rem;

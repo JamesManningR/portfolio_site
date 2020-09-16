@@ -34,8 +34,8 @@ export default {
   position: relative;
   &__back {
     @include bp(desktop) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 }

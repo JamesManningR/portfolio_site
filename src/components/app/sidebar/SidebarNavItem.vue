@@ -21,7 +21,8 @@ export default {
 <style lang="scss">
 .sidebar {
   .router-link-exact-active {
-    svg, span {
+    svg,
+    span {
       filter: drop-shadow($shadow);
     }
   }
