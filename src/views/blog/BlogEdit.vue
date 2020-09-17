@@ -1,61 +1,54 @@
 <template>
-  <main class="editProject" :class="modeClass">
+  <main class="editPost" :class="modeClass">
     <transition-group>
-      <project-edit-form key="edit-form" v-show="editMode" v-model="project">
+      <blog-edit-form key="edit-form" v-show="editMode" v-model="post">
         <button
-          @click.prevent="updateProject"
+          @click.prevent="updatePost"
           class="btn btn--submit"
           slot="submit"
           type="submit"
         >
           Submit
         </button>
-      </project-edit-form>
-      <project-post
+      </blog-edit-form>
+      <blog-post
         key="preview"
         v-show="!editMode"
-        :project="project"
-      ></project-post>
+        :blogPost="blogPost"
+      ></blog-post>
     </transition-group>
-    <button
-      class="editProject__modeSwitch"
-      @click.prevent="editMode = !editMode"
-    >
+    <button class="editPost__modeSwitch" @click.prevent="editMode = !editMode">
       Show {{ toggleModeButtonText }}
     </button>
   </main>
 </template>
 
 <script>
-import ProjectEditForm from "@/components/project/backend/ProjectEditForm";
-import ProjectPost from "@/components/project/frontend/ProjectPost";
+import BlogEditForm from "@/components/blog/backend/BlogEditForm";
+import BlogPost from "@/components/blog/frontend/BlogPost";
 
 export default {
   components: {
-    ProjectEditForm,
-    ProjectPost
+    BlogEditForm,
+    BlogPost
   },
   props: {
-    newProject: Boolean
+    newPost: Boolean
   },
   data() {
     return {
-      project: {
+      blogPost: {
         title: "",
         body: "",
-        link: "",
         images: [],
-        featuredImage: "",
-        skills: [],
-        links: [],
-        featured: false
+        featuredImage: ""
       },
       editMode: true
     };
   },
   created() {
-    if (!this.newProject) {
-      this.project = this.$store.state.project.project;
+    if (!this.newPost) {
+      this.post = this.$store.state.blog.post;
     }
   },
   computed: {
@@ -63,15 +56,15 @@ export default {
       return this.editMode ? "Preview" : "Edit";
     },
     modeClass() {
-      return this.editMode ? "editProject--edit" : "editProject--preview";
+      return this.editMode ? "editPost--edit" : "editPost--preview";
     }
   },
   methods: {
-    updateProject() {
-      if (this.newProject) {
-        this.$store.dispatch("project/createProject", this.project);
+    updatePost() {
+      if (this.newPost) {
+        this.$store.dispatch("post/createPost", this.post);
       } else {
-        this.$store.dispatch("project/updateProject", this.project);
+        this.$store.dispatch("post/updatePost", this.post);
       }
     }
   }
@@ -79,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss">
-.editProject {
+.editPost {
   position: relative;
   &__label {
     &--body {

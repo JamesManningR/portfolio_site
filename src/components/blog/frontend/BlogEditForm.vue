@@ -1,11 +1,11 @@
 <template>
-  <form class="blogPostForm">
+  <form class="postForm">
     <section class="meta">
-      <h2 class="blogPostForm__subtitle">Meta</h2>
+      <h2>Meta</h2>
       <section class="images">
         <file-uploader
-          aria-label="project image"
-          id="blogPostFormImages"
+          aria-label="post image"
+          id="PostFormImages"
           @fileUploaded="value.images = $event"
           @featuredSelected="featuredSelected($event)"
         />
@@ -14,8 +14,8 @@
       <section class="title">
         <input
           class="title__input"
-          aria-label="project title"
-          id="blogPostFormTitle"
+          aria-label="post title"
+          id="PostFormTitle"
           placeholder="Title"
           type="text"
           v-model="value.title"
@@ -24,11 +24,11 @@
     </section>
 
     <section class="body">
-      <h2 class="blogPostForm__subtitle">Body</h2>
+      <h2>Body</h2>
       <textarea
         class="body__input"
-        aria-label="project body"
-        id="blogPostFormBody"
+        aria-label="post body"
+        id="PostFormBody"
         placeholder="Body"
         v-model="value.body"
       />
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import fileUploader from "@/components/general/ImageUploader.vue";
+import fileUploader from "@/components/general/FileUploader.vue";
 
 export default {
   components: {
@@ -65,17 +65,13 @@ export default {
 </script>
 
 <style lang="scss">
-.blogPostForm {
+.postForm {
   display: flex;
   height: 100%;
   flex-direction: column;
   grid-auto-columns: 1fr;
 
   gap: 0.75em;
-
-  &__subtitle {
-    grid-area: header;
-  }
 
   > section {
     padding: 1em;
@@ -84,7 +80,7 @@ export default {
 
   .meta {
     display: grid;
-    grid-template-areas: "header header" "featured title" "images images";
+    grid-template-areas: "images" "title";
 
     gap: 0.75em;
 

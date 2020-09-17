@@ -1,5 +1,5 @@
 <template>
-  <section class="project__text">
+  <section class="postText">
     <vue-simple-markdown :source="project.body" />
   </section>
 </template>

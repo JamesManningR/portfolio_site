@@ -110,7 +110,7 @@ export default {
   &__label {
     box-sizing: border-box;
     display: flex;
-    padding: 0.5em;
+    padding: 2em;
     padding-left: 1em;
     align-items: center;
     flex-basis: 12em;
@@ -138,6 +138,8 @@ export default {
 
   .uploaderImage {
     &__featured {
+      overflow: hidden;
+      opacity: 0;
       width: 0;
       height: 0;
       position: absolute;

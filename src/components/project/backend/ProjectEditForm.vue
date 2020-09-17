@@ -97,16 +97,28 @@ export default {
 
   gap: 0.75em;
 
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
   > section {
-    padding: 1em;
-    border: 1px solid col(fg);
+    padding: 0.5em;
+  }
+
+  &__subtitle {
+    grid-area: header;
   }
 
   .meta {
     display: grid;
-    grid-template-areas: "images images" "featured title";
+    grid-template-areas: "header header" "images images" "featured title";
+    grid-template-columns: min-content 2fr;
 
     gap: 0.75em;
+
+    svg {
+      margin-right: 1rem;
+    }
 
     .images {
       grid-area: images;
@@ -120,6 +132,7 @@ export default {
         height: 0;
         overflow: hidden;
         opacity: 0;
+        margin-right: -4px;
         &:checked ~ .featured__label {
           svg {
             color: col(success);
@@ -127,6 +140,8 @@ export default {
         }
       }
       &__label {
+        @include padding-x(1em);
+        border-radius: 0.35em;
         display: flex;
         align-items: center;
         flex-basis: 100%;

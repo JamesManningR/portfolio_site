@@ -1,8 +1,8 @@
 <template>
-  <article class="project">
+  <article class="post">
     <post-image-banner
-      class="project__imageBanner"
-      :images="project.images"
+      class="post__imageBanner"
+      :images="post.images"
       @imageSelected="enlargedImage = $event"
     />
     <post-enlarged-image
@@ -10,19 +10,15 @@
       :image="enlargedImage"
       @close="enlargedImage = false"
     />
-    <div class="project__content">
-      <h1 class="project__title">{{ project.title }}</h1>
-      <project-link-list class="project__links" :links="project.links" />
-      <skills-display class="project__skills" :skills="project.skills" />
-      <post-text class="project__body" :project="project" />
+    <div class="post__content">
+      <h1 class="post__title">{{ blogPost.title }}</h1>
+      <post-text class="post__body" :post="blogPost.body" />
     </div>
   </article>
 </template>
 
 <script>
 import PostImageBanner from "@/components/post/PostImageBanner.vue";
-import SkillsDisplay from "@/components/general/SkillsDisplay.vue";
-import ProjectLinkList from "@/components/project/frontend/ProjectLinkList.vue";
 import PostText from "@/components/post/PostText.vue";
 import PostEnlargedImage from "@/components/post/PostEnlargedImage";
 
@@ -30,8 +26,6 @@ export default {
   components: {
     PostImageBanner,
     PostText,
-    SkillsDisplay,
-    ProjectLinkList,
     PostEnlargedImage
   },
   data() {
@@ -40,13 +34,13 @@ export default {
     };
   },
   props: {
-    project: Object
+    blogPost: Object
   }
 };
 </script>
 
 <style lang="scss">
-.project {
+.post {
   height: 100%;
   padding: 0;
   &__imageBanner {
@@ -54,9 +48,6 @@ export default {
   }
   &__content {
     margin-left: 1.5em;
-  }
-  &__links {
-    margin-bottom: 1em;
   }
 }
 </style>
